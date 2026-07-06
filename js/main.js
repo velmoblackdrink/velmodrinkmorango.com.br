@@ -72,37 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </svg>`;
   }
 
-  /* ─── SCHEMA.ORG ─── */
-  const schema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Velmo Drink",
-  "description": "Suplemento natural para emagrecimento desenvolvido para auxiliar no controle do peso, da fome e da ansiedade alimentar.",
-  "url": "https://velmodrinkmorango.com.br/",
-  "brand": {
-    "@type": "Brand",
-    "name": "Velmo Drink"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://velmodrinkmorango.com.br/",
-    "price": "209.90",
-    "priceCurrency": "BRL",
-    "availability": "https://schema.org/InStock",
-    "itemCondition": "https://schema.org/NewCondition"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+55-45-99966-3199",
-    "contactType": "customer service",
-    "availableLanguage": "pt-BR"
-  }
-};
-  const schemaTag = document.createElement('script');
-  schemaTag.type = 'application/ld+json';
-  schemaTag.textContent = JSON.stringify(schema);
-  document.head.appendChild(schemaTag);
-
   /* ─── SKIP INJECTION (páginas estáticas) ─── */
   const skip = window.skipInjection || [];
 
