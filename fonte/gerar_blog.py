@@ -644,6 +644,193 @@ POSTS.append(dict(
     ],
 ))
 
+CTA_CLARIZE = """
+<div class="blog-cta">
+  <p class="blog-cta-titulo">Clarize, o clareador da Velmora</p>
+  <p>Cosmético de uso externo para virilha, axilas e joelhos, com niacinamida, ácido hialurônico, lithothamnium e óleo de girassol ozonizado. Veja como usar, o prazo indicado pelo fabricante e os preços.</p>
+  <a class="btn btn-primary" href="clarize.html">Conhecer o Clarize</a>
+</div>
+"""
+
+AVISO_PELE = """<div class="loja-aviso"><strong>Importante:</strong> Este texto é informativo e não substitui a consulta com dermatologista ou ginecologista. Cosméticos não tratam doenças. Manchas que aparecem de repente, coçam, doem ou mudam a textura da pele precisam de avaliação médica. Não aplique clareadores em mucosas nem sobre pele ferida ou irritada.</div>"""
+
+POSTS.append(dict(
+    slug="virilha-escura-causas-e-como-clarear",
+    curto="Virilha escura: causas e como clarear",
+    title="Virilha escura: causas e como clarear com segurança | Velmo Drink",
+    h1="Virilha escura: o que causa e como clarear com segurança",
+    desc="Por que a virilha escurece, o que ajuda a clarear, quanto tempo leva, o que evitar (limão, bicarbonato) e quando a mancha precisa de médico.",
+    categoria="Cuidados com a pele",
+    data="2026-11-06",
+    resumo="Atrito, depilação, hormônios: por que a virilha escurece, o que ajuda a clarear e quando procurar um médico.",
+    corpo="""
+<p>A virilha escura é uma das queixas de pele mais comuns, em mulheres e em homens. Na maioria das vezes, não é sujeira nem falta de cuidado: é a pele reagindo a atrito e irritação. Entender a causa é o primeiro passo para clarear e, principalmente, para a mancha não voltar.</p>
+
+<h2>Resumo rápido</h2>
+<ul>
+  <li><strong>Causa mais comum:</strong> atrito e irritação (roupa apertada, coxas, depilação).</li>
+  <li><strong>O que ajuda:</strong> reduzir o atrito, depilar com cuidado, hidratar e usar um clareador cosmético de forma contínua.</li>
+  <li><strong>Tempo:</strong> semanas a meses. Não existe clareamento em poucos dias.</li>
+  <li><strong>Evite:</strong> limão, bicarbonato, água oxigenada e cremes com corticoide sem receita.</li>
+  <li><strong>Procure médico</strong> se a pele ficou grossa e aveludada, coça, dói ou escureceu de repente.</li>
+</ul>
+
+<h2>Por que a virilha escurece</h2>
+<p>A cor da pele vem da melanina. Quando a pele é irritada várias vezes, ela produz mais melanina naquele ponto e escurece aos poucos. Na virilha, os principais motivos são:</p>
+<ul>
+  <li><strong>Atrito:</strong> coxas que se encostam ao andar, calcinha ou cueca apertada, calça jeans justa, costura que roça na pele.</li>
+  <li><strong>Depilação:</strong> a lâmina raspa a camada de cima da pele e a cera puxa; as duas irritam. Pelos encravados também deixam manchas.</li>
+  <li><strong>Suor e calor:</strong> a dobra da virilha fica abafada, o que favorece irritação e micoses.</li>
+  <li><strong>Hormônios:</strong> gravidez, anticoncepcional e outras mudanças hormonais podem escurecer áreas como virilha, mamilos e axilas.</li>
+  <li><strong>Resistência à insulina:</strong> pode causar a acantose nigricans, explicada abaixo.</li>
+</ul>
+
+<h2>Quando a virilha escura precisa de médico</h2>
+<p>A <strong>acantose nigricans</strong> deixa a pele escura, mais grossa e com aspecto de veludo, geralmente no pescoço, nas axilas e na virilha. Ela costuma estar ligada à resistência à insulina, que pode evoluir para diabetes. Nesse caso, o clareador não resolve: é preciso tratar a causa com um médico.</p>
+<p>Procure também avaliação se a mancha coça, descama, dói, tem borda bem marcada (pode ser micose) ou apareceu de repente.</p>
+
+<h2>Como clarear a virilha</h2>
+<h3>1. Corte a causa</h3>
+<p>Prefira roupas íntimas de algodão e menos apertadas. Em dias quentes ou de caminhada longa, um short por baixo da saia ou um creme de barreira reduz o atrito entre as coxas. Sem isso, qualquer produto perde efeito, porque a pele continua sendo irritada.</p>
+<h3>2. Depile com mais cuidado</h3>
+<p>Se usa lâmina, use lâmina nova, sabonete ou gel por baixo e passe no sentido do pelo. Depilação a laser costuma irritar menos a longo prazo. Não aplique clareador logo depois de depilar.</p>
+<h3>3. Hidrate</h3>
+<p>Pele hidratada fica menos sensível ao atrito. Ingredientes como ácido hialurônico ajudam a manter a água na superfície da pele.</p>
+<h3>4. Use um clareador cosmético com constância</h3>
+<p>Os cosméticos para virilha costumam ter ativos como niacinamida, ácido kójico, alfa-arbutina ou vitamina C. Eles agem devagar: os primeiros sinais costumam aparecer depois de algumas semanas de uso diário, e o resultado completo leva meses. Aplique só na pele externa, nunca em mucosas.</p>
+
+<h2>O que não fazer</h2>
+<ul>
+  <li><strong>Limão:</strong> com sol, pode causar queimadura e manchas ainda mais escuras (fitofotodermatose).</li>
+  <li><strong>Bicarbonato, água oxigenada, pasta de dente:</strong> irritam a pele e, com isso, tendem a escurecer mais.</li>
+  <li><strong>Esfoliar com força:</strong> o atrito é justamente a causa do problema.</li>
+  <li><strong>Pomadas com corticoide ou hidroquinona por conta própria:</strong> só com receita e acompanhamento médico.</li>
+</ul>
+
+<h2>Quanto tempo leva para clarear</h2>
+<p>A pele renova a camada de cima em cerca de um mês. Por isso, qualquer clareamento leva semanas para começar a aparecer e alguns meses para ficar visível. Fotos no mesmo lugar e com a mesma luz, a cada 15 dias, ajudam a perceber a evolução.</p>
+""" + CTA_CLARIZE + AVISO_PELE,
+    faq=[
+        ("Por que a virilha fica escura?",
+         "Na maioria das vezes, por atrito e irritação: roupa apertada, coxas que se encostam e depilação. Hormônios e resistência à insulina também podem escurecer a virilha."),
+        ("Como clarear a virilha rápido?",
+         "Não existe clareamento rápido e seguro. Reduzir o atrito, depilar com cuidado e usar um clareador cosmético todos os dias costuma mostrar os primeiros sinais em algumas semanas."),
+        ("Limão clareia a virilha?",
+         "Não é recomendado. Limão com exposição ao sol pode queimar a pele e deixar manchas mais escuras."),
+        ("Quando a virilha escura é sinal de doença?",
+         "Quando a pele fica grossa e aveludada, o que pode ser acantose nigricans, ligada à resistência à insulina. Também quando coça, descama ou aparece de repente. Nesses casos, procure um médico."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="como-clarear-as-axilas",
+    curto="Como clarear as axilas",
+    title="Como clarear as axilas: causas, cuidados e o que evitar | Velmo Drink",
+    h1="Como clarear as axilas: causas, cuidados e o que evitar",
+    desc="Axila escura: por que acontece, como clarear com segurança, o papel do desodorante e da depilação, quanto tempo leva e quando procurar médico.",
+    categoria="Cuidados com a pele",
+    data="2026-11-10",
+    resumo="Depilação, desodorante e atrito: o que escurece as axilas e o que ajuda a clarear.",
+    corpo="""
+<p>A axila escura incomoda muita gente na hora de usar regata ou biquíni. A boa notícia é que, na maioria dos casos, a causa é a irritação do dia a dia, e dá para melhorar com mudanças simples e paciência.</p>
+
+<h2>Por que as axilas escurecem</h2>
+<ul>
+  <li><strong>Lâmina:</strong> a depilação com lâmina raspa a pele e deixa a raiz do pelo escuro visível, o que dá aspecto acinzentado.</li>
+  <li><strong>Pelos encravados e foliculite:</strong> cada inflamação deixa uma pequena mancha.</li>
+  <li><strong>Desodorante ou antitranspirante:</strong> alguns causam irritação em peles sensíveis, principalmente os com álcool e perfume forte.</li>
+  <li><strong>Atrito:</strong> roupa justa e movimento do braço.</li>
+  <li><strong>Hormônios e resistência à insulina:</strong> como na virilha, a acantose nigricans também aparece nas axilas.</li>
+</ul>
+<p>Os mesmos mecanismos explicam a virilha escura. Se a sua dúvida também é essa região, veja <a href="virilha-escura-causas-e-como-clarear.html">virilha escura: o que causa e como clarear</a>.</p>
+
+<h2>Como clarear as axilas</h2>
+<h3>Troque ou pause a lâmina</h3>
+<p>Se possível, prefira cera, depilador elétrico ou laser. Se continuar com lâmina, use lâmina nova, com gel ou sabonete, e no sentido do pelo.</p>
+<h3>Revise o desodorante</h3>
+<p>Se a axila arde ou fica vermelha depois de passar o desodorante, teste uma versão sem álcool e sem perfume. Não passe desodorante logo depois de depilar.</p>
+<h3>Use um clareador cosmético todos os dias</h3>
+<p>Aplique na pele limpa e seca, uma pequena quantidade, massageando até absorver. A niacinamida é um dos ativos com estudo publicado especificamente em axilas escuras.</p>
+<h3>Hidrate e evite esfregar</h3>
+<p>Esfoliar com bucha ou açúcar todos os dias irrita e pode escurecer mais. Esfoliação suave, no máximo uma vez por semana, é suficiente.</p>
+
+<h2>O que evitar</h2>
+<ul>
+  <li>Limão, bicarbonato e água oxigenada.</li>
+  <li>Pomadas com corticoide ou hidroquinona sem orientação médica.</li>
+  <li>Aplicar clareador sobre pele ferida, com foliculite ou logo depois de depilar.</li>
+</ul>
+
+<h2>Em quanto tempo a axila clareia</h2>
+<p>Os primeiros sinais costumam aparecer depois de 2 a 4 semanas de uso contínuo, e a melhora mais visível leva de 1 a 3 meses. Se a causa (lâmina, desodorante) continuar, a mancha volta.</p>
+
+<h2>Quando procurar um médico</h2>
+<p>Se a pele da axila ficou grossa, aveludada, com pequenas verrugas ao redor, ou se também há escurecimento no pescoço, procure um médico: pode ser acantose nigricans. Manchas que coçam ou descamam podem ser micose ou eritrasma, que têm tratamento específico.</p>
+""" + CTA_CLARIZE + AVISO_PELE,
+    faq=[
+        ("Por que minha axila é escura?",
+         "As causas mais comuns são a depilação com lâmina, pelos encravados, irritação pelo desodorante e atrito. Hormônios e resistência à insulina também podem escurecer as axilas."),
+        ("Desodorante escurece a axila?",
+         "Pode, em peles sensíveis. Desodorantes com álcool e perfume forte irritam, e a irritação repetida escurece a pele."),
+        ("Em quanto tempo a axila clareia?",
+         "Com cuidado diário, os primeiros sinais costumam aparecer em 2 a 4 semanas, e a melhora mais visível leva de 1 a 3 meses."),
+        ("Bicarbonato clareia a axila?",
+         "Não é recomendado. O bicarbonato irrita a pele, e a irritação tende a escurecer ainda mais."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="niacinamida-clareia",
+    curto="Niacinamida clareia?",
+    title="Niacinamida clareia a pele? O que dizem os estudos | Velmo Drink",
+    h1="Niacinamida clareia a pele? O que dizem os estudos",
+    desc="O que é niacinamida, como ela age nas manchas, o estudo com niacinamida 4% nas axilas, em quanto tempo funciona e como usar na virilha e nas axilas.",
+    categoria="Cuidados com a pele",
+    data="2026-11-13",
+    resumo="Como a vitamina B3 age nas manchas, o que o estudo com axilas mostrou e quanto tempo leva.",
+    corpo="""
+<p>A niacinamida aparece em séruns de rosto, cremes para manchas e clareadores de virilha e axila. Mas ela clareia mesmo? A resposta curta: ajuda a uniformizar o tom da pele, com efeito gradual, e tem estudos em pessoas.</p>
+
+<h2>O que é niacinamida</h2>
+<p>Niacinamida (ou nicotinamida) é uma forma da vitamina B3. Em cosméticos, ela é usada para manchas, oleosidade e para fortalecer a barreira da pele. É um ativo bem tolerado, que raramente irrita, por isso aparece em produtos para áreas sensíveis.</p>
+
+<h2>Como ela age nas manchas</h2>
+<p>A melanina é produzida por células chamadas melanócitos e depois é passada para as células da superfície da pele. A niacinamida <strong>reduz essa transferência</strong>. Ela não "descolore" a pele: faz com que menos pigmento chegue à superfície, e a mancha vai clareando conforme a pele se renova.</p>
+
+<h2>O estudo com niacinamida nas axilas</h2>
+<p>Um estudo publicado em 2013 na revista <em>Clinical, Cosmetic and Investigational Dermatology</em> testou um creme com niacinamida a 4% em pessoas com axilas escuras, comparando com um creme sem ativo (placebo) e com um corticoide leve. A niacinamida melhorou o escurecimento das axilas mais do que o placebo, sem efeitos colaterais importantes (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3552481/" target="_blank" rel="noopener">estudo completo, em inglês</a>).</p>
+<p>Dois cuidados ao ler esse resultado: foi um estudo pequeno, e cada produto tem uma concentração diferente. Um cosmético com niacinamida não vai, necessariamente, ter o mesmo efeito do creme testado.</p>
+
+<h2>Em quanto tempo funciona</h2>
+<p>Como depende da renovação da pele, o efeito é lento. Os primeiros sinais costumam aparecer depois de 2 a 4 semanas de uso diário, e a melhora mais visível leva alguns meses. Parar no meio do caminho é o motivo mais comum de "não funcionou".</p>
+
+<h2>Como usar na virilha e nas axilas</h2>
+<ul>
+  <li>Aplique na pele limpa e bem seca, em pequena quantidade.</li>
+  <li>Use todos os dias, sempre na pele externa, nunca em mucosas.</li>
+  <li>Não aplique logo depois de depilar.</li>
+  <li>Corte a causa da mancha ao mesmo tempo: atrito, lâmina, desodorante irritante.</li>
+</ul>
+<p>Para entender as causas de cada região, veja <a href="virilha-escura-causas-e-como-clarear.html">virilha escura: causas e como clarear</a> e <a href="como-clarear-as-axilas.html">como clarear as axilas</a>.</p>
+
+<h2>Niacinamida tem efeito colateral?</h2>
+<p>É um dos ativos mais suaves. Algumas pessoas sentem leve vermelhidão ou ardência no começo, principalmente em pele irritada. Se acontecer, suspenda e retome quando a pele acalmar. Faça sempre um teste em uma área pequena antes.</p>
+
+<h2>Pode usar com outros ativos?</h2>
+<p>Em geral, sim: a niacinamida combina bem com ácido hialurônico, que hidrata. Evite misturar vários clareadores fortes ao mesmo tempo na mesma área, porque isso aumenta a chance de irritação, e irritação escurece a pele.</p>
+""" + CTA_CLARIZE + AVISO_PELE,
+    faq=[
+        ("Niacinamida clareia a virilha?",
+         "Ajuda a uniformizar o tom da pele de forma gradual. Um estudo com niacinamida a 4% mostrou melhora do escurecimento nas axilas em comparação com placebo. Na virilha, o mecanismo é o mesmo."),
+        ("Em quanto tempo a niacinamida faz efeito?",
+         "Os primeiros sinais costumam aparecer em 2 a 4 semanas de uso diário, e a melhora mais visível leva alguns meses."),
+        ("Niacinamida irrita a pele?",
+         "Raramente. É um dos ativos mais bem tolerados, mas algumas pessoas sentem leve ardência no começo."),
+        ("Posso usar niacinamida na região íntima?",
+         "Só na pele externa, como virilha e axilas. Não aplique em mucosas."),
+    ],
+))
+
 
 def pagina_post(p):
     url = f"{SITE}/{p['slug']}.html"

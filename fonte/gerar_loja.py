@@ -18,28 +18,54 @@ PRODUTOS = {
   "clarize": {
     "img": ("img/clarize-clareador-intimo-60ml.webp", 221, 600, "Frasco do Clarize, clareador íntimo da Velmora, 60 ml"),
     "nome": "Clarize",
-    "badge": "Cosmético para a região íntima",
-    "title": "Clarize: preços, composição e onde comprar | Velmo Drink",
-    "desc": "Clarize, cosmético para a região íntima com niacinamida, ácido hialurônico e óleo de girassol ozonizado. Preços de 1, 3 e 5 meses, garantia de 30 dias.",
-    "h1": "Clarize",
-    "lead": "Cosmético para a região íntima com niacinamida, ácido hialurônico e óleo de girassol ozonizado. Veja os preços de 1, 3 e 5 meses e compre com garantia de 30 dias.",
+    "badge": "Clareador para virilha, axilas e joelhos",
+    "title": "Clarize: clareador para virilha e axila, como usar e preços | Velmo Drink",
+    "desc": "Clarize, clareador íntimo da Velmora para virilha, axilas e joelhos, com niacinamida e ácido hialurônico. Composição, modo de uso, prazo e preços de 1, 3 e 5 meses.",
+    "h1": "Clarize: clareador para virilha, axilas e joelhos",
+    "lead": "Cosmético de uso externo com niacinamida, ácido hialurônico, lithothamnium e óleo de girassol ozonizado, em frasco de 60 ml com válvula pump. Veja como usar, em quanto tempo aparecem os primeiros resultados e os preços de 1, 3 e 5 meses.",
     "linhas": [("1 Mês", 209.00, "8a088d7a-b2b5-46fa-a132-a818b7653a05"),
                ("3 Meses", 335.00, "7722b37f-57d7-4e26-a360-9d0e639d2930"),
                ("5 Meses", 461.00, "0db242fc-2d3e-449a-8d5a-08751fec8b5b")],
     "sobre": [
-      "O Clarize é um produto cosmético de uso externo para a região íntima. A fórmula reúne três ingredientes conhecidos da cosmética:",
+      "O Clarize é o clareador íntimo da Velmora: um cosmético de uso externo para uniformizar o tom da pele em áreas que costumam escurecer, como a virilha, as axilas e os joelhos. Vem em frasco de 60 ml com válvula pump. O rótulo destaca quatro ingredientes:",
     ],
     "itens": [
-      "<strong>Niacinamida</strong>: forma da vitamina B3 muito usada em cosméticos voltados à uniformidade do tom da pele.",
+      "<strong>Niacinamida</strong>: forma da vitamina B3, o ingrediente mais estudado da fórmula para manchas. Ela atua na transferência de pigmento para a superfície da pele, e é usada em cosméticos de uniformidade do tom.",
       "<strong>Ácido hialurônico</strong>: ingrediente de hidratação, que ajuda a reter água na superfície da pele.",
+      "<strong>Lithothamnium</strong>: alga marinha rica em minerais, usada em cosméticos de cuidado da pele.",
       "<strong>Óleo de girassol ozonizado</strong>: óleo vegetal usado em cosméticos de cuidado e conforto da pele.",
     ],
     "depois": [
-      "Cosméticos não tratam doenças. Manchas, irritação, coceira ou mudança de cor que aparecem de repente merecem avaliação de dermatologista ou ginecologista antes de qualquer produto.",
+      "O site do fabricante também cita óleo de rosa mosqueta e informa que o produto é vegano, livre de parabenos, dermatologicamente testado e sem ácidos agressivos. A lista completa de ingredientes está no rótulo.",
     ],
-    "aviso": "Uso externo. Antes do primeiro uso, faça um teste em uma pequena área da pele. Não aplique sobre pele ferida ou irritada e suspenda o uso se houver ardência ou vermelhidão. Siga o modo de uso do rótulo.",
+    "secoes": [
+      ("Como usar o Clarize", [
+        "O modo de uso informado pelo fabricante tem quatro passos:",
+        "<ol><li><strong>Higienize</strong> a área com água e sabonete neutro.</li>"
+        "<li><strong>Seque</strong> completamente.</li>"
+        "<li><strong>Aplique</strong> uma pequena quantidade do produto.</li>"
+        "<li><strong>Massageie</strong> até a pele absorver.</li></ol>",
+        "Use só por fora, na pele da virilha, das axilas ou dos joelhos. Não aplique em mucosas (a parte interna da região íntima) nem logo depois de depilar, quando a pele está sensível.",
+      ]),
+      ("Em quanto tempo aparecem os resultados", [
+        "Segundo o fabricante, os primeiros resultados aparecem entre 2 e 4 semanas de uso contínuo, e o recomendado é usar por 30 a 60 dias seguidos. Por isso existem os kits de 3 e 5 meses. Clarear a pele é um processo lento em qualquer produto, e o resultado varia de pessoa para pessoa.",
+        "Se o atrito continuar (roupa apertada, lâmina, suor parado na dobra), a pele tende a escurecer de novo. Vale cuidar da causa junto com o produto.",
+      ]),
+      ("Por que a virilha e as axilas escurecem", [
+        "As causas mais comuns são o atrito da pele com a roupa ou entre as coxas, a depilação com lâmina ou cera, que irrita a pele, o suor e o calor nas dobras, e mudanças hormonais, como na gravidez. A pele irritada produz mais melanina e escurece aos poucos.",
+        "Nem toda mancha é só estética. Pele escura, grossa e com aspecto de veludo no pescoço, nas axilas ou na virilha pode ser <strong>acantose nigricans</strong>, que costuma estar ligada à resistência à insulina. Nesse caso, procure um médico: nenhum cosmético resolve a causa.",
+      ]),
+      ("Prazo de entrega", [
+        "Segundo o fabricante, a entrega leva de 5 a 15 dias úteis depois da postagem, com código de rastreio. O prazo exato para o seu CEP aparece no checkout.",
+      ]),
+    ],
+    "aviso": "Cosméticos não tratam doenças. Uso externo: não aplique em mucosas, sobre pele ferida ou irritada. Antes do primeiro uso, faça um teste em uma pequena área e suspenda se houver ardência ou vermelhidão. Manchas que aparecem de repente, com coceira ou mudança de textura, merecem avaliação de dermatologista ou ginecologista. Siga o modo de uso do rótulo.",
     "faq": [
-      ("O que vem no Clarize?", "Segundo a descrição do produto, a fórmula tem niacinamida, ácido hialurônico e óleo de girassol ozonizado. A lista completa está no rótulo."),
+      ("Onde posso usar o Clarize?", "Na pele da virilha, das axilas e dos joelhos, que são as áreas indicadas pelo fabricante. O uso é externo: não aplique em mucosas."),
+      ("Como usar o Clarize?", "Lave a área com água e sabonete neutro, seque bem, aplique uma pequena quantidade e massageie até absorver, como indica o fabricante."),
+      ("Em quanto tempo o Clarize faz efeito?", "Segundo o fabricante, os primeiros resultados aparecem entre 2 e 4 semanas de uso contínuo, e o recomendado é usar por 30 a 60 dias seguidos. O resultado varia de pessoa para pessoa."),
+      ("O que vem no Clarize?", "O rótulo destaca niacinamida, ácido hialurônico, lithothamnium e óleo de girassol ozonizado. O fabricante também cita óleo de rosa mosqueta. A lista completa está no rótulo."),
+      ("Quando procurar um médico em vez de usar clareador?", "Se a pele escureceu de repente, coça, dói ou ficou grossa e aveludada (como no pescoço e nas axilas), procure um médico. Pode ser acantose nigricans, ligada à resistência à insulina, ou outra condição que precisa de tratamento."),
       ("Qual a diferença entre os kits de 1, 3 e 5 meses?", "É a quantidade de produto. O preço por mês cai nos kits maiores: 1 mês sai por R$ 209,00, 3 meses por R$ 335,00 e 5 meses por R$ 461,00."),
       ("Tem garantia?", "Sim. A Velmora oferece garantia de 30 dias, pela Hest, a plataforma onde o pagamento é feito."),
       ("Quais as formas de pagamento?", "Cartão de crédito em até 12x, Pix e boleto, no checkout da Hest."),
@@ -134,8 +160,8 @@ SECOES = [
     ("creagym.html", "CreaGym", "Creatina monohidratada em pó com magnésio bisglicinato e coenzima Q10. Sabores Morango e Tangerina.", 197.00, None, PRODUTOS["creagym"]["img"], mes("creagym"), "Ver preços e detalhes"),
     ("creatina-gummy.html", "Creatina Gummy", "Gomas com 3 g de creatina por porção, sabor tutti-frutti, sem açúcar e sem glúten.", 197.00, None, PRODUTOS["creatina-gummy"]["img"], mes("creatina-gummy"), "Ver preços e detalhes"),
   ]),
-  ("cuidados-intimos", "Cuidados íntimos", "Cosmético de uso externo para a região íntima.", None, [
-    ("clarize.html", "Clarize", "Cosmético para a região íntima com niacinamida, ácido hialurônico e óleo de girassol ozonizado. Frasco de 60 ml.", 209.00, None, PRODUTOS["clarize"]["img"], mes("clarize"), "Ver preços e detalhes"),
+  ("cuidados-intimos", "Cuidados com a pele", "Cosmético de uso externo para clarear áreas que escurecem com o atrito.", None, [
+    ("clarize.html", "Clarize", "Clareador para virilha, axilas e joelhos, com niacinamida e ácido hialurônico. Frasco de 60 ml.", 209.00, None, PRODUTOS["clarize"]["img"], mes("clarize"), "Ver preços e detalhes"),
   ]),
 ]
 
@@ -210,6 +236,9 @@ def pagina_produto(slug, p):
     sobre = "\n".join(f"        <p>{t}</p>" for t in p["sobre"])
     itens = ("        <ul>\n" + "\n".join(f"          <li>{t}</li>" for t in p["itens"]) + "\n        </ul>") if p["itens"] else ""
     depois = "\n".join(f"        <p>{t}</p>" for t in p["depois"])
+    for titulo, blocos in p.get("secoes", []):
+        depois += f"\n        <h3>{titulo}</h3>\n" + "\n".join(
+            f"        {t}" if t.startswith("<ol") else f"        <p>{t}</p>" for t in blocos)
     faq = "\n".join(f"        <h3>{q}</h3>\n        <p>{a}</p>" for q, a in p["faq"])
     outros = "\n".join(
         f'          <li><a href="{s}.html">{PRODUTOS[s]["nome"]}</a></li>' for s in PRODUTOS if s != slug)
