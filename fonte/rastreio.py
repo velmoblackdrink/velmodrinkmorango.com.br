@@ -1,5 +1,5 @@
 """Põe em todas as páginas .html da pasta: Google Tag Manager, GA4, imagem de compartilhamento
-(og:image) e os botões de compartilhar (WhatsApp, Facebook, Instagram, copiar link).
+(og:image) e os botões de compartilhar (Compartilhar e Copiar link).
 
 Uso: python3 -I fonte/rastreio.py .
 Os geradores (gerar_loja.py e gerar_blog.py) já chamam este script no fim. Pode rodar quantas vezes
@@ -13,7 +13,6 @@ import html
 import os
 import re
 import sys
-from urllib.parse import quote
 
 SITE = "https://velmodrinkmorango.com.br"
 GTM = "GTM-5RQXHCPW"
@@ -33,8 +32,8 @@ ESTILO = (".compartilhar{margin:32px auto;max-width:720px;padding:20px;border-ra
           ".compartilhar-botoes{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}"
           ".compartilhar a,.compartilhar button{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;"
           "border:0;border-radius:999px;font:inherit;font-size:15px;font-weight:600;color:#fff;cursor:pointer;"
-          "text-decoration:none}.comp-whatsapp{background:#1f8f4e}.comp-facebook{background:#1663c7}"
-          ".comp-instagram{background:#c13584}.comp-copiar{background:#555}"
+          "text-decoration:none}.comp-compartilhar{background:#2e7d6b}"
+          ".comp-copiar{background:#555}"
           ".compartilhar-topo{margin:4px auto 20px;padding:0;background:none;display:flex;flex-wrap:wrap;"
           "align-items:center;justify-content:center;gap:8px}.compartilhar-topo p{margin:0;font-size:14px;"
           "font-weight:500;color:#4a5e59}.compartilhar-topo a,.compartilhar-topo button{padding:7px 13px;font-size:13px}")
@@ -95,12 +94,9 @@ def bloco_head(doc, nome):
 def botoes_compartilhar(doc, nome):
     url = canonico(doc, nome)
     utm = lambda rede: f"{url}?utm_source={rede}&utm_medium=social&utm_campaign=compartilhar&utm_content={slug(nome)}"
-    texto = quote(f"{titulo(doc)} {utm('whatsapp')}", safe="")
-    fb = quote(utm("facebook"), safe="")
+    # "Compartilhar" abre a lista de apps do celular (WhatsApp, Instagram...); no computador, copia o link.
     return f"""<div class="compartilhar-botoes">
-      <a class="comp-whatsapp" data-rede="whatsapp" href="https://wa.me/?text={texto}" target="_blank" rel="nofollow noopener">Enviar pelo WhatsApp</a>
-      <a class="comp-facebook" data-rede="facebook" href="https://www.facebook.com/sharer/sharer.php?u={fb}" target="_blank" rel="nofollow noopener">Facebook</a>
-      <button type="button" class="comp-instagram" data-rede="instagram" data-url="{html.escape(utm('instagram'))}">Instagram</button>
+      <button type="button" class="comp-compartilhar" data-rede="compartilhar" data-url="{html.escape(utm('compartilhar'))}">Compartilhar</button>
       <button type="button" class="comp-copiar" data-rede="copiar" data-url="{html.escape(utm('copiar'))}">Copiar link</button>
     </div>"""
 

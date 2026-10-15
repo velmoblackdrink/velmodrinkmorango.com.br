@@ -17,10 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="index.html#beneficios">Benefícios</a>
           <a href="index.html#sobre">Sobre</a>
           <a href="index.html#depoimentos">Depoimentos</a>
-          <a href="loja.html">Loja</a>
+          <a href="loja.html" class="link-loja"><svg class="icone-coroa" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="#D4AF37" stroke="#A8841F" stroke-width="1" stroke-linejoin="round" d="M3 18 2 7l5.5 4L12 4l4.5 7L22 7l-1 11z"/><rect x="3" y="19" width="18" height="2.2" rx="1" fill="#C9A227"/></svg>Loja</a>
           <a href="blog.html">Blog</a>
         </nav>
-        <a class="btn btn-primary header-cta" href="https://velmodrinkmorango.com.br" target="_blank" rel="nofollow noopener">Saiba Mais</a>
       </div>
     </header>`;
 

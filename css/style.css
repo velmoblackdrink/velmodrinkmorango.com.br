@@ -140,10 +140,8 @@ nav a {
   transition: color var(--transition);
 }
 nav a:hover { color: var(--gold); }
-.header-cta {
-  padding: 9px 22px;
-  font-size: .875rem;
-}
+.link-loja { display: inline-flex; align-items: center; gap: 5px; }
+.icone-coroa { width: 16px; height: 16px; flex: none; }
 
 /* ============ HERO ============ */
 .hero {
@@ -671,10 +669,9 @@ footer, #site-footer {
     background: #fff; border-bottom: 1px solid rgba(46,125,107,.12);
     box-shadow: 0 12px 24px rgba(46,125,107,.12); padding: 8px 20px 16px;
   }
-  .menu-aberto nav a { padding: 14px 4px; font-size: 1rem; border-bottom: 1px solid rgba(46,125,107,.08); }
+  .menu-aberto nav a { padding: 14px 4px; justify-content: flex-start; font-size: 1rem; border-bottom: 1px solid rgba(46,125,107,.08); }
   .menu-aberto nav a:last-child { border-bottom: 0; }
 }
 @media (max-width: 420px) {
-  .header-cta { padding: 8px 14px; }
   .logo { font-size: 1.35rem; }
 }

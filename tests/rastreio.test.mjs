@@ -48,11 +48,13 @@ test("página de produto e post usam a foto do produto certo", () => {
   assert.equal(img("index.html"), "velmo-drink")
 })
 
-test("botões de compartilhar levam UTM e não aparecem no mapa do site", () => {
+test("só dois botões de compartilhar (Compartilhar e Copiar link), com UTM, fora do mapa do site", () => {
   const doc = ler("clarize.html")
   assert.equal(conta(doc, 'class="compartilhar"'), 1)
-  assert.ok(doc.includes("https://wa.me/?text=") && doc.includes("utm_source%3Dwhatsapp%26utm_medium%3Dsocial%26utm_campaign%3Dcompartilhar%26utm_content%3Dclarize"))
-  assert.ok(doc.includes("facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvelmodrinkmorango.com.br%2Fclarize.html%3Futm_source%3Dfacebook"))
+  assert.ok(doc.includes('data-rede="compartilhar" data-url="https://velmodrinkmorango.com.br/clarize.html?utm_source=compartilhar&amp;utm_medium=social&amp;utm_campaign=compartilhar&amp;utm_content=clarize"'))
+  assert.ok(doc.includes('data-rede="copiar" data-url="https://velmodrinkmorango.com.br/clarize.html?utm_source=copiar&amp;'))
+  for (const velho of ["wa.me/?text=", "facebook.com/sharer", 'data-rede="instagram"', "comp-whatsapp"])
+    assert.ok(!doc.includes(velho), `ainda tem ${velho}`)
   assert.ok(doc.indexOf('class="compartilhar"') < doc.indexOf('id="footer-placeholder"'))
   assert.ok(!ler("mapa-do-site.html").includes('class="compartilhar"'))
   assert.equal(conta(ler("index.html"), 'class="compartilhar"'), 1)
@@ -106,7 +108,7 @@ test("páginas de emagrecimento: foto do produto, depois compartilhar, depois o 
     const h1 = doc.indexOf("<h1")
     assert.ok(foto > 0 && foto < topo && topo < selo && selo < h1, `${nome}: ordem foto > compartilhar > selo > h1`)
     assert.equal(conta(doc, 'class="compartilhar compartilhar-topo"'), 1, `${nome}: um compartilhar no topo`)
-    assert.ok(doc.slice(topo, selo).includes("utm_content%3D" + nome.slice(0, -5)), `${nome}: UTM da página`)
+    assert.ok(doc.slice(topo, selo).includes("utm_content=" + nome.slice(0, -5) + '"'), `${nome}: UTM da página`)
   }
 })
 
@@ -122,5 +124,26 @@ test("páginas de emagrecimento: FAQ e seções de texto em fundo claro, sem tex
     const doc = ler(nome)
     for (const escuro of ["background:#111", "background:#0d0d0d", "background:#1a1a1a", "color:#ccc", "color:#D4AF37", "solid #2a2a2a"])
       assert.ok(!doc.includes(escuro), `${nome}: ainda tem ${escuro}`)
+  }
+})
+
+test("menu: link da Loja com coroa dourada no cabeçalho", () => {
+  const js = ler("js/main.js")
+  assert.match(js, /<nav id="site-nav">[\s\S]*<a href="loja\.html"[^>]*><svg class="icone-coroa"[^>]*aria-hidden="true"[\s\S]*?<\/svg>Loja<\/a>[\s\S]*<\/nav>/)
+  assert.match(ler("css/style.css"), /\.icone-coroa\s*\{/)
+})
+
+test("cabeçalho sem o botão Saiba Mais ao lado do menu", () => {
+  const js = ler("js/main.js")
+  assert.ok(!js.includes("header-cta") && !js.includes("Saiba Mais"))
+})
+
+test("páginas de emagrecimento: sem promessas de resultado, depoimentos ou estados errados", () => {
+  const proibidas = ["transformaram seu corpo", "O Velmo Drink acelera", "100%</strong><span>Natural", "Natural para Emagrecimento",
+    "Minas Gerais", "Sergipe", "Tocantins", "Florianópolis", "relatam", "adia a transformação", "sem efeitos colaterais",
+    "eficácia comprovada", "versão premium", "4 a 6 kg", "3 e 6 kg", "5 a 9 kg", "perfil de segurança", "O Velmo Drink resolve esse problema"]
+  for (const nome of PAGINAS.filter((n) => n.endsWith("-sao-paulo-sp.html"))) {
+    const doc = ler(nome)
+    for (const f of proibidas) assert.ok(!doc.includes(f), `${nome}: ainda tem "${f}"`)
   }
 })

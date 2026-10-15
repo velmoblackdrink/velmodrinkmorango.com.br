@@ -1,7 +1,7 @@
 /* ============================================
    VELMO DRINK — rastreio.js
    Eventos de clique no GA4/GTM, UTMs da visita levadas ao checkout
-   e botões de compartilhar (Instagram e copiar link).
+   e botões de compartilhar (Compartilhar e Copiar link).
    Carregado em todas as páginas pelo bloco de fonte/rastreio.py.
    ============================================ */
 (function () {
@@ -99,11 +99,10 @@
     if (rede) {
       enviar('share', { method: rede, content_type: 'pagina', item_id: pagina, posicao: el.closest('.compartilhar-topo') ? 'topo' : 'rodape' });
       var url = el.getAttribute('data-url');
-      if (rede === 'instagram') {
-        // O Instagram não tem link de compartilhar na web: no celular abre a lista de apps
-        // (Instagram, Direct, Stories); no computador, copia o link.
+      if (rede === 'compartilhar') {
+        // No celular abre a lista de apps (WhatsApp, Instagram, Facebook...); no computador, copia o link.
         if (navigator.share) navigator.share({ title: document.title, url: url }).catch(function () {});
-        else copiar(url, el, 'Link copiado! Cole no Instagram');
+        else copiar(url, el, 'Link copiado! Cole onde quiser');
       } else if (rede === 'copiar') {
         copiar(url, el, 'Link copiado!');
       }
