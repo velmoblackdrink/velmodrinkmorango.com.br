@@ -161,6 +161,19 @@ test("order bumps entram na planilha com a comissão da afiliada", async () => {
   assert.equal(planilha.corpo.comissaoBumps, 7.98)
 })
 
+test("chave da planilha com espaço ou quebra de linha colados na Vercel ainda funciona", async () => {
+  const f = fetchFalso()
+  await tratarVenda(pedido(exemplo()), { env: { ...ENV, PLANILHA_VENDAS_CHAVE: "  chave-teste\n" }, fetch: f.fn })
+  const planilha = f.chamadas.find((c) => c.url === ENV.PLANILHA_VENDAS_URL)
+  assert.equal(planilha.corpo.chave, "chave-teste")
+})
+
+test("planilha negando mostra só tamanho e final da chave para conferir", async () => {
+  const fn = async (url) => (String(url).includes("graph") ? new Response("{}") : new Response("negado"))
+  const corpo = await (await tratarVenda(pedido(exemplo()), { env: ENV, fetch: fn })).json()
+  assert.equal(corpo.erro, "planilha respondeu 200: negado (chave na Vercel: 11 caracteres, termina em 'este')")
+})
+
 test("hashMeta normaliza antes do hash; telefoneMeta põe o 55 do Brasil", () => {
   assert.equal(hashMeta("  A@B.com "), sha("a@b.com"))
   assert.equal(hashMeta(""), null)

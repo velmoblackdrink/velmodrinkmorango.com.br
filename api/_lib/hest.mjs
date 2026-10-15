@@ -93,7 +93,7 @@ function eventoMeta(venda) {
 
 async function gravarPlanilha(linha, env, fetchFn) {
   const destino = env.PLANILHA_VENDAS_URL
-  const chave = env.PLANILHA_VENDAS_CHAVE
+  const chave = (env.PLANILHA_VENDAS_CHAVE || "").trim()
   if (!destino || !chave) {
     console.log("venda (planilha não configurada)", JSON.stringify(linha))
     return
@@ -105,6 +105,10 @@ async function gravarPlanilha(linha, env, fetchFn) {
   })
   // o script do Google responde 200 até quando falha (página de erro em HTML), então confere o "ok" do texto
   const retorno = (await r.text()).trim()
+  if (retorno === "negado") {
+    // a chave não bate com a do script: mostra só o tamanho e o final dela, para conferir sem expor a chave
+    throw new Error(`planilha respondeu ${r.status}: negado (chave na Vercel: ${chave.length} caracteres, termina em '${chave.slice(-4)}')`)
+  }
   if (!r.ok || retorno !== "ok") throw new Error(`planilha respondeu ${r.status}: ${retorno.slice(0, 200)}`)
 }
 
