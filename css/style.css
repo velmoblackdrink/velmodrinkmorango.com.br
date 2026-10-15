@@ -632,3 +632,15 @@ footer, #site-footer {
   .benefits-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+
+/* ============ FOTO DO PRODUTO NO TOPO (páginas de emagrecimento) ============ */
+.hero-foto img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(46,125,107,.18));
+}
+@media (max-width: 900px) {
+  .hero-visual.hero-foto { display: flex; }
+  .hero-foto img { max-width: 300px; }
+}
