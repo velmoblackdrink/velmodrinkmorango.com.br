@@ -84,3 +84,11 @@
   .loja-kits img { height: 90px; }
   .loja-kits figcaption { font-size: .75rem; text-align: center; }
 }
+
+.loja-secao-desc { color: #4a6560; max-width: 640px; margin-top: 8px; }
+.loja-secao-desc a, .loja-atalhos a { color: var(--gold-dark); font-weight: 600; }
+.loja-atalhos { margin-top: 24px; font-size: .95rem; color: var(--mid); }
+.loja-mes { font-size: .85rem; color: #4a6560; margin-top: -6px; }
+.comparacao th[scope="row"] { font-size: .8rem; white-space: nowrap; }
+.comparacao + .loja-nota, .precos-wrap + .loja-nota { margin-bottom: 8px; }
+@media (max-width: 600px) { .comparacao th[scope="row"] { white-space: normal; } }
