@@ -91,7 +91,7 @@ test("venda paga grava na planilha SEM dados pessoais", async () => {
     {
       dataHora: "x", evento: "paid", pedido: "ped-1", produto: "Velmo Black Drink - Morango", sku: "VBD-M",
       quantidade: 1, valorPedido: 239.8, frete: 29.9, comissaoAfiliado: 45.9, pagamento: "pix",
-      criadoEm: "2026-10-15T12:00:00Z", chave: "chave-teste",
+      criadoEm: "2026-10-15T12:00:00Z", bumps: "", comissaoBumps: 0, chave: "chave-teste",
     },
   )
   const texto = JSON.stringify(planilha.corpo)
@@ -141,6 +141,19 @@ test("planilha com erro responde 502 para a Hest tentar de novo", async () => {
     String(url).includes("graph.facebook.com") ? new Response("{}") : new Response("<html>erro</html>", { status: 200 })
   const resposta = await tratarVenda(pedido(exemplo()), { env: ENV, fetch: fn })
   assert.equal(resposta.status, 502)
+})
+
+test("order bumps entram na planilha com a comissão da afiliada", async () => {
+  const f = fetchFalso()
+  const venda = exemplo()
+  venda.orderBumps = [
+    { bumpKey: "12", title: "Oferta especial", amount: 2990, producerAmount: 2392, affiliateAmount: 598 },
+    { bumpKey: "13", title: "Outra oferta", amount: 1000, affiliateAmount: 200 },
+  ]
+  await tratarVenda(pedido(venda), { env: ENV, fetch: f.fn })
+  const planilha = f.chamadas.find((c) => c.url === ENV.PLANILHA_VENDAS_URL)
+  assert.equal(planilha.corpo.bumps, "Oferta especial; Outra oferta")
+  assert.equal(planilha.corpo.comissaoBumps, 7.98)
 })
 
 test("hashMeta normaliza antes do hash; telefoneMeta põe o 55 do Brasil", () => {

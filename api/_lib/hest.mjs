@@ -37,6 +37,8 @@ const reais = (centavos) => (Number.isFinite(Number(centavos)) ? Math.round(Numb
 function linhaPlanilha(venda, evento) {
   const { order = {}, product = {}, freight = {}, commissions = [] } = venda
   const afiliado = commissions.find((c) => c?.type === "afiliado")
+  const bumps = Array.isArray(venda.orderBumps) ? venda.orderBumps : []
+  const centavosBumps = bumps.reduce((soma, b) => soma + (Number(b?.affiliateAmount) || 0), 0)
   return {
     dataHora: new Intl.DateTimeFormat("pt-BR", {
       timeZone: "America/Sao_Paulo",
@@ -53,6 +55,9 @@ function linhaPlanilha(venda, evento) {
     comissaoAfiliado: reais(afiliado?.value),
     pagamento: order.payment_method ?? "",
     criadoEm: order.created_at ?? "",
+    // order bump: oferta extra no checkout, com comissão própria da afiliada
+    bumps: bumps.map((b) => b?.title ?? "").filter(Boolean).join("; "),
+    comissaoBumps: reais(centavosBumps),
   }
 }
 
