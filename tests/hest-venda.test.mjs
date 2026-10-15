@@ -143,7 +143,7 @@ test("planilha com erro responde 502 para a Hest tentar de novo", async () => {
   assert.equal(resposta.status, 502)
   // quem tem o token vê o motivo (sem segredo nenhum), para dar para diagnosticar sem abrir os Logs
   const corpo = await resposta.json()
-  assert.match(corpo.erro, /^planilha respondeu 200: <html>erro/)
+  assert.equal(corpo.erro, "planilha respondeu 200: erro")
   assert.ok(!JSON.stringify(corpo).includes(ENV.PLANILHA_VENDAS_URL))
   assert.ok(!JSON.stringify(corpo).includes(ENV.PLANILHA_VENDAS_CHAVE))
 })
