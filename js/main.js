@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="index.html#sobre">Sobre</a>
           <a href="index.html#depoimentos">Depoimentos</a>
           <a href="loja.html">Loja</a>
+          <a href="blog.html">Blog</a>
         </nav>
         <a class="btn btn-primary header-cta" href="https://velmodrinkmorango.com.br" target="_blank" rel="nofollow noopener">Saiba Mais</a>
       </div>
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul>
               <li><a href="index.html">Página Inicial</a></li>
               <li><a href="loja.html">Loja</a></li>
+              <li><a href="blog.html">Blog</a></li>
               <li><a href="mapa-do-site.html">Mapa do Site</a></li>
             </ul>
           </div>
