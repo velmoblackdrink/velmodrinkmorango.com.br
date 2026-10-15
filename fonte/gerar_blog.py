@@ -723,11 +723,11 @@ POSTS.append(dict(
 ))
 
 POSTS.append(dict(
-    slug="como-clarear-as-axilas",
-    curto="Como clarear as axilas",
-    title="Como clarear as axilas: causas, cuidados e o que evitar | Velmo Drink",
-    h1="Como clarear as axilas: causas, cuidados e o que evitar",
-    desc="Axila escura: por que acontece, como clarear com segurança, o papel do desodorante e da depilação, quanto tempo leva e quando procurar médico.",
+    slug="axilas-escuras-o-que-pode-ser",
+    curto="Axilas escuras: o que pode ser e como clarear",
+    title="Axilas escuras: o que pode ser e como clarear | Velmo Drink",
+    h1="Axilas escuras: o que pode ser e como clarear",
+    desc="Axilas escuras, o que pode ser: lâmina, desodorante, atrito ou acantose. Veja como clarear com segurança, quanto tempo leva e quando procurar médico.",
     categoria="Cuidados com a pele",
     data="2026-11-10",
     resumo="Depilação, desodorante e atrito: o que escurece as axilas e o que ajuda a clarear.",
@@ -811,7 +811,7 @@ POSTS.append(dict(
   <li>Não aplique logo depois de depilar.</li>
   <li>Corte a causa da mancha ao mesmo tempo: atrito, lâmina, desodorante irritante.</li>
 </ul>
-<p>Para entender as causas de cada região, veja <a href="virilha-escura-causas-e-como-clarear.html">virilha escura: causas e como clarear</a> e <a href="como-clarear-as-axilas.html">como clarear as axilas</a>.</p>
+<p>Para entender as causas de cada região, veja <a href="virilha-escura-causas-e-como-clarear.html">virilha escura: causas e como clarear</a> e <a href="axilas-escuras-o-que-pode-ser.html">axilas escuras: o que pode ser</a>.</p>
 
 <h2>Niacinamida tem efeito colateral?</h2>
 <p>É um dos ativos mais suaves. Algumas pessoas sentem leve vermelhidão ou ardência no começo, principalmente em pele irritada. Se acontecer, suspenda e retome quando a pele acalmar. Faça sempre um teste em uma área pequena antes.</p>
@@ -828,6 +828,182 @@ POSTS.append(dict(
          "Raramente. É um dos ativos mais bem tolerados, mas algumas pessoas sentem leve ardência no começo."),
         ("Posso usar niacinamida na região íntima?",
          "Só na pele externa, como virilha e axilas. Não aplique em mucosas."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="clareamento-de-axilas-caseiro",
+    curto="Clareamento de axilas caseiro",
+    title="Clareamento de axilas caseiro: o que funciona e o que é mito | Velmo Drink",
+    h1="Clareamento de axilas caseiro: o que funciona e o que é mito",
+    desc="Leite de magnésia, bicarbonato, limão, açúcar, água oxigenada: veja quais receitas caseiras para clarear axilas e virilha são mito, quais irritam e o que funciona de verdade.",
+    categoria="Cuidados com a pele",
+    data="2026-11-17",
+    resumo="Leite de magnésia, bicarbonato, limão: o que a receita caseira faz com a pele e o que funciona de verdade.",
+    corpo="""
+<p>Antes de comprar qualquer produto, muita gente procura uma receita caseira para clarear as axilas ou a virilha. Faz sentido: é barato e está na cozinha. O problema é que a maioria dessas receitas irrita a pele, e <strong>irritação é justamente o que escurece</strong> essas áreas. Veja receita por receita.</p>
+
+<h2>Leite de magnésia clareia a axila?</h2>
+<p>O leite de magnésia é usado por muita gente como desodorante, porque é alcalino e reduz as bactérias que causam o odor. Para clarear, <strong>não há estudo que mostre efeito</strong>. Se você usa como desodorante e a pele não arde, tudo bem. Se arder ou ficar vermelha, pare: a irritação repetida pode escurecer a axila.</p>
+
+<h2>Bicarbonato de sódio</h2>
+<p>É abrasivo e alcalino. Esfregado na axila, tira a camada de cima da pele e altera o pH. Pode até dar a impressão de pele mais clara no dia, mas a irritação tende a escurecer mais com o tempo. <strong>Não recomendado.</strong></p>
+
+<h2>Limão</h2>
+<p>É a receita mais arriscada. O suco de limão na pele, com exposição ao sol, pode causar queimadura e manchas escuras (fitofotodermatose). Na virilha e nas axilas, que já são sensíveis, o risco é maior. <strong>Não use.</strong></p>
+
+<h2>Água oxigenada</h2>
+<p>Descolore pelo, não pele. Na pele, irrita e resseca. <strong>Não recomendado.</strong></p>
+
+<h2>Esfoliação com açúcar ou café</h2>
+<p>Uma esfoliação suave, no máximo uma vez por semana, ajuda a tirar células mortas. Esfregar com força ou todos os dias é atrito, e atrito escurece. Se for fazer, use pouca pressão e nunca logo depois de depilar.</p>
+
+<h2>Babosa (aloe vera)</h2>
+<p>Acalma e hidrata. Não tem efeito clareador comprovado, mas não costuma irritar e pode ajudar a pele a se recuperar depois da depilação. Use o gel de produtos próprios para pele.</p>
+
+<h2>O que funciona de verdade</h2>
+<p>O caminho que funciona é menos "milagroso" e mais constante:</p>
+<ul>
+  <li><strong>Cortar a causa:</strong> trocar a lâmina, rever o desodorante, usar roupa menos apertada. As causas estão em <a href="axilas-escuras-o-que-pode-ser.html">axilas escuras: o que pode ser</a> e em <a href="virilha-escura-causas-e-como-clarear.html">virilha escura: causas e como clarear</a>.</li>
+  <li><strong>Hidratar</strong> a pele todos os dias.</li>
+  <li><strong>Usar um clareador cosmético</strong> com ativos estudados, como a niacinamida, por pelo menos 4 a 8 semanas. Explicamos o que os estudos dizem em <a href="niacinamida-clareia.html">niacinamida clareia a pele?</a></li>
+</ul>
+<p>Receita caseira parece mais segura por ser "natural", mas limão e bicarbonato irritam mais do que muitos cosméticos feitos para essas áreas.</p>
+""" + CTA_CLARIZE + AVISO_PELE,
+    faq=[
+        ("Leite de magnésia clareia as axilas?",
+         "Não há estudo que mostre efeito clareador. O leite de magnésia é usado como desodorante; se a pele arder ou ficar vermelha, suspenda."),
+        ("Bicarbonato clareia a axila?",
+         "Não é recomendado. O bicarbonato é abrasivo e alcalino, irrita a pele e a irritação tende a escurecer mais."),
+        ("Qual a receita caseira mais segura para a axila escura?",
+         "Nenhuma receita caseira tem efeito clareador comprovado. O mais seguro é hidratar, evitar atrito e usar um cosmético próprio para a área."),
+        ("Limão clareia a virilha?",
+         "Não use. Limão com sol pode queimar a pele e deixar manchas mais escuras."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="clareamento-de-axilas-e-virilha-laser-peeling-ou-creme",
+    curto="Clareamento de axilas e virilha: laser, peeling ou creme?",
+    title="Clareamento de axilas e virilha: laser, peeling ou creme? | Velmo Drink",
+    h1="Clareamento de axilas e virilha: laser, peeling ou creme?",
+    desc="Compare laser, peeling e creme clareador para axilas e virilha: como funciona cada um, tempo, cuidados na pele negra e quando procurar um dermatologista.",
+    categoria="Cuidados com a pele",
+    data="2026-11-20",
+    resumo="Como funciona cada opção, quanto tempo leva, cuidados na pele negra e por onde começar.",
+    corpo="""
+<p>Quem pesquisa clareamento de axilas e virilha encontra três caminhos: laser, peeling e creme. Eles não competem entre si: atendem situações diferentes. Veja como cada um funciona.</p>
+
+<h2>Resumo da comparação</h2>
+<div class="precos-wrap">
+<table class="precos">
+  <thead><tr><th></th><th>Creme clareador</th><th>Peeling</th><th>Laser</th></tr></thead>
+  <tbody>
+    <tr><td>Onde é feito</td><td>Em casa</td><td>Consultório</td><td>Clínica ou consultório</td></tr>
+    <tr><td>Como age</td><td>Ativos diários, efeito gradual</td><td>Ácidos que renovam a pele</td><td>Luz que atinge o pigmento ou o pelo</td></tr>
+    <tr><td>Tempo</td><td>Semanas a meses</td><td>Várias sessões</td><td>Várias sessões</td></tr>
+    <tr><td>Risco de irritação</td><td>Baixo, com uso correto</td><td>Médio</td><td>Médio, maior na pele negra</td></tr>
+    <tr><td>Precisa de profissional</td><td>Não</td><td>Sim</td><td>Sim</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Creme clareador</h2>
+<p>É o ponto de partida para a maioria das pessoas: dá para usar em casa, todos os dias, e o risco é baixo quando se segue o rótulo. Os ativos mais comuns são niacinamida, ácido kójico, alfa-arbutina e vitamina C. O efeito é gradual: os primeiros sinais costumam aparecer em 2 a 4 semanas e a melhora mais visível em 1 a 3 meses. Entenda um desses ativos em <a href="niacinamida-clareia.html">niacinamida clareia a pele?</a></p>
+
+<h2>Peeling</h2>
+<p>O peeling químico usa ácidos (como glicólico, mandélico ou salicílico) em concentração maior que a dos cosméticos, para acelerar a renovação da pele. Deve ser feito por dermatologista, porque na virilha e nas axilas a pele é fina e a irritação pode gerar manchas novas. Costuma exigir várias sessões e cuidado em casa entre elas.</p>
+
+<h2>Laser</h2>
+<p>Há dois usos diferentes:</p>
+<ul>
+  <li><strong>Depilação a laser:</strong> não clareia diretamente, mas acaba com a lâmina e os pelos encravados, que são causas importantes do escurecimento. Com o tempo, a pele tende a melhorar.</li>
+  <li><strong>Laser para pigmento:</strong> atinge a melanina da mancha. Exige avaliação médica e várias sessões.</li>
+</ul>
+
+<h2>Clareamento de axilas em pele negra</h2>
+<p>Na pele negra, laser e peeling mal indicados podem causar <strong>hiperpigmentação pós-inflamatória</strong>: a pele escurece ainda mais depois do procedimento. Por isso é importante procurar profissional com experiência em pele negra, fazer teste antes e começar devagar. Cremes com ativos suaves e uso constante costumam ser a opção mais segura para começar.</p>
+
+<h2>Por onde começar</h2>
+<ol>
+  <li>Descubra a causa: lâmina, desodorante, atrito ou algo que precise de médico. Veja <a href="axilas-escuras-o-que-pode-ser.html">axilas escuras: o que pode ser</a> e <a href="virilha-escura-causas-e-como-clarear.html">virilha escura: causas e como clarear</a>.</li>
+  <li>Evite receitas que irritam (<a href="clareamento-de-axilas-caseiro.html">o que é mito no clareamento caseiro</a>).</li>
+  <li>Use um creme clareador por 2 a 3 meses, com constância.</li>
+  <li>Se não melhorar, ou se a mancha for grossa, aveludada ou coçar, procure um dermatologista. Ele pode indicar peeling, laser ou outro tratamento.</li>
+</ol>
+""" + CTA_CLARIZE + AVISO_PELE,
+    faq=[
+        ("Qual o melhor clareamento para axilas?",
+         "Depende da causa e do tipo de pele. Para a maioria das pessoas, o começo é cortar a causa e usar um creme clareador por 2 a 3 meses. Peeling e laser são feitos por profissional, quando o creme não basta."),
+        ("Clareamento de axilas a laser funciona?",
+         "Pode funcionar, com várias sessões e avaliação médica. A depilação a laser também ajuda, porque acaba com a lâmina e os pelos encravados."),
+        ("Pele negra pode fazer clareamento de axilas?",
+         "Pode, com cuidado. Laser e peeling mal indicados podem escurecer a pele. Procure profissional com experiência em pele negra; cremes com ativos suaves costumam ser o começo mais seguro."),
+        ("Peeling clareia virilha?",
+         "O peeling químico acelera a renovação da pele e pode clarear, mas deve ser feito por dermatologista, porque a pele da virilha é fina e sensível."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="creme-clareador-para-axilas-e-virilha-como-escolher",
+    curto="Creme clareador para axilas e virilha: como escolher",
+    title="Creme clareador para axilas e virilha: como escolher | Velmo Drink",
+    h1="Creme clareador para axilas e virilha: como escolher",
+    desc="Como escolher um creme ou produto para clareamento de axilas e virilha: ativos, o que conferir no rótulo, sinais de alerta, como usar e quanto tempo esperar.",
+    categoria="Cuidados com a pele",
+    data="2026-11-24",
+    resumo="Ativos, rótulo, sinais de alerta e como usar para ver resultado.",
+    corpo="""
+<p>Há dezenas de cremes, séruns e "pomadas" para clarear axilas e virilha, de farmácia e de internet. Este guia mostra o que conferir antes de comprar, para escolher com segurança, seja qual for a marca.</p>
+
+<h2>1. Veja os ativos</h2>
+<p>Os ativos mais usados em cosméticos clareadores são:</p>
+<ul>
+  <li><strong>Niacinamida (vitamina B3):</strong> reduz a passagem do pigmento para a superfície da pele e é bem tolerada. Tem estudo em axilas; veja <a href="niacinamida-clareia.html">niacinamida clareia a pele?</a></li>
+  <li><strong>Alfa-arbutina e ácido kójico:</strong> reduzem a produção de melanina.</li>
+  <li><strong>Vitamina C:</strong> antioxidante, ajuda na uniformidade do tom.</li>
+  <li><strong>Hidratantes</strong>, como ácido hialurônico: não clareiam, mas deixam a pele menos sensível ao atrito.</li>
+</ul>
+<p><strong>Hidroquinona e corticoides</strong> são medicamentos: só com receita e acompanhamento médico. Desconfie de produto que tenha esses ativos sem receita.</p>
+
+<h2>2. Confira o rótulo</h2>
+<ul>
+  <li>Indicação de <strong>uso externo</strong> e das áreas (virilha, axilas, joelhos).</li>
+  <li>Lista completa de ingredientes.</li>
+  <li>Empresa responsável, com CNPJ, e número de notificação ou registro na Anvisa.</li>
+  <li>Modo de uso e advertências.</li>
+</ul>
+
+<h2>3. Fuja das promessas exageradas</h2>
+<p>Clarear a pele leva semanas. Desconfie de "clareia em 7 dias", "resultado permanente" ou "serve para qualquer pele, sem nenhum risco". Cosméticos não tratam doenças, e a mancha pode voltar se a causa continuar.</p>
+
+<h2>4. Pense no uso diário</h2>
+<p>O resultado depende de usar todos os dias por pelo menos 4 a 8 semanas. Por isso pesa na escolha:</p>
+<ul>
+  <li><strong>Textura</strong> que absorve rápido e não mancha a roupa.</li>
+  <li><strong>Embalagem</strong> prática, como pump, que evita contaminar o produto com os dedos.</li>
+  <li><strong>Preço por mês</strong>, já que o uso é contínuo. Kits de vários meses costumam sair mais baratos por mês.</li>
+  <li><strong>Garantia</strong> para testar com tranquilidade.</li>
+</ul>
+
+<h2>5. Use do jeito certo</h2>
+<ol>
+  <li>Lave com água e sabonete neutro.</li>
+  <li>Seque completamente.</li>
+  <li>Aplique uma pequena quantidade.</li>
+  <li>Massageie até absorver.</li>
+</ol>
+<p>Antes do primeiro uso, teste numa área pequena. Não aplique em mucosas, em pele ferida ou logo depois de depilar. Junto com o creme, corte a causa: veja <a href="axilas-escuras-o-que-pode-ser.html">axilas escuras: o que pode ser</a> e <a href="virilha-escura-causas-e-como-clarear.html">virilha escura: causas e como clarear</a>. Se estiver em dúvida entre creme e procedimento, veja <a href="clareamento-de-axilas-e-virilha-laser-peeling-ou-creme.html">laser, peeling ou creme</a>.</p>
+""" + CTA_CLARIZE + AVISO_PELE,
+    faq=[
+        ("Qual o melhor creme para clareamento de axilas?",
+         "O que tem ativos estudados, como niacinamida, alfa-arbutina ou vitamina C, rótulo completo com notificação na Anvisa, e que você consegue usar todos os dias por pelo menos 4 a 8 semanas."),
+        ("Pomada para clarear axila precisa de receita?",
+         "Pomadas com hidroquinona ou corticoide são medicamentos e precisam de receita. Cosméticos clareadores com niacinamida, por exemplo, não precisam."),
+        ("Em quanto tempo um creme clareador faz efeito?",
+         "Os primeiros sinais costumam aparecer em 2 a 4 semanas de uso diário, e a melhora mais visível em 1 a 3 meses."),
+        ("Posso usar o mesmo creme na axila e na virilha?",
+         "Se o rótulo indicar as duas áreas, sim, sempre na pele externa e nunca em mucosas."),
     ],
 ))
 

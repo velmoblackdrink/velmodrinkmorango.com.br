@@ -35,7 +35,7 @@ test("no dia marcado o post entra no site, no sitemap, no mapa e na lista de gui
 })
 
 test("nenhum post publicado aponta para um post que ainda está na fila", () => {
-  for (const hoje of ["2026-10-20", "2026-10-23", "2026-10-27", "2026-10-30", "2026-11-03", "2026-11-06", "2026-11-10", "2026-11-13"]) {
+  for (const hoje of ["2026-10-20", "2026-10-23", "2026-10-27", "2026-10-30", "2026-11-03", "2026-11-06", "2026-11-10", "2026-11-13", "2026-11-17", "2026-11-20", "2026-11-24"]) {
     const pasta = gerarEm(hoje)
     for (const arq of readdirSync(pasta).filter((n) => n.endsWith(".html"))) {
       for (const [, alvo] of ler(pasta, arq).matchAll(/href="([a-z0-9-]+\.html)"/g)) {
