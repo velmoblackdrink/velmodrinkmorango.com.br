@@ -6,7 +6,8 @@ Os geradores (gerar_loja.py e gerar_blog.py) já chamam este script no fim. Pode
 quiser: tudo fica entre marcadores <!-- rastreio:inicio/fim -->, <!-- gtm-noscript:inicio/fim --> e
 <!-- compartilhar:inicio/fim -->, que são trocados a cada rodada.
 Onde houver <!-- compartilhar --> no HTML, entra uma barra de compartilhar; se a página não tiver
-nenhum, entra uma antes do rodapé.
+nenhum, entra uma antes do rodapé. Onde houver <!-- compartilhar:topo --> (abaixo da foto do topo),
+entra uma versão compacta, entre <!-- compartilhar-topo:inicio/fim -->.
 """
 import html
 import os
@@ -33,7 +34,10 @@ ESTILO = (".compartilhar{margin:32px auto;max-width:720px;padding:20px;border-ra
           ".compartilhar a,.compartilhar button{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;"
           "border:0;border-radius:999px;font:inherit;font-size:15px;font-weight:600;color:#fff;cursor:pointer;"
           "text-decoration:none}.comp-whatsapp{background:#1f8f4e}.comp-facebook{background:#1663c7}"
-          ".comp-instagram{background:#c13584}.comp-copiar{background:#555}")
+          ".comp-instagram{background:#c13584}.comp-copiar{background:#555}"
+          ".compartilhar-topo{margin:4px auto 20px;padding:0;background:none;display:flex;flex-wrap:wrap;"
+          "align-items:center;justify-content:center;gap:8px}.compartilhar-topo p{margin:0;font-size:14px;"
+          "font-weight:500;color:#4a5e59}.compartilhar-topo a,.compartilhar-topo button{padding:7px 13px;font-size:13px}")
 
 
 def imagem_de(nome):
@@ -88,22 +92,35 @@ def bloco_head(doc, nome):
     return "\n".join("  " + l for l in linhas) + "\n"
 
 
-def bloco_compartilhar(doc, nome):
+def botoes_compartilhar(doc, nome):
     url = canonico(doc, nome)
     utm = lambda rede: f"{url}?utm_source={rede}&utm_medium=social&utm_campaign=compartilhar&utm_content={slug(nome)}"
     texto = quote(f"{titulo(doc)} {utm('whatsapp')}", safe="")
     fb = quote(utm("facebook"), safe="")
-    return f"""<!-- compartilhar:inicio -->
-  <div class="compartilhar">
-    <p>Gostou? Envie para alguém:</p>
-    <div class="compartilhar-botoes">
+    return f"""<div class="compartilhar-botoes">
       <a class="comp-whatsapp" data-rede="whatsapp" href="https://wa.me/?text={texto}" target="_blank" rel="nofollow noopener">Enviar pelo WhatsApp</a>
       <a class="comp-facebook" data-rede="facebook" href="https://www.facebook.com/sharer/sharer.php?u={fb}" target="_blank" rel="nofollow noopener">Facebook</a>
       <button type="button" class="comp-instagram" data-rede="instagram" data-url="{html.escape(utm('instagram'))}">Instagram</button>
       <button type="button" class="comp-copiar" data-rede="copiar" data-url="{html.escape(utm('copiar'))}">Copiar link</button>
-    </div>
+    </div>"""
+
+
+def bloco_compartilhar(doc, nome):
+    return f"""<!-- compartilhar:inicio -->
+  <div class="compartilhar">
+    <p>Gostou? Envie para alguém:</p>
+    {botoes_compartilhar(doc, nome)}
   </div>
   <!-- compartilhar:fim -->"""
+
+
+def bloco_compartilhar_topo(doc, nome):
+    return f"""<!-- compartilhar-topo:inicio -->
+        <div class="compartilhar compartilhar-topo">
+          <p>Compartilhe:</p>
+          {botoes_compartilhar(doc, nome)}
+        </div>
+        <!-- compartilhar-topo:fim -->"""
 
 
 def aplicar(doc, nome):
@@ -111,6 +128,7 @@ def aplicar(doc, nome):
     doc = re.sub(r"[ \t]*<!-- rastreio:inicio.*?<!-- rastreio:fim -->\n", "", doc, flags=re.S)
     doc = re.sub(r"[ \t]*<!-- gtm-noscript:inicio -->.*?<!-- gtm-noscript:fim -->\n", "", doc, flags=re.S)
     doc = re.sub(r"<!-- compartilhar:inicio -->.*?<!-- compartilhar:fim -->", "<!-- compartilhar -->", doc, flags=re.S)
+    doc = re.sub(r"<!-- compartilhar-topo:inicio -->.*?<!-- compartilhar-topo:fim -->", "<!-- compartilhar:topo -->", doc, flags=re.S)
     doc = re.sub(r'[ \t]*<meta (?:property="og:(?:url|site_name|locale|image[a-z:]*)"|name="twitter:[a-z:]+") content="[^"]*">\n', "", doc)
 
     vp = re.search(r"<meta name=\"viewport\"[^>]*>\n", doc)
@@ -123,7 +141,8 @@ def aplicar(doc, nome):
            'style="display:none;visibility:hidden"></iframe></noscript>\n  <!-- gtm-noscript:fim -->\n' + doc[body.end():])
 
     if nome in SEM_COMPARTILHAR:
-        return doc.replace("<!-- compartilhar -->", "")
+        return doc.replace("<!-- compartilhar -->", "").replace("<!-- compartilhar:topo -->", "")
+    doc = doc.replace("<!-- compartilhar:topo -->", bloco_compartilhar_topo(doc, nome))
     if "<!-- compartilhar -->" not in doc:
         rodape = re.search(r'[ \t]*<div id="footer-placeholder">|[ \t]*<footer[ >]', doc)
         doc = doc[:rodape.start()] + "  <!-- compartilhar -->\n\n" + doc[rodape.start():]

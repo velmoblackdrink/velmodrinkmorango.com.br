@@ -641,6 +641,40 @@ footer, #site-footer {
   filter: drop-shadow(0 18px 30px rgba(46,125,107,.18));
 }
 @media (max-width: 900px) {
-  .hero-visual.hero-foto { display: flex; }
   .hero-foto img { max-width: 300px; }
+}
+
+/* Foto, compartilhar, selo e H1 empilhados no centro (páginas de emagrecimento) */
+.hero-inner.hero-topo { grid-template-columns: 1fr; max-width: 820px; text-align: center; padding-top: 32px; padding-bottom: 48px; }
+.hero-topo .hero-foto { display: flex; justify-content: center; }
+.hero-topo .hero-desc { margin-left: auto; margin-right: auto; }
+.hero-topo .hero-actions, .hero-topo .hero-stats { justify-content: center; }
+.hero:has(.hero-topo) { min-height: auto; }
+
+/* ============ MENU SANDUÍCHE (celular) ============ */
+.menu-toggle { display: none; }
+@media (max-width: 900px) {
+  .header-inner { gap: 12px; }
+  .logo { margin-right: auto; }
+  .menu-toggle {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 10px; order: 3;
+    background: none; border: 1px solid rgba(46,125,107,.25); border-radius: 10px; cursor: pointer;
+  }
+  .menu-toggle span { display: block; height: 2px; background: #1a2e2a; border-radius: 2px; transition: transform .25s, opacity .25s; }
+  .menu-aberto .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-aberto .menu-toggle span:nth-child(2) { opacity: 0; }
+  .menu-aberto .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .menu-aberto nav {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 68px; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid rgba(46,125,107,.12);
+    box-shadow: 0 12px 24px rgba(46,125,107,.12); padding: 8px 20px 16px;
+  }
+  .menu-aberto nav a { padding: 14px 4px; font-size: 1rem; border-bottom: 1px solid rgba(46,125,107,.08); }
+  .menu-aberto nav a:last-child { border-bottom: 0; }
+}
+@media (max-width: 420px) {
+  .header-cta { padding: 8px 14px; }
+  .logo { font-size: 1.35rem; }
 }

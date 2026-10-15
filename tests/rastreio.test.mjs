@@ -94,3 +94,33 @@ test("link do checkout ganha a origem e a página do clique, sem apagar UTM que 
   assert.equal(v.searchParams.get("utm_source"), "x")
   assert.equal(paginaDe("/"), "inicio")
 })
+
+test("páginas de emagrecimento: foto do produto, depois compartilhar, depois o selo e o H1", () => {
+  const sp = PAGINAS.filter((n) => n.endsWith("-sao-paulo-sp.html"))
+  assert.equal(sp.length, 27)
+  for (const nome of sp) {
+    const doc = ler(nome)
+    const foto = doc.indexOf('class="hero-foto"')
+    const topo = doc.indexOf('class="compartilhar compartilhar-topo"')
+    const selo = doc.indexOf('class="hero-badge"')
+    const h1 = doc.indexOf("<h1")
+    assert.ok(foto > 0 && foto < topo && topo < selo && selo < h1, `${nome}: ordem foto > compartilhar > selo > h1`)
+    assert.equal(conta(doc, 'class="compartilhar compartilhar-topo"'), 1, `${nome}: um compartilhar no topo`)
+    assert.ok(doc.slice(topo, selo).includes("utm_content%3D" + nome.slice(0, -5)), `${nome}: UTM da página`)
+  }
+})
+
+test("menu sanduíche: botão com aria no cabeçalho do main.js", () => {
+  const js = ler("js/main.js")
+  assert.match(js, /<button[^>]*class="menu-toggle"[^>]*aria-controls="site-nav"[^>]*aria-expanded="false"/)
+  assert.match(js, /<nav id="site-nav"/)
+  assert.match(ler("css/style.css"), /\.menu-toggle/)
+})
+
+test("páginas de emagrecimento: FAQ e seções de texto em fundo claro, sem texto dourado ou cinza-claro", () => {
+  for (const nome of PAGINAS.filter((n) => n.endsWith("-sao-paulo-sp.html"))) {
+    const doc = ler(nome)
+    for (const escuro of ["background:#111", "background:#0d0d0d", "background:#1a1a1a", "color:#ccc", "color:#D4AF37", "solid #2a2a2a"])
+      assert.ok(!doc.includes(escuro), `${nome}: ainda tem ${escuro}`)
+  }
+})

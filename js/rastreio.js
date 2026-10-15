@@ -97,7 +97,7 @@
     var rede = el.getAttribute('data-rede');
 
     if (rede) {
-      enviar('share', { method: rede, content_type: 'pagina', item_id: pagina });
+      enviar('share', { method: rede, content_type: 'pagina', item_id: pagina, posicao: el.closest('.compartilhar-topo') ? 'topo' : 'rodape' });
       var url = el.getAttribute('data-url');
       if (rede === 'instagram') {
         // O Instagram não tem link de compartilhar na web: no celular abre a lista de apps

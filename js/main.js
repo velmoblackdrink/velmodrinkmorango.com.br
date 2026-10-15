@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <header id="site-header">
       <div class="header-inner">
         <a class="logo" href="index.html">Velmo <span>Drink</span></a>
-        <nav>
+        <button type="button" class="menu-toggle" aria-label="Abrir menu" aria-controls="site-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
           <a href="index.html#beneficios">Benefícios</a>
           <a href="index.html#sobre">Sobre</a>
           <a href="index.html#depoimentos">Depoimentos</a>
@@ -23,6 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const headerTarget = document.getElementById('header-placeholder');
   if (headerTarget) headerTarget.outerHTML = headerHTML;
+
+  /* Menu sanduíche (celular): abre e fecha o nav; fecha ao escolher um link. */
+  const menuBtn = document.querySelector('#site-header .menu-toggle');
+  if (menuBtn) {
+    const header = document.getElementById('site-header');
+    const alternar = (abrir) => {
+      header.classList.toggle('menu-aberto', abrir);
+      menuBtn.setAttribute('aria-expanded', String(abrir));
+      menuBtn.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
+    };
+    menuBtn.addEventListener('click', () => alternar(!header.classList.contains('menu-aberto')));
+    document.querySelectorAll('#site-nav a').forEach((a) => a.addEventListener('click', () => alternar(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') alternar(false); });
+  }
 
   /* ─── FOOTER ─── */
   const footerHTML = `
