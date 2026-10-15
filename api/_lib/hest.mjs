@@ -109,7 +109,19 @@ async function gravarPlanilha(linha, env, fetchFn) {
     // a chave não bate com a do script: mostra só o tamanho e o final dela, para conferir sem expor a chave
     throw new Error(`planilha respondeu ${r.status}: negado (chave na Vercel: ${chave.length} caracteres, termina em '${chave.slice(-4)}')`)
   }
-  if (!r.ok || retorno !== "ok") throw new Error(`planilha respondeu ${r.status}: ${retorno.slice(0, 200)}`)
+  if (!r.ok || retorno !== "ok") throw new Error(`planilha respondeu ${r.status}: ${textoDoErro(retorno).slice(0, 300)}`)
+}
+
+// quando o script quebra, o Google devolve uma página HTML; fica só o texto visível (a mensagem do erro)
+function textoDoErro(retorno) {
+  return retorno
+    .replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim()
 }
 
 async function enviarMeta(venda, env, fetchFn) {

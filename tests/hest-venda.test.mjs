@@ -174,6 +174,17 @@ test("planilha negando mostra só tamanho e final da chave para conferir", async
   assert.equal(corpo.erro, "planilha respondeu 200: negado (chave na Vercel: 11 caracteres, termina em 'este')")
 })
 
+test("página de erro do Google mostra só o texto do erro, sem HTML nem scripts", async () => {
+  const html = `<!DOCTYPE html><html><head><script nonce="x">window['ppConfig'] = {productName: 'abc'}</script>
+<style>.a{color:red}</style></head><body><div><div style="text-align:center">TypeError: Cannot read properties of null (reading 'getSheetByName') (linha 40, arquivo "Código")</div></div></body></html>`
+  const fn = async (url) => (String(url).includes("graph") ? new Response("{}") : new Response(html))
+  const corpo = await (await tratarVenda(pedido(exemplo()), { env: ENV, fetch: fn })).json()
+  assert.equal(
+    corpo.erro,
+    `planilha respondeu 200: TypeError: Cannot read properties of null (reading 'getSheetByName') (linha 40, arquivo "Código")`,
+  )
+})
+
 test("hashMeta normaliza antes do hash; telefoneMeta põe o 55 do Brasil", () => {
   assert.equal(hashMeta("  A@B.com "), sha("a@b.com"))
   assert.equal(hashMeta(""), null)
