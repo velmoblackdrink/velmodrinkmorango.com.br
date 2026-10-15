@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="index.html#beneficios">Benefícios</a>
           <a href="index.html#sobre">Sobre</a>
           <a href="index.html#depoimentos">Depoimentos</a>
+          <a href="loja.html">Loja</a>
         </nav>
         <a class="btn btn-primary header-cta" href="https://velmodrinkmorango.com.br" target="_blank" rel="nofollow noopener">Saiba Mais</a>
       </div>
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h4>Links Rápidos</h4>
             <ul>
               <li><a href="index.html">Página Inicial</a></li>
+              <li><a href="loja.html">Loja</a></li>
               <li><a href="mapa-do-site.html">Mapa do Site</a></li>
             </ul>
           </div>
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="footer-disclaimer">
           <strong>⚠️ Aviso Importante:</strong> As informações contidas neste site são de caráter informativo e educacional. O Velmo Drink não substitui tratamentos médicos. Consulte um profissional de saúde antes de iniciar qualquer suplementação. Resultados podem variar. Produto à base de ingredientes naturais. Leia atentamente o rótulo antes de consumir.
+          <p class="footer-afiliado">Este site é de um afiliado. A compra, a entrega e a garantia de 30 dias são da Velmora, pela Hest.</p>
         </div>
         <div class="footer-bottom">
           <p>© 2024 Velmo Drink. Todos os direitos reservados.</p>
