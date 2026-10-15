@@ -142,20 +142,22 @@ export async function tratarVenda(request, { env = process.env, fetch: fetchFn =
   // a Hest manda o tipo no status do pedido ("paid", "refunded", "chargedback"); aceita também "order.paid"
   const evento = String(venda.event ?? venda.order.status ?? "").replace(/^order\./, "").toLowerCase()
 
-  let falhou = false
+  // as mensagens de erro não levam URL, chave nem token; só quem mandou o token certo chega aqui e as vê
+  const erros = []
   try {
     await gravarPlanilha(linhaPlanilha(venda, evento), env, fetchFn)
   } catch (erro) {
     console.error(erro)
-    falhou = true
+    erros.push(erro.message)
   }
   if (evento === "paid") {
     try {
       await enviarMeta(venda, env, fetchFn)
     } catch (erro) {
       console.error(erro)
-      falhou = true
+      erros.push(erro.message)
     }
   }
-  return resposta(falhou ? 502 : 200)
+  if (erros.length) return Response.json({ success: false, erro: erros.join(" | ") }, { status: 502 })
+  return resposta(200)
 }

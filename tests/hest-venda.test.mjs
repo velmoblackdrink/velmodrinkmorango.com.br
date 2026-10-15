@@ -141,6 +141,11 @@ test("planilha com erro responde 502 para a Hest tentar de novo", async () => {
     String(url).includes("graph.facebook.com") ? new Response("{}") : new Response("<html>erro</html>", { status: 200 })
   const resposta = await tratarVenda(pedido(exemplo()), { env: ENV, fetch: fn })
   assert.equal(resposta.status, 502)
+  // quem tem o token vê o motivo (sem segredo nenhum), para dar para diagnosticar sem abrir os Logs
+  const corpo = await resposta.json()
+  assert.match(corpo.erro, /^planilha respondeu 200: <html>erro/)
+  assert.ok(!JSON.stringify(corpo).includes(ENV.PLANILHA_VENDAS_URL))
+  assert.ok(!JSON.stringify(corpo).includes(ENV.PLANILHA_VENDAS_CHAVE))
 })
 
 test("order bumps entram na planilha com a comissão da afiliada", async () => {
