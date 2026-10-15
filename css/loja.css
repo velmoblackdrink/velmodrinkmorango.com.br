@@ -109,3 +109,6 @@
 .blog-hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); text-wrap: balance; }
 .blog-corpo { padding-top: 32px; }
 @media (max-width: 800px) { .blog-hero .hero-content { padding: 0; } }
+.blog-cta { margin: 40px 0 8px; padding: 24px 22px; background: var(--dark3); border: 1px solid rgba(46,125,107,.15); border-radius: 10px; }
+.blog-cta-titulo { font-weight: 600; color: var(--gold-dark) !important; font-size: 1.05rem !important; }
+.blog-post .blog-cta .btn { color: #fff; }
