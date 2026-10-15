@@ -66,3 +66,11 @@
   .precos th, .precos td { padding: 12px 8px; font-size: .85rem; }
   .precos .btn { padding: 9px 12px; font-size: .8rem; }
 }
+
+.loja-foto { display: block; width: 100%; height: 200px; object-fit: contain; margin-bottom: 6px; }
+.loja-hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+.loja-hero-foto img { display: block; width: 100%; max-height: 420px; object-fit: contain; height: auto; }
+@media (max-width: 900px) {
+  .loja-hero-grid { grid-template-columns: 1fr; }
+  .loja-hero-foto img { max-height: 280px; }
+}
