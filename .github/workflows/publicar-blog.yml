@@ -1,0 +1,33 @@
+# Publica os posts da fila do blog (fonte/gerar_blog.py) quando chega a data de cada um.
+# Roda todo dia às 07:00 de Brasília; só faz commit se houver post novo. O push no main faz a Vercel publicar.
+name: Publicar blog
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Gerar blog com a data de hoje
+        run: python3 -I fonte/gerar_blog.py .
+      - name: Commit e push se houver post novo
+        run: |
+          if git diff --quiet; then
+            echo "Nenhum post novo hoje."
+            exit 0
+          fi
+          git config user.name velmoblackdrink
+          git config user.email rosivelmoblack@gmail.com
+          git add -A -- '*.html' sitemap.xml
+          git commit -m "Blog: publica post agendado de $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+          git push

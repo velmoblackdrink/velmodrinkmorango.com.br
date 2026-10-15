@@ -198,6 +198,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- blog:inicio -->
   <url>
     <loc>https://velmodrinkmorango.com.br/blog.html</loc>
     <lastmod>2026-10-15</lastmod>
@@ -228,4 +229,5 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- blog:fim -->
 </urlset>
