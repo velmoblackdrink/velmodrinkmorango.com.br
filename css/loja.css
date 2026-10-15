@@ -74,3 +74,13 @@
   .loja-hero-grid { grid-template-columns: 1fr; }
   .loja-hero-foto img { max-height: 280px; }
 }
+
+.loja-kits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+.loja-kits figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.loja-kits img { display: block; width: 100%; height: 160px; object-fit: contain; }
+.loja-kits figcaption { font-size: .85rem; color: var(--gold-dark); font-weight: 600; }
+@media (max-width: 600px) {
+  .loja-kits { gap: 10px; }
+  .loja-kits img { height: 90px; }
+  .loja-kits figcaption { font-size: .75rem; text-align: center; }
+}
