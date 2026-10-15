@@ -1,7 +1,7 @@
 # Gera o blog. Só publica os posts com data <= hoje (horário de Brasília), então um post
 # com data futura fica na fila e entra no ar sozinho no dia (ver .github/workflows/publicar-blog.yml).
 # Uso, da raiz do repo: python3 -I fonte/gerar_blog.py .   (HOJE=AAAA-MM-DD força a data, para testar)
-import datetime, html, json, os, sys, zoneinfo
+import datetime, html, json, os, subprocess, sys, zoneinfo
 
 SITE = "https://velmodrinkmorango.com.br"
 OUT = sys.argv[1]
@@ -25,7 +25,6 @@ def head(title, desc, canon, ld, tipo="website"):
   <meta property="og:title" content="{html.escape(title)}">
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:type" content="{tipo}">
-  <meta property="og:url" content="{canon}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{canon}">
   <link rel="stylesheet" href="css/style.css">
@@ -1045,6 +1044,7 @@ def pagina_post(p):
 {p['corpo']}
 <h2 style="margin-top:48px;">Perguntas frequentes</h2>
 {faq}
+<!-- compartilhar -->
 {leia}
 <p class="loja-assinatura">Texto da {AUTOR}. Publicado em {data_br(p['data'])}. Este site é de um afiliado: alguns links levam a produtos à venda, e a compra é feita no site do vendedor. <a href="blog.html">Ver todos os posts do blog</a>.</p>
     </article>
@@ -1129,5 +1129,7 @@ trocar_bloco("mapa-do-site.html", "<!-- blog:inicio -->\n", "<!-- blog:fim -->\n
 trocar_bloco("creatina.html", "<!-- guias:inicio -->", "<!-- guias:fim -->",
              "\n".join(f'          <li><a href="{p["slug"]}.html">{html.escape(p["h1"])}</a></li>'
                        for p in por_data if p["categoria"] == "Creatina") + "\n")
+# GTM, GA4, imagem de compartilhamento e botões de compartilhar em todas as páginas.
+subprocess.run([sys.executable, "-I", os.path.join(os.path.dirname(os.path.abspath(__file__)), "rastreio.py"), OUT], check=True)
 print("publicados:", [p["slug"] for p in por_data])
 print("na fila:", [(p["data"], p["slug"]) for p in FILA])

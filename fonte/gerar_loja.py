@@ -1,4 +1,4 @@
-import json, sys, os, html
+import json, sys, os, html, subprocess
 
 SITE = "https://velmodrinkmorango.com.br"
 OUT = sys.argv[1]
@@ -176,7 +176,6 @@ def head(title, desc, canon, ld):
   <meta property="og:title" content="{html.escape(title)}">
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{canon}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{canon}">
   <link rel="stylesheet" href="css/style.css">
@@ -283,6 +282,7 @@ def pagina_produto(slug, p):
       </div>
       <p class="loja-nota">{nota}</p>
 {kits}      <p class="loja-nota">{AFILIADO}</p>
+      <!-- compartilhar -->
     </div>
   </section>
 
@@ -489,4 +489,6 @@ for slug, p in PRODUTOS.items():
 open(os.path.join(OUT, "loja.html"), "w").write(pagina_loja())
 pagina = pagina_creatina()  # antes de abrir o arquivo, que zera o conteúdo
 open(os.path.join(OUT, "creatina.html"), "w").write(pagina)
+# GTM, GA4, imagem de compartilhamento e botões de compartilhar em todas as páginas.
+subprocess.run([sys.executable, "-I", os.path.join(os.path.dirname(os.path.abspath(__file__)), "rastreio.py"), OUT], check=True)
 print("ok")
