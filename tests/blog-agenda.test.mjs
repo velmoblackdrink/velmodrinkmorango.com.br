@@ -83,3 +83,12 @@ test("todo post tem um CTA no meio da leitura, para uma página de produto que e
     assert.ok(partes[1].slice(0, 600).includes('class="cta-meio-btn"'), `${nome}: link rastreável`)
   }
 })
+
+test("todo post publicado termina com a caixa grande de CTA antes do aviso", () => {
+  const pasta = gerarEm("2027-12-31")
+  for (const nome of readdirSync(pasta).filter((n) => n !== "blog.html" && n.endsWith(".html") && ler(pasta, n).includes('"@type": "BlogPosting"'))) {
+    const doc = ler(pasta, nome)
+    assert.equal(doc.split('<div class="blog-cta">').length - 1, 1, `${nome}: caixa final`)
+    assert.ok(doc.indexOf('<div class="blog-cta">') < doc.indexOf('class="loja-aviso"'), `${nome}: CTA antes do aviso`)
+  }
+})

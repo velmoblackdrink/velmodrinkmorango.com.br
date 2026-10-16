@@ -59,6 +59,16 @@ def crumbs(*itens):
 # corpo (HTML), faq [(pergunta, resposta)]
 POSTS = []
 
+CTA_CREATINA_CALISTENIA = """
+<div class="blog-cta">
+  <p class="blog-cta-titulo">Creatina para quem treina em casa</p>
+  <p>A Velmora tem creatina em pó, o CreaGym, nos sabores Morango e Tangerina, e em goma, a Creatina Gummy, com 3 g por porção. Compare formato, ingredientes e preço por mês.</p>
+  <a class="btn btn-primary" href="creatina.html">Ver a comparação</a>
+</div>
+"""
+
+AVISO_CALISTENIA = """<div class="loja-aviso"><strong>Importante:</strong> Este texto é informativo e não substitui a orientação de um profissional de educação física ou de saúde. Creatina não é indicada para gestantes, lactantes e crianças, e pessoas com doença nos rins devem consultar um profissional antes de usar.</div>"""
+
 POSTS.append(dict(
     slug="calistenia-para-iniciantes",
     curto="Calistenia para iniciantes",
@@ -140,8 +150,7 @@ POSTS.append(dict(
 <h2>Alimentação e suplementos</h2>
 <p>O treino rende mais com o básico em dia: refeições com proteína (ovos, carnes, feijão, laticínios), frutas e verduras, e água ao longo do dia. Dormir bem também conta.</p>
 <p>Suplemento é opcional e vem depois do básico. Para quem já treina com intensidade, a creatina é um dos mais estudados: com pelo menos 3 g por dia, ela ajuda no desempenho em exercícios repetidos de curta duração e alta intensidade. Ela existe em pó e em goma; <a href="creatina.html">veja a diferença entre os dois formatos</a>.</p>
-<div class="loja-aviso"><strong>Importante:</strong> Este texto é informativo e não substitui a orientação de um profissional de educação física ou de saúde. Creatina não é indicada para gestantes, lactantes e crianças, e pessoas com doença nos rins devem consultar um profissional antes de usar.</div>
-""",
+""" + CTA_CREATINA_CALISTENIA + AVISO_CALISTENIA,
     faq=[
         ("Calistenia emagrece?",
          "O treino gasta energia e ajuda, mas o emagrecimento depende principalmente da alimentação e da constância ao longo de meses. A calistenia é uma boa forma de se manter ativo junto com uma alimentação equilibrada."),
