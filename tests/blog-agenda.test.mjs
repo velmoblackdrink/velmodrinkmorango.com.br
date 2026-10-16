@@ -35,7 +35,7 @@ test("no dia marcado o post entra no site, no sitemap, no mapa e na lista de gui
 })
 
 test("nenhum post publicado aponta para um post que ainda está na fila", () => {
-  for (const hoje of ["2026-10-20", "2026-10-23", "2026-10-27", "2026-10-30", "2026-11-03", "2026-11-06", "2026-11-10", "2026-11-13", "2026-11-17", "2026-11-20", "2026-11-24"]) {
+  for (const hoje of ["2026-10-20", "2026-10-23", "2026-10-27", "2026-10-30", "2026-11-03", "2026-11-06", "2026-11-10", "2026-11-13", "2026-11-17", "2026-11-20", "2026-11-24", "2026-11-27", "2026-12-01", "2026-12-04", "2026-12-08"]) {
     const pasta = gerarEm(hoje)
     for (const arq of readdirSync(pasta).filter((n) => n.endsWith(".html"))) {
       for (const [, alvo] of ler(pasta, arq).matchAll(/href="([a-z0-9-]+\.html)"/g)) {
@@ -50,4 +50,19 @@ test("rodar duas vezes no mesmo dia não muda nada (o robô só faz commit quand
   const antes = ler(pasta, "sitemap.xml") + ler(pasta, "creatina.html") + ler(pasta, "mapa-do-site.html")
   execFileSync("python3", ["-I", join(RAIZ, "fonte/gerar_blog.py"), pasta], { env: { ...process.env, HOJE: "2026-10-23" } })
   assert.equal(ler(pasta, "sitemap.xml") + ler(pasta, "creatina.html") + ler(pasta, "mapa-do-site.html"), antes)
+})
+
+test("posts de emagrecimento: título curto, descrição, FAQ e sem promessa de resultado", () => {
+  const pasta = gerarEm("2026-12-08")
+  for (const slug of ["suplemento-para-emagrecer-funciona", "efeitos-colaterais-de-suplemento-para-emagrecer", "como-saber-se-suplemento-e-confiavel", "cha-ou-capsula-para-emagrecer"]) {
+    const doc = ler(pasta, slug + ".html")
+    const titulo = doc.match(/<title>([^<]+)<\/title>/)[1]
+    assert.ok(titulo.length <= 75, `${slug}: título com ${titulo.length} caracteres`)
+    const desc = doc.match(/<meta name="description" content="([^"]+)"/)[1]
+    assert.ok(desc.length >= 120 && desc.length <= 170, `${slug}: descrição com ${desc.length}`)
+    assert.ok(doc.includes('"@type": "FAQPage"') || doc.includes('"@type":"FAQPage"'), `${slug}: FAQPage`)
+    assert.ok(doc.includes('href="index.html"'), `${slug}: CTA do Velmo Drink`)
+    for (const f of ["secaps", "Secaps", "garantido</", "kg em 30 dias", "queima gordura localizada"]) assert.ok(!doc.includes(f), `${slug}: ${f}`)
+  }
+  assert.ok(!existsSync(join(gerarEm("2026-11-26"), "suplemento-para-emagrecer-funciona.html")))
 })

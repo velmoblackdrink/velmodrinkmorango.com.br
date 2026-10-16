@@ -1006,6 +1006,257 @@ POSTS.append(dict(
     ],
 ))
 
+CTA_VELMO = """
+<div class="blog-cta">
+  <p class="blog-cta-titulo">Velmo Black Drink, da Velmora</p>
+  <p>Drink em pó nos sabores morango e tangerina, pote de 150 g com 30 porções. Não emagrece sozinho: é um apoio prático para quem está organizando a alimentação. Veja a composição, o modo de uso e os preços.</p>
+  <a class="btn btn-primary" href="index.html">Conhecer o Velmo Drink</a>
+</div>
+"""
+
+AVISO_EMAGRECER = """<div class="loja-aviso"><strong>Importante:</strong> Este texto é informativo e não substitui a orientação de médico ou nutricionista. Nenhum suplemento emagrece sozinho, e os resultados variam de pessoa para pessoa. Gestantes, lactantes, menores de 18 anos, pessoas com doença no coração, pressão alta, problemas de tireoide, ansiedade ou que usam remédios devem consultar um médico antes de usar qualquer produto para emagrecer.</div>"""
+
+POSTS.append(dict(
+    slug="suplemento-para-emagrecer-funciona",
+    curto="Suplemento para emagrecer funciona?",
+    title="Suplemento para emagrecer funciona? Quantos quilos dá para perder",
+    h1="Suplemento para emagrecer funciona? Quantos quilos dá para perder",
+    desc="Suplemento para emagrecer funciona mesmo? Veja o que dizem os estudos, quantos quilos dá para perder com segurança, em quanto tempo e por que desconfiar de promessas.",
+    categoria="Emagrecimento",
+    data="2026-11-27",
+    resumo="O que os estudos mostram, o ritmo seguro de perda de peso e as promessas que são sinal de alerta.",
+    corpo="""
+<p>"Emagrece mesmo?" e "quantos quilos dá para perder?" estão entre as perguntas mais buscadas sobre qualquer suplemento para emagrecer. A resposta honesta é menos empolgante do que os anúncios, mas ajuda você a gastar melhor o seu dinheiro.</p>
+
+<h2>Resposta curta</h2>
+<p>Suplemento para emagrecer, sozinho, faz pouca diferença. O que emagrece é gastar mais energia do que você consome (o chamado déficit calórico), mantido por semanas e meses. Um suplemento pode, no máximo, <strong>ajudar você a manter a rotina</strong>: dar praticidade a um lanche, ajudar a evitar o "beliscar", lembrar você do compromisso todos os dias.</p>
+
+<h2>O que os estudos mostram</h2>
+<p>Revisões de estudos sobre os ingredientes mais comuns em produtos para emagrecer, como cafeína, chá verde, fibras (glucomanana, psyllium), picolinato de cromo e vinagre de maçã, encontram em geral diferenças <strong>pequenas</strong> em relação ao placebo. Muitas vezes a diferença fica em poucos quilos ou menos, e boa parte dos estudos é curta, pequena ou de baixa qualidade.</p>
+<p>Ou seja: quando alguém perde muito peso "tomando um produto", quase sempre mudou também a alimentação e a rotina. O mérito é principalmente dessas mudanças.</p>
+
+<h2>Quantos quilos dá para perder com segurança</h2>
+<p>O ritmo considerado saudável pela maioria dos especialistas é de <strong>0,5 a 1 kg por semana</strong>, o que dá cerca de 2 a 4 kg por mês. Na primeira semana a balança pode cair mais, porque o corpo perde água junto com o glicogênio (a reserva de açúcar dos músculos). Isso não é gordura e não se repete nas semanas seguintes.</p>
+<p>Uma conta aproximada: 1 kg de gordura corresponde a cerca de 7.700 kcal. Para perder 0,5 kg por semana, é preciso um déficit de cerca de 500 kcal por dia, somando o que se come a menos e o que se gasta a mais. Perder 10 kg em um mês exigiria um déficit que nenhuma pessoa consegue manter com segurança.</p>
+
+<h2>Em quanto tempo aparecem os resultados</h2>
+<p>Com alimentação ajustada e alguma atividade física, é comum notar diferença nas roupas e nas medidas em 4 a 8 semanas. Mas não existe prazo garantido: ponto de partida, sono, estresse, remédios e hormônios mudam muito o ritmo de cada pessoa. Acompanhe pela fita métrica e por fotos, não só pela balança.</p>
+
+<h2>Promessas que são sinal de alerta</h2>
+<ul>
+  <li>"Perca X kg em Y dias" ou "emagreça sem dieta e sem exercício".</li>
+  <li>"Queima gordura da barriga": não existe perda de gordura localizada com suplemento.</li>
+  <li>"Resultado garantido", "100% natural, sem nenhum efeito colateral".</li>
+  <li>Fotos de antes e depois e depoimentos que você não consegue conferir.</li>
+  <li>Produto que só se compra por um "site oficial" com contador regressivo e desconto que nunca acaba.</li>
+</ul>
+<p>Para saber o que conferir antes de comprar, veja também o nosso guia sobre <a href="qual-melhor-suplemento-para-emagrecer-sao-paulo-sp.html">como escolher um suplemento para emagrecer</a>.</p>
+
+<h2>Então vale a pena usar?</h2>
+<p>Vale se você enxergar o suplemento como <strong>apoio</strong>, e não como solução. Escolha um produto com rótulo claro e empresa identificada, siga o modo de uso, e invista a maior parte da energia em três coisas: refeições com proteína e fibras, movimento diário e sono.</p>
+""" + CTA_VELMO + AVISO_EMAGRECER,
+    faq=[
+        ("Suplemento para emagrecer funciona?",
+         "Sozinho, faz pouca diferença. Os estudos com os ingredientes mais comuns mostram efeitos pequenos. Ele pode ser um apoio para manter a rotina, mas quem emagrece é a combinação de alimentação e atividade física."),
+        ("Quantos quilos dá para perder com suplemento?",
+         "Não existe um número garantido. O ritmo seguro de perda de peso é de 0,5 a 1 kg por semana, com ou sem suplemento, e depende principalmente da alimentação."),
+        ("Em quanto tempo o suplemento para emagrecer faz efeito?",
+         "Com alimentação ajustada e atividade física, a diferença nas medidas costuma aparecer em 4 a 8 semanas. O prazo varia de pessoa para pessoa."),
+        ("Dá para emagrecer tomando só o suplemento, sem dieta?",
+         "Não. Sem déficit calórico não há perda de gordura. Desconfie de produtos que prometem emagrecer sem dieta e sem exercício."),
+        ("Por que a balança cai rápido na primeira semana?",
+         "Porque o corpo perde água junto com o glicogênio quando você reduz carboidratos. Essa queda não é gordura e não se repete nas semanas seguintes."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="efeitos-colaterais-de-suplemento-para-emagrecer",
+    curto="Efeitos colaterais de suplementos para emagrecer",
+    title="Efeitos colaterais de suplementos para emagrecer: o que observar",
+    h1="Efeitos colaterais de suplementos para emagrecer: o que observar",
+    desc="Efeitos colaterais de suplementos para emagrecer: cafeína e termogênicos, fibras, chás laxantes e produtos adulterados. Quem deve evitar e quando procurar um médico.",
+    categoria="Emagrecimento",
+    data="2026-12-01",
+    resumo="Termogênicos, fibras, chás laxantes e produtos adulterados: os efeitos mais comuns, quem deve evitar e os sinais para parar.",
+    corpo="""
+<p>"Tem efeito colateral?" é uma das primeiras perguntas de quem pensa em comprar um produto para emagrecer, e a pergunta certa a fazer. Nenhum produto é "seguro para todo mundo": o risco depende dos ingredientes, da dose e de quem está tomando.</p>
+
+<h2>Cafeína e termogênicos</h2>
+<p>Muitos produtos para emagrecer têm cafeína, guaraná, chá verde, café verde ou outras fontes de estimulantes. Os efeitos colaterais mais comuns são:</p>
+<ul>
+  <li>Insônia e sono leve, principalmente se tomados à tarde ou à noite.</li>
+  <li>Coração acelerado, palpitação e tremor.</li>
+  <li>Ansiedade, irritação e dor de cabeça.</li>
+  <li>Aumento da pressão arterial.</li>
+  <li>Azia e desconforto no estômago.</li>
+</ul>
+<p>Para adultos saudáveis, a referência mais usada é não passar de cerca de <strong>400 mg de cafeína por dia</strong>, somando tudo: café, refrigerante, energético e suplemento. Uma xícara de café coado tem, em média, 80 a 100 mg. Gestantes devem ficar bem abaixo disso e conversar com o médico.</p>
+<p>Extratos concentrados de chá verde em doses altas já foram associados a casos de lesão no fígado. Por isso, siga a porção do rótulo e não junte vários produtos com o mesmo tipo de ingrediente.</p>
+
+<h2>Fibras (glucomanana, psyllium, goma guar)</h2>
+<p>As fibras aumentam a saciedade porque absorvem água e ocupam espaço no estômago. Os efeitos mais comuns são gases, inchaço e mudança no ritmo do intestino. Tomadas com pouca água, podem engasgar ou travar o intestino. Elas também podem atrapalhar a absorção de remédios: tome com intervalo de algumas horas e beba bastante água.</p>
+
+<h2>Chás e produtos laxantes ou diuréticos</h2>
+<p>Alguns "chás para emagrecer" têm sene, cáscara sagrada ou outras plantas laxantes e diuréticas. Eles fazem a balança cair porque eliminam água e conteúdo do intestino, não gordura. O uso frequente pode causar cólica, diarreia, desidratação, perda de potássio e dependência do intestino. Leia mais sobre isso no guia <a href="suplemento-para-emagrecer-funciona.html">suplemento para emagrecer funciona?</a></p>
+
+<h2>O maior risco: produto adulterado</h2>
+<p>A Anvisa e a polícia apreendem com frequência "emagrecedores naturais" que, na verdade, têm remédios escondidos, como sibutramina, antidepressivos ou diuréticos. Esses produtos podem causar arritmia, pressão alta e outros problemas graves, justamente porque a pessoa não sabe o que está tomando. Desconfie de produto sem rótulo completo, sem empresa identificada ou com efeito "forte demais".</p>
+
+<h2>Quem deve evitar ou consultar o médico antes</h2>
+<ul>
+  <li>Gestantes, lactantes e menores de 18 anos.</li>
+  <li>Pessoas com pressão alta, arritmia ou doença no coração.</li>
+  <li>Quem tem problemas de tireoide, fígado, rins ou ansiedade.</li>
+  <li>Quem usa remédios contínuos, como antidepressivos, anticoagulantes ou remédios para pressão e diabetes.</li>
+</ul>
+
+<h2>Sinais para parar e procurar atendimento</h2>
+<ul>
+  <li>Dor no peito, falta de ar, palpitação forte ou desmaio.</li>
+  <li>Pele ou olhos amarelados, urina escura ou dor do lado direito da barriga.</li>
+  <li>Diarreia ou vômitos que não passam.</li>
+  <li>Alergia: coceira forte, inchaço no rosto ou na garganta.</li>
+</ul>
+<p>Se acontecer, pare o produto e procure um serviço de saúde levando a embalagem.</p>
+""" + CTA_VELMO + AVISO_EMAGRECER,
+    faq=[
+        ("Quais os efeitos colaterais mais comuns de suplementos para emagrecer?",
+         "Nos produtos com cafeína ou termogênicos: insônia, coração acelerado, ansiedade, dor de cabeça e aumento da pressão. Nos de fibras: gases e inchaço. Nos chás laxantes: cólica, diarreia e desidratação."),
+        ("Suplemento natural para emagrecer pode fazer mal?",
+         "Pode. Natural não quer dizer seguro: plantas e extratos têm efeitos no corpo, e doses altas ou combinações erradas podem causar problemas. Siga o rótulo e consulte um médico se tiver alguma condição de saúde."),
+        ("Quanto de cafeína por dia é seguro?",
+         "Para adultos saudáveis, a referência mais usada é até cerca de 400 mg por dia, somando café, refrigerante, energético e suplementos. Gestantes devem consumir bem menos e conversar com o médico."),
+        ("Quem tem pressão alta pode tomar suplemento para emagrecer?",
+         "Só com orientação médica. Produtos com cafeína e outros estimulantes podem aumentar a pressão e acelerar o coração."),
+        ("Como saber se o produto tem remédio escondido?",
+         "Pelo rótulo não dá para ter certeza. Desconfie de produto sem empresa identificada, sem lista completa de ingredientes ou com efeito forte demais, e prefira marcas regularizadas."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="como-saber-se-suplemento-e-confiavel",
+    curto="Como saber se um suplemento é confiável",
+    title="Como saber se um suplemento é confiável: Anvisa, rótulo e Reclame Aqui",
+    h1="Como saber se um suplemento é confiável",
+    desc="Como saber se um suplemento para emagrecer é confiável e original: o que conferir na Anvisa, no rótulo, no Reclame Aqui e no site de compra antes de pagar.",
+    categoria="Emagrecimento",
+    data="2026-12-04",
+    resumo="Um checklist de 6 passos: empresa, Anvisa, rótulo, Reclame Aqui, site de compra e promessas.",
+    corpo="""
+<p>"É confiável?", "é original?", "tem no Reclame Aqui?". Antes de comprar qualquer suplemento, principalmente os vendidos pela internet, vale gastar dez minutos com este checklist. Ele serve para qualquer marca, inclusive a que vendemos aqui.</p>
+
+<h2>1. Descubra quem é a empresa</h2>
+<p>O rótulo precisa trazer o nome da empresa responsável, o CNPJ e o endereço. Pesquise o CNPJ: veja se a empresa está ativa e se o ramo dela tem a ver com alimentos ou suplementos. Desconfie de produto que só mostra uma marca bonita e um número de WhatsApp.</p>
+
+<h2>2. Confira a situação na Anvisa</h2>
+<p>No Brasil, nem todo suplemento alimentar tem "número de registro": muitos são dispensados de registro, mas a empresa continua obrigada a seguir as regras da Anvisa de ingredientes, quantidades e rótulo. Por isso:</p>
+<ul>
+  <li>Se o rótulo traz um número de registro, consulte no site de consultas da Anvisa.</li>
+  <li>Se não traz, confira se a empresa está regularizada e se os ingredientes e quantidades seguem as regras de suplementos.</li>
+  <li>Pesquise o nome do produto junto com "Anvisa" para ver se há alerta, recolhimento ou proibição.</li>
+</ul>
+<p>Desconfie de selo "aprovado pela Anvisa" usado como argumento de venda, e de qualquer promessa de tratar ou curar doença: suplemento não é remédio.</p>
+
+<h2>3. Leia o rótulo inteiro</h2>
+<ul>
+  <li>Lista completa de ingredientes e a quantidade de cada ativo por porção.</li>
+  <li>Porção diária recomendada e modo de uso.</li>
+  <li>Advertências (por exemplo, "não indicado para gestantes").</li>
+  <li>Lote e validade.</li>
+</ul>
+<p>"Fórmula secreta" ou "blend exclusivo" sem as quantidades não é bom sinal.</p>
+
+<h2>4. Pesquise no Reclame Aqui</h2>
+<p>Olhe além da nota. Leia as reclamações mais recentes e veja <strong>do que</strong> as pessoas reclamam: atraso na entrega, dificuldade para cancelar assinatura, cobrança que não foi autorizada, reembolso negado. Veja também se a empresa responde e resolve. Muitas reclamações de cobrança recorrente indicam venda com assinatura escondida.</p>
+
+<h2>5. Confira onde você está comprando</h2>
+<ul>
+  <li>O endereço do site é o que aparece no rótulo ou nas redes oficiais da marca?</li>
+  <li>O pagamento é feito em uma plataforma conhecida, com página segura (cadeado)?</li>
+  <li>Há política de troca, prazo de garantia e dados de contato?</li>
+  <li>O preço é muito abaixo do normal? Produto falsificado costuma aparecer em marketplaces com preço "bom demais".</li>
+</ul>
+<p>Muitos produtos são vendidos por afiliados (como este site). Isso é permitido: o importante é que a compra seja feita na plataforma oficial do produtor e que o afiliado deixe isso claro.</p>
+
+<h2>6. Desconfie das promessas</h2>
+<p>Quanto maior a promessa, maior a chance de problema. "perca X kg em Y dias", "sem efeito colateral" e "resultado garantido" são sinais de alerta. Veja os detalhes em <a href="suplemento-para-emagrecer-funciona.html">suplemento para emagrecer funciona?</a> e em <a href="efeitos-colaterais-de-suplemento-para-emagrecer.html">efeitos colaterais de suplementos para emagrecer</a>.</p>
+""" + CTA_VELMO + AVISO_EMAGRECER,
+    faq=[
+        ("Como saber se um suplemento é original?",
+         "Compre pelo site ou pela plataforma oficial do produtor, confira se o rótulo traz empresa, CNPJ, lote e validade, e desconfie de preço muito abaixo do normal em marketplaces."),
+        ("Todo suplemento precisa de registro na Anvisa?",
+         "Não. Muitos suplementos alimentares são dispensados de registro, mas precisam seguir as regras da Anvisa de ingredientes, quantidades e rótulo. Produtos com promessa de tratar doença não podem ser vendidos como suplemento."),
+        ("Como consultar um produto na Anvisa?",
+         "Se o rótulo trouxer número de registro, use o site de consultas da Anvisa. Vale também pesquisar o nome do produto com a palavra Anvisa para ver alertas e recolhimentos."),
+        ("O que olhar no Reclame Aqui antes de comprar?",
+         "Além da nota, leia as reclamações recentes e veja o tipo de problema, como entrega, cobrança recorrente ou reembolso, e se a empresa responde e resolve."),
+        ("Comprar de afiliado é seguro?",
+         "Pode ser, desde que o pagamento seja feito na plataforma oficial do produtor e o afiliado informe que recebe comissão."),
+    ],
+))
+
+POSTS.append(dict(
+    slug="cha-ou-capsula-para-emagrecer",
+    curto="Chá, cápsula ou pó para emagrecer",
+    title="Chá, cápsula ou pó para emagrecer: o que olhar no rótulo",
+    h1="Chá, cápsula ou pó para emagrecer: qual escolher e o que olhar no rótulo",
+    desc="Chá, cápsula ou pó para emagrecer: diferenças entre os formatos, o que conferir na composição e no rótulo, como tomar e os cuidados com chás laxantes.",
+    categoria="Emagrecimento",
+    data="2026-12-08",
+    resumo="Diferenças entre os formatos, como ler a composição e como tomar sem errar.",
+    corpo="""
+<p>Os produtos para emagrecer aparecem em três formatos principais: chá, cápsula (ou comprimido) e pó para preparar bebida. Muita gente escolhe pelo formato, mas o que importa de verdade é o que está dentro, e se você consegue usar todos os dias.</p>
+
+<h2>Chá</h2>
+<p><strong>Prós:</strong> ritual agradável, ajuda na hidratação, costuma ser barato.<br>
+<strong>Contras:</strong> a quantidade de ativo varia com o tempo de infusão, e alguns "chás para emagrecer" têm plantas laxantes ou diuréticas, como sene e cáscara sagrada. Eles fazem a balança cair por perda de água, não de gordura, e não são para uso contínuo.</p>
+<p><strong>Confira:</strong> a lista de plantas, as advertências e se há sene, cáscara sagrada ou "ruibarbo" entre os ingredientes.</p>
+
+<h2>Cápsula ou comprimido</h2>
+<p><strong>Prós:</strong> prático de levar, dose fixa, sem sabor.<br>
+<strong>Contras:</strong> é fácil tomar mais do que o indicado ou somar vários produtos com cafeína. Também é o formato mais usado em produtos falsificados ou adulterados.</p>
+<p><strong>Confira:</strong> a quantidade de cada ativo por cápsula, quantas cápsulas formam a porção diária e o total de cafeína, se houver.</p>
+
+<h2>Pó para preparar bebida (drink)</h2>
+<p><strong>Prós:</strong> pode substituir um lanche ou um refrigerante, tem sabor, e o preparo diário ajuda a criar o hábito.<br>
+<strong>Contras:</strong> precisa de preparo, e é preciso olhar açúcar e calorias por porção.</p>
+<p><strong>Confira:</strong> calorias e açúcares por porção, ingredientes, adoçantes e quantas porções vêm no pote.</p>
+
+<h2>O que olhar na composição, em qualquer formato</h2>
+<ul>
+  <li><strong>Ingredientes e quantidades por porção:</strong> fuja de "blend exclusivo" sem números.</li>
+  <li><strong>Estimulantes:</strong> cafeína, guaraná, chá verde e café verde somam. Veja os limites no guia de <a href="efeitos-colaterais-de-suplemento-para-emagrecer.html">efeitos colaterais</a>.</li>
+  <li><strong>Laxantes e diuréticos:</strong> não são para uso diário.</li>
+  <li><strong>Empresa, CNPJ, lote e validade:</strong> veja o checklist completo em <a href="como-saber-se-suplemento-e-confiavel.html">como saber se um suplemento é confiável</a>.</li>
+  <li><strong>Promessas no rótulo:</strong> suplemento não pode prometer tratar doença nem "queimar gordura localizada".</li>
+</ul>
+
+<h2>Como tomar</h2>
+<ol>
+  <li>Siga a porção e o horário indicados no rótulo, sem dobrar a dose.</li>
+  <li>Produtos com cafeína: evite tomar depois do meio da tarde.</li>
+  <li>Fibras: tome com bastante água e longe dos remédios.</li>
+  <li>Não combine vários produtos para emagrecer ao mesmo tempo.</li>
+  <li>Junte com refeições com proteína e fibras, água e movimento: é isso que faz a diferença. Leia <a href="suplemento-para-emagrecer-funciona.html">suplemento para emagrecer funciona?</a></li>
+</ol>
+
+<h2>Qual formato escolher?</h2>
+<p>O melhor formato é o que tem composição clara e que você consegue usar todos os dias sem esforço. Se você gosta de um momento de pausa, chá ou drink combinam mais. Se quer praticidade fora de casa, cápsula. Em todos os casos, leia o rótulo antes do preço.</p>
+""" + CTA_VELMO + AVISO_EMAGRECER,
+    faq=[
+        ("Chá ou cápsula para emagrecer: qual é melhor?",
+         "Nenhum formato é melhor por si só. O que importa é a composição, a quantidade de cada ativo e se você consegue usar todos os dias seguindo o rótulo."),
+        ("Chá para emagrecer funciona?",
+         "Chás podem ajudar na hidratação e na rotina, mas não queimam gordura. Os que têm plantas laxantes ou diuréticas só fazem perder água e não devem ser usados todos os dias."),
+        ("O que olhar na composição de um produto para emagrecer?",
+         "A quantidade de cada ingrediente por porção, o total de cafeína, a presença de laxantes ou diuréticos, as advertências e os dados da empresa responsável."),
+        ("Qual o melhor horário para tomar?",
+         "Siga o rótulo. Produtos com cafeína devem ser tomados de manhã ou no início da tarde para não atrapalhar o sono."),
+        ("Posso tomar chá e cápsula para emagrecer juntos?",
+         "Não é recomendado combinar produtos para emagrecer, porque os estimulantes e os efeitos colaterais se somam. Se quiser combinar, converse com um médico ou nutricionista."),
+    ],
+))
+
 
 def pagina_post(p):
     url = f"{SITE}/{p['slug']}.html"
