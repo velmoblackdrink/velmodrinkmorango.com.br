@@ -66,3 +66,20 @@ test("posts de emagrecimento: título curto, descrição, FAQ e sem promessa de 
   }
   assert.ok(!existsSync(join(gerarEm("2026-11-26"), "suplemento-para-emagrecer-funciona.html")))
 })
+
+test("todo post tem um CTA no meio da leitura, para uma página de produto que existe, além do CTA final", () => {
+  const pasta = gerarEm("2027-12-31")
+  const posts = readdirSync(pasta).filter((n) => n.endsWith(".html") && ler(pasta, n).includes('"@type": "BlogPosting"') && n !== "blog.html")
+  assert.ok(posts.length >= 19, `só ${posts.length} posts`)
+  for (const nome of posts) {
+    const doc = ler(pasta, nome)
+    const partes = doc.split('class="blog-cta-meio"')
+    assert.equal(partes.length - 1, 1, `${nome}: um CTA no meio`)
+    const pos = partes[0].length
+    const h2s = [...doc.matchAll(/<h2>/g)].map((m) => m.index)
+    assert.ok(h2s.length >= 3 && pos > h2s[0] && pos < h2s[h2s.length - 1], `${nome}: CTA entre a primeira e a última seção`)
+    const href = partes[1].match(/href="([a-z0-9-]+\.html)(#[a-z-]+)?"/)[1]
+    assert.ok(existsSync(join(RAIZ, href)), `${nome}: ${href} existe`)
+    assert.ok(partes[1].slice(0, 600).includes('class="cta-meio-btn"'), `${nome}: link rastreável`)
+  }
+})

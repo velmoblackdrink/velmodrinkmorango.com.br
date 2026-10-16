@@ -112,3 +112,6 @@
 .blog-cta { margin: 40px 0 8px; padding: 24px 22px; background: var(--dark3); border: 1px solid rgba(46,125,107,.15); border-radius: 10px; }
 .blog-cta-titulo { font-weight: 600; color: var(--gold-dark) !important; font-size: 1.05rem !important; }
 .blog-post .blog-cta .btn { color: #fff; }
+.blog-cta-meio { margin: 28px 0; padding: 14px 18px; background: var(--dark3); border-left: 4px solid #2e7d6b; border-radius: 6px; }
+.blog-post .blog-cta-meio p { margin: 0; }
+.blog-cta-meio a { font-weight: 600; color: #2e7d6b; white-space: normal; }

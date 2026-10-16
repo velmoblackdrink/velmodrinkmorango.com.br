@@ -1258,6 +1258,57 @@ POSTS.append(dict(
 ))
 
 
+# CTA leve no meio da leitura: caixa de uma linha antes da seção indicada (o CTA grande continua no fim).
+# slug: (h2 antes do qual entra, texto, link, texto do link)
+CTA_MEIO = {
+    "calistenia-para-iniciantes": ("Plano de 4 semanas para iniciantes",
+        "Treina com intensidade e pensa em creatina? A Velmora tem em pó e em goma.", "creatina.html", "Compare os dois formatos"),
+    "como-tomar-creatina": ("Qual o melhor horário?",
+        "Prefere creatina com sabor para misturar na água?", "creagym.html", "Conheça o CreaGym, sabores Morango e Tangerina"),
+    "melhor-horario-para-tomar-creatina": ("E nos dias sem treino?",
+        "Esquece a dose? A creatina em goma é fácil de levar na bolsa.", "creatina-gummy.html", "Veja a Creatina Gummy, 3 g por porção"),
+    "creatina-com-sabor-e-em-goma": ("Então, qual escolher?",
+        "Quer ver os dois formatos lado a lado, com ingredientes e preço por mês?", "creatina.html", "Compare o CreaGym e a Creatina Gummy"),
+    "para-que-serve-a-creatina": ("Quem pode se beneficiar",
+        "Pensando em começar?", "creatina.html", "Veja as opções de creatina da Velmora, em pó e em goma"),
+    "creatina-monohidratada-ou-creapure": ("Então qual escolher?",
+        "Na hora de comparar, olhe a quantidade de creatina por porção.", "creatina.html", "Veja a comparação do CreaGym e da Creatina Gummy"),
+    "quem-nao-pode-tomar-creatina": ("Como usar com segurança",
+        "Se a creatina é para você, compare formato e porção antes de comprar.", "creatina.html", "CreaGym ou Creatina Gummy?"),
+    "como-escolher-creatina": ("4. O preço por porção",
+        "Quer aplicar este checklist em um produto real?", "creatina.html", "Veja ingredientes e preço por mês do CreaGym e da Creatina Gummy"),
+    "creatina-para-mulher": ("Qual a dose para mulheres?",
+        "Prefere creatina com sabor ou em goma?", "creatina.html", "Compare as opções da Velmora"),
+    "virilha-escura-causas-e-como-clarear": ("O que não fazer",
+        "Procura um clareador feito para a região?", "clarize.html", "Conheça o Clarize, com niacinamida, para virilha e axilas"),
+    "axilas-escuras-o-que-pode-ser": ("O que evitar",
+        "Procura um clareador de uso externo para as axilas?", "clarize.html", "Conheça o Clarize"),
+    "niacinamida-clareia": ("Como usar na virilha e nas axilas",
+        "O Clarize tem niacinamida entre os seus 4 ativos.", "clarize.html", "Veja a composição e o modo de uso"),
+    "clareamento-de-axilas-caseiro": ("Água oxigenada",
+        "Em vez de receitas caseiras, prefira um produto feito para a pele da região.", "clarize.html", "Conheça o Clarize"),
+    "clareamento-de-axilas-e-virilha-laser-peeling-ou-creme": ("Peeling",
+        "Quer começar pelo creme?", "clarize.html", "Veja o Clarize: ativos, modo de uso e prazo indicado pelo fabricante"),
+    "creme-clareador-para-axilas-e-virilha-como-escolher": ("3. Fuja das promessas exageradas",
+        "Quer ver esses itens em um rótulo real?", "clarize.html", "Confira a composição do Clarize"),
+    "suplemento-para-emagrecer-funciona": ("Em quanto tempo aparecem os resultados",
+        "Procura um apoio prático para a rotina? O Velmo Drink é um drink em pó, sabores morango e tangerina.", "index.html", "Conheça o Velmo Drink"),
+    "efeitos-colaterais-de-suplemento-para-emagrecer": ("Fibras (glucomanana, psyllium, goma guar)",
+        "Gosta de conferir a composição antes de comprar?", "index.html", "Veja os ingredientes e o modo de uso do Velmo Drink"),
+    "como-saber-se-suplemento-e-confiavel": ("4. Pesquise no Reclame Aqui",
+        "Quer praticar com um produto real?", "index.html", "Confira o rótulo e o modo de uso do Velmo Drink"),
+    "cha-ou-capsula-para-emagrecer": ("O que olhar na composição, em qualquer formato",
+        "Um exemplo de drink em pó: o Velmo Drink, sabores morango e tangerina, 30 porções por pote.", "index.html", "Conheça o Velmo Drink"),
+}
+
+for _p in POSTS:
+    _antes, _texto, _href, _rotulo = CTA_MEIO[_p["slug"]]
+    _alvo = f"<h2>{_antes}</h2>"
+    assert _p["corpo"].count(_alvo) == 1, (_p["slug"], _antes)
+    _p["corpo"] = _p["corpo"].replace(_alvo,
+        f'<aside class="blog-cta-meio"><p>{_texto} <a class="cta-meio-btn" href="{_href}">{_rotulo} &rarr;</a></p></aside>\n\n{_alvo}', 1)
+
+
 def pagina_post(p):
     url = f"{SITE}/{p['slug']}.html"
     ld = {"@context": "https://schema.org", "@graph": [
