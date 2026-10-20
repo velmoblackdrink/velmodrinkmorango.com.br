@@ -201,7 +201,7 @@
   <!-- blog:inicio -->
   <url>
     <loc>https://velmodrinkmorango.com.br/blog.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -226,6 +226,12 @@
   <url>
     <loc>https://velmodrinkmorango.com.br/creatina-com-sabor-e-em-goma.html</loc>
     <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://velmodrinkmorango.com.br/para-que-serve-a-creatina.html</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
