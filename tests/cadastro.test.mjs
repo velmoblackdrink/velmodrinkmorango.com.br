@@ -4,7 +4,7 @@ import { test } from "node:test"
 import assert from "node:assert/strict"
 import { tratarCadastro, emailValido, TEXTO_CONSENTIMENTO } from "../api/_lib/cadastro.mjs"
 
-const ENV = { PLANILHA_VENDAS_URL: "https://script.google.com/teste", PLANILHA_VENDAS_CHAVE: "chave-teste" }
+const ENV = { CADASTRO_PLANILHA_URL: "https://script.google.com/teste", CADASTRO_PLANILHA_CHAVE: "chave-teste" }
 
 function pedido(corpo, origem = "https://velmodrinkmorango.com.br") {
   const headers = { "content-type": "application/json" }

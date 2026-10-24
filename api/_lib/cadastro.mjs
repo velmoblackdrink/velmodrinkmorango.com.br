@@ -1,7 +1,8 @@
 // Recebe o e-mail do campo "Receba Ofertas Exclusivas" (rodapé da página inicial).
 // 1. Só aceita pedidos vindos do próprio site (cabeçalho Origin).
 // 2. Só grava com a caixa de consentimento marcada (LGPD): guarda junto o texto aceito e a versão da política.
-// 3. Grava na aba "Cadastros" da planilha de vendas, pelo mesmo script do Google (PLANILHA_VENDAS_URL/CHAVE).
+// 3. Grava na aba "Cadastros" da planilha "Receba Ofertas Exclusivas - Leads do site" (CADASTRO_PLANILHA_URL/CHAVE),
+//    separada da planilha de vendas. Script: planilha-leads-apps-script.js (fora do repo).
 // A chave fica só na Vercel; o navegador nunca a vê.
 
 const TAMANHO_MAXIMO = 2000 // bytes do corpo
@@ -45,8 +46,8 @@ export async function tratarCadastro(request, { env = process.env, fetch: fetchF
   if (!email) return resposta(400, { erro: "email" })
   if (dados.consentimento !== true) return resposta(400, { erro: "consentimento" })
 
-  const destino = env.PLANILHA_VENDAS_URL
-  const chave = (env.PLANILHA_VENDAS_CHAVE || "").trim()
+  const destino = env.CADASTRO_PLANILHA_URL
+  const chave = (env.CADASTRO_PLANILHA_CHAVE || "").trim()
   if (!destino || !chave) {
     console.error("cadastro: planilha não configurada")
     return resposta(503)
