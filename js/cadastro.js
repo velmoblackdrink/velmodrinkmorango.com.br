@@ -35,7 +35,7 @@
         return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; });
       }).then(function (res) {
         if (res.ok) {
-          mostrar('✅ Pronto! Seu e-mail foi cadastrado. Para cancelar, é só pedir pelo WhatsApp.');
+          mostrar('✅ Pronto! Seu e-mail foi cadastrado. Para cancelar, é só pedir pelo WhatsApp ou por e-mail.');
           form.reset();
           if (typeof window.gtag === 'function') window.gtag('event', 'sign_up', { method: 'newsletter' });
         } else if (res.d.erro === 'email') {

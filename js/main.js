@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="footer-col">
             <h4>Contato</h4>
             <ul>
-              <li><span>(45) 99966-3199</span></li>
+              <li><a href="https://wa.me/5545999663199" target="_blank" rel="noopener">WhatsApp (45) 9 9966-3199</a></li>
+              <li><a href="mailto:velmoblackdrink.atendimento@gmail.com">velmoblackdrink.atendimento@gmail.com</a></li>
               <li><span>Atendimento 24h / 7 dias</span></li>
               <li><a href="https://velmodrinkmorango.com.br" target="_blank" rel="nofollow noopener">Mais Informações</a></li>
             </ul>
