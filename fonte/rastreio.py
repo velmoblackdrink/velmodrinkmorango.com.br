@@ -1,10 +1,15 @@
 """Põe em todas as páginas .html da pasta: Google Tag Manager, GA4, imagem de compartilhamento
 (og:image) e os botões de compartilhar (Compartilhar e Copiar link).
 
+Cookies (LGPD): o GA4 começa com o Modo de Consentimento em "negado" (mede sem gravar cookies) e o GTM,
+que traz o Microsoft Clarity, só carrega depois que a pessoa clica em Aceitar no aviso de cookies
+(js/rastreio.js). A escolha fica no localStorage "velmo_cookies" por 12 meses. Por isso não há mais
+o <noscript> do GTM: ele carregaria o GTM sem aceite.
+
 Uso: python3 -I fonte/rastreio.py .
 Os geradores (gerar_loja.py e gerar_blog.py) já chamam este script no fim. Pode rodar quantas vezes
-quiser: tudo fica entre marcadores <!-- rastreio:inicio/fim -->, <!-- gtm-noscript:inicio/fim --> e
-<!-- compartilhar:inicio/fim -->, que são trocados a cada rodada.
+quiser: tudo fica entre marcadores <!-- rastreio:inicio/fim --> e <!-- compartilhar:inicio/fim -->, que são
+trocados a cada rodada (o antigo <!-- gtm-noscript:inicio/fim --> é apagado).
 Onde houver <!-- compartilhar --> no HTML, entra uma barra de compartilhar; se a página não tiver
 nenhum, entra uma antes do rodapé. Onde houver <!-- compartilhar:topo --> (abaixo da foto do topo),
 entra uma versão compacta, entre <!-- compartilhar-topo:inicio/fim -->.
@@ -17,7 +22,7 @@ import sys
 SITE = "https://velmodrinkmorango.com.br"
 GTM = "GTM-5RQXHCPW"
 GA4 = "G-Z921CFD04J"
-SEM_COMPARTILHAR = {"mapa-do-site.html"}
+SEM_COMPARTILHAR = {"mapa-do-site.html", "politica-de-privacidade.html"}
 
 # Imagem de compartilhamento: 1200x630 em img/og/. A primeira regra que casar com o nome do arquivo vale.
 IMAGENS = [
@@ -36,7 +41,15 @@ ESTILO = (".compartilhar{margin:32px auto;max-width:720px;padding:20px;border-ra
           ".comp-copiar{background:#555}"
           ".compartilhar-topo{margin:4px auto 20px;padding:0;background:none;display:flex;flex-wrap:wrap;"
           "align-items:center;justify-content:center;gap:8px}.compartilhar-topo p{margin:0;font-size:14px;"
-          "font-weight:500;color:#4a5e59}.compartilhar-topo a,.compartilhar-topo button{padding:7px 13px;font-size:13px}")
+          "font-weight:500;color:#4a5e59}.compartilhar-topo a,.compartilhar-topo button{padding:7px 13px;font-size:13px}"
+          # aviso de cookies (js/rastreio.js): Aceitar e Recusar com o mesmo destaque
+          ".cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:10000;max-width:560px;margin:0 auto;"
+          "padding:16px 18px;border-radius:14px;background:#fff;color:#222;box-shadow:0 8px 30px rgba(0,0,0,.25);"
+          "font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}.cookies p{margin:0 0 12px}"
+          ".cookies a{color:#2e7d6b;text-decoration:underline}.cookies-botoes{display:flex;gap:8px}"
+          ".cookies-botoes button{flex:1;padding:11px 14px;border:2px solid #2e7d6b;border-radius:999px;"
+          "background:#2e7d6b;color:#fff;font:inherit;font-weight:600;cursor:pointer}"
+          ".link-cookies{background:none;border:0;padding:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}")
 
 
 def imagem_de(nome):
@@ -66,12 +79,18 @@ def bloco_head(doc, nome):
     linhas = [
         "<!-- rastreio:inicio (gerado por fonte/rastreio.py: não editar à mão) -->",
         "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
-        f"gtag('js',new Date());gtag('config','{GA4}');</script>",
-        f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script>',
-        "<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});"
+        # escolha do aviso de cookies; vale por 12 meses (31536e6 ms)
+        "(function(){var c=null;try{c=JSON.parse(localStorage.getItem('velmo_cookies'))}catch(e){}"
+        "if(!c||!(Date.now()-c.em<31536e6))c=null;window.velmoCookies=c?c.escolha:null;"
+        "var ok=window.velmoCookies==='aceito'?'granted':'denied';"
+        "gtag('consent','default',{analytics_storage:ok,ad_storage:ok,ad_user_data:ok,ad_personalization:ok});"
+        "window.velmoGTM=function(){if(window.velmoGTMok)return;window.velmoGTMok=1;"
+        "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});"
         "var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;"
         "j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);"
-        f"}})(window,document,'script','dataLayer','{GTM}');</script>",
+        f"}})(window,document,'script','dataLayer','{GTM}')}};if(ok==='granted')window.velmoGTM()}})();"
+        f"gtag('js',new Date());gtag('config','{GA4}');</script>",
+        f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script>',
         f'<meta property="og:url" content="{canonico(doc, nome)}">',
         '<meta property="og:site_name" content="Velmo Drink">',
         '<meta property="og:locale" content="pt_BR">',
@@ -131,10 +150,6 @@ def aplicar(doc, nome):
     pos = vp.end() if vp else doc.index("<head>") + len("<head>\n")
     doc = doc[:pos] + bloco_head(doc, nome) + doc[pos:]
 
-    body = re.search(r"<body[^>]*>\n?", doc)
-    doc = (doc[:body.end()] + "  <!-- gtm-noscript:inicio -->\n"
-           f'  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={GTM}" height="0" width="0" '
-           'style="display:none;visibility:hidden"></iframe></noscript>\n  <!-- gtm-noscript:fim -->\n' + doc[body.end():])
 
     if nome in SEM_COMPARTILHAR:
         return doc.replace("<!-- compartilhar -->", "").replace("<!-- compartilhar:topo -->", "")

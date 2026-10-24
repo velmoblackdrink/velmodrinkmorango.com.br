@@ -1,7 +1,7 @@
 /* ============================================
    VELMO DRINK — rastreio.js
-   Eventos de clique no GA4/GTM, UTMs da visita levadas ao checkout
-   e botões de compartilhar (Compartilhar e Copiar link).
+   Eventos de clique no GA4/GTM, UTMs da visita levadas ao checkout,
+   botões de compartilhar (Compartilhar e Copiar link) e aviso de cookies (LGPD).
    Carregado em todas as páginas pelo bloco de fonte/rastreio.py.
    ============================================ */
 (function () {
@@ -54,6 +54,53 @@
   if (!origem || new URLSearchParams(location.search).get('utm_source')) { origem = nova; guardar(origem); }
   var pagina = paginaDe(location.pathname);
 
+  /* ─── AVISO DE COOKIES ───
+     O bloco do <head> (fonte/rastreio.py) já leu a escolha em window.velmoCookies e só carrega o GTM
+     (Clarity) com "aceito". Sem escolha, mostra o aviso; "Preferências de cookies" no rodapé reabre. */
+  var COOKIES = 'velmo_cookies';
+  var aviso = null;
+
+  function apagarCookiesDeMedicao() {
+    var dominios = ['', location.hostname, '.' + location.hostname.replace(/^www\./, '')];
+    document.cookie.split(';').forEach(function (c) {
+      var nome = c.split('=')[0].trim();
+      if (!/^(_ga|_gid|_gat|_clck|_clsk|CLID|_fbp)/.test(nome)) return;
+      dominios.forEach(function (d) {
+        document.cookie = nome + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
+      });
+    });
+  }
+
+  function escolher(escolha) {
+    try { localStorage.setItem(COOKIES, JSON.stringify({ escolha: escolha, em: Date.now() })); } catch (e) {}
+    window.velmoCookies = escolha;
+    var v = escolha === 'aceito' ? 'granted' : 'denied';
+    if (typeof window.gtag === 'function')
+      window.gtag('consent', 'update', { analytics_storage: v, ad_storage: v, ad_user_data: v, ad_personalization: v });
+    if (escolha === 'aceito') { if (window.velmoGTM) window.velmoGTM(); }
+    else apagarCookiesDeMedicao();
+    if (aviso) { aviso.remove(); aviso = null; }
+  }
+
+  function mostrarAviso() {
+    if (aviso) return;
+    aviso = document.createElement('div');
+    aviso.className = 'cookies';
+    aviso.setAttribute('role', 'region');
+    aviso.setAttribute('aria-label', 'Aviso de cookies');
+    aviso.innerHTML = '<p>Usamos cookies do Google Analytics e do Microsoft Clarity para saber quais páginas ajudam ' +
+      'e melhorar o site. Eles só entram se você aceitar. ' +
+      '<a href="politica-de-privacidade.html">Política de Privacidade</a></p>' +
+      '<div class="cookies-botoes"><button type="button" data-cookies="recusado">Recusar</button>' +
+      '<button type="button" data-cookies="aceito">Aceitar</button></div>';
+    document.body.appendChild(aviso);
+  }
+
+  if (window.velmoCookies !== 'aceito' && window.velmoCookies !== 'recusado') {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mostrarAviso);
+    else mostrarAviso();
+  }
+
   function enviar(nome, dados) {
     dados.pagina = pagina;
     if (typeof window.gtag === 'function') window.gtag('event', nome, dados);
@@ -93,6 +140,10 @@
   document.addEventListener('click', function (e) {
     var el = e.target.closest && e.target.closest('a, button');
     if (!el) return;
+    var escolha = el.getAttribute('data-cookies');
+    if (escolha) { escolher(escolha); return; }
+    if (el.hasAttribute('data-abrir-cookies')) { e.preventDefault(); mostrarAviso(); return; }
+
     var href = el.getAttribute('href') || '';
     var rede = el.getAttribute('data-rede');
 

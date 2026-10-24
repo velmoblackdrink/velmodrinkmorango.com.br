@@ -14,16 +14,59 @@ const PAGINAS = readdirSync(RAIZ).filter((n) => n.endsWith(".html"))
 const ler = (nome, pasta = RAIZ) => readFileSync(join(pasta, nome), "utf8")
 const conta = (texto, trecho) => texto.split(trecho).length - 1
 
-test("toda página tem GTM, GA4 e noscript do GTM uma vez só", () => {
+test("toda página tem GTM e GA4 uma vez só, com consentimento negado antes do config e sem noscript do GTM", () => {
   for (const nome of PAGINAS) {
     const doc = ler(nome)
     assert.equal(conta(doc, "gtm.js?id="), 1, `${nome}: GTM`)
     assert.equal(conta(doc, "gtag/js?id=G-Z921CFD04J"), 1, `${nome}: GA4`)
     assert.equal(conta(doc, "gtag('config'"), 1, `${nome}: config do GA4`)
-    assert.equal(conta(doc, "ns.html?id=GTM-5RQXHCPW"), 1, `${nome}: noscript`)
-    assert.ok(doc.indexOf("ns.html?id=") > doc.indexOf("<body"), `${nome}: noscript dentro do body`)
+    assert.equal(conta(doc, "gtag('consent','default'"), 1, `${nome}: consentimento padrão`)
+    assert.ok(doc.indexOf("gtag('consent','default'") < doc.indexOf("gtag('config'"), `${nome}: consentimento antes do config`)
+    assert.equal(conta(doc, "ns.html?id="), 0, `${nome}: noscript carregaria o GTM sem aceite`)
     assert.equal(conta(doc, 'src="js/rastreio.js"'), 1, `${nome}: rastreio.js`)
   }
+})
+
+// Roda o bloco do <head> como o navegador, com a escolha guardada, e diz se o GTM carregou e o consentimento dado.
+function rodarHead(guardado) {
+  const doc = ler("clarize.html")
+  const codigo = doc.match(/<script>(window\.dataLayer=[\s\S]*?)<\/script>/)[1]
+  const inseridos = []
+  const elemento = { parentNode: { insertBefore: (j) => inseridos.push(j.src) } }
+  const janela = {}
+  const contexto = {
+    window: janela, Date,
+    localStorage: { getItem: () => (guardado === undefined ? null : JSON.stringify(guardado)) },
+    document: { getElementsByTagName: () => [elemento], createElement: () => ({}) },
+  }
+  contexto.window = contexto
+  vm.runInNewContext(codigo, contexto)
+  const padrao = contexto.dataLayer.find((a) => a[0] === "consent" && a[1] === "default")
+  return { gtm: inseridos.some((s) => s.includes("gtm.js")), analytics: padrao[2].analytics_storage, escolha: contexto.velmoCookies }
+}
+
+test("GTM (Clarity) só carrega com aceite guardado há menos de 12 meses", () => {
+  assert.deepEqual(rodarHead(undefined), { gtm: false, analytics: "denied", escolha: null })
+  assert.deepEqual(rodarHead({ escolha: "recusado", em: Date.now() }), { gtm: false, analytics: "denied", escolha: "recusado" })
+  assert.deepEqual(rodarHead({ escolha: "aceito", em: Date.now() }), { gtm: true, analytics: "granted", escolha: "aceito" })
+  const velho = Date.now() - 400 * 24 * 3600 * 1000
+  assert.deepEqual(rodarHead({ escolha: "aceito", em: velho }), { gtm: false, analytics: "denied", escolha: null })
+})
+
+test("política de privacidade existe, está no rodapé, no mapa do site e no formulário da home", () => {
+  const politica = ler("politica-de-privacidade.html")
+  assert.match(politica, /Atendimento Velmo Black/)
+  assert.match(politica, /id="cookies"/)
+  assert.match(ler("js/main.js"), /href="politica-de-privacidade\.html"/)
+  assert.match(ler("js/main.js"), /data-abrir-cookies/)
+  assert.match(ler("mapa-do-site.html"), /href="politica-de-privacidade\.html"/)
+  const home = ler("index.html")
+  assert.ok(!home.includes("offondigital.github.io/velmo-black-drink/privacidade"), "link antigo da política")
+  const form = home.match(/<form[^>]*data-cadastro[\s\S]*?<\/form>/)[0]
+  assert.match(form, /name="email"/)
+  assert.match(form, /type="checkbox" name="consentimento" required/)
+  assert.match(form, /href="politica-de-privacidade\.html"/)
+  assert.match(home, /src="js\/cadastro\.js"/)
 })
 
 test("toda página tem og:image absoluta de 1200x630 que existe, e um og:url igual ao canonical", () => {

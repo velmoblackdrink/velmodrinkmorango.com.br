@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <li><a href="loja.html">Loja</a></li>
               <li><a href="blog.html">Blog</a></li>
               <li><a href="mapa-do-site.html">Mapa do Site</a></li>
+              <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+              <li><a href="politica-de-privacidade.html#cookies" data-abrir-cookies>Preferências de cookies</a></li>
             </ul>
           </div>
           <div class="footer-col">
