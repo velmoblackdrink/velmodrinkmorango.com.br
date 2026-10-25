@@ -191,6 +191,11 @@
 .sugestao-info p { margin: 0; }
 .sugestao-info h3 { margin: 2px 0; font-size: 1.4rem; color: #222; }
 .sugestao-desc { color: #555; font-size: .92rem; }
+.sugestao-info h3 { font-size: 1.6rem; line-height: 1.2; }
+.sugestao-areas { color: #b0336a; }
+.sugestao-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 6px; padding: 0; list-style: none; }
+.sugestao-chips li { padding: 4px 12px; border-radius: 999px; background: #fde8f0; color: #8a2453; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.sugestao-chips li::before { content: none; }
 .sugestao .kit-botoes { max-width: 460px; }
 @media (max-width: 600px) {
   .sugestao { flex-direction: column; text-align: left; align-items: stretch; }

@@ -121,9 +121,10 @@ def sugestao_clarize(preco=None, uuid=None, cheio=None):
     return f"""      <div class="sugestao">
         <div class="sugestao-foto"><img src="{a}" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="lazy"></div>
         <div class="sugestao-info">
-          <span class="kit-tag">Sugestão para você</span>
-          <h3>Leve também o Clarize</h3>
-          <p class="sugestao-desc">Clareador íntimo com niacinamida para virilha, axilas e joelhos. Frasco de 60 ml, para 1 mês de uso.</p>
+          <span class="kit-tag">Leve também o Clarize</span>
+          <h3>Clareador para <span class="sugestao-areas">axilas, virilha e joelhos</span></h3>
+          <ul class="sugestao-chips" aria-label="Onde usar"><li>Axilas</li><li>Virilha</li><li>Joelhos</li></ul>
+          <p class="sugestao-desc">O Clarize tem niacinamida para uniformizar o tom da pele das áreas que escurecem com o atrito. Uso externo, frasco de 60 ml para 1 mês.</p>
           {precos}
           <p class="kit-frete">É uma compra separada da creatina, com frete próprio de {brl(FRETE)} · garantia de 30 dias</p>
           <div class="kit-botoes">{botao(uuid, botao_txt)} <a class="btn btn-outline" href="clarize.html">Saiba mais</a></div>
