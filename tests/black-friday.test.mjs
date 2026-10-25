@@ -3,7 +3,7 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
 import { execFileSync } from "node:child_process"
-import { cpSync, mkdtempSync, readFileSync } from "node:fs"
+import { cpSync, existsSync, mkdtempSync, readFileSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
@@ -22,7 +22,7 @@ function gerarEm(hoje) {
 const ler = (pasta, nome) => readFileSync(join(pasta, nome), "utf8")
 
 test("fora do período nenhuma página mostra Black Friday nem link de desconto", () => {
-  for (const hoje of ["2026-11-19", "2026-12-01"]) {
+  for (const hoje of ["2026-10-25", "2026-12-01"]) {
     const pasta = gerarEm(hoje)
     for (const nome of PAGINAS) {
       const doc = ler(pasta, nome)
@@ -33,7 +33,7 @@ test("fora do período nenhuma página mostra Black Friday nem link de desconto"
 })
 
 test("no primeiro e no último dia a oferta aparece com os preços conferidos no checkout", () => {
-  for (const hoje of ["2026-11-20", "2026-11-30"]) {
+  for (const hoje of ["2026-10-26", "2026-11-30"]) {
     const pasta = gerarEm(hoje)
     const cg = ler(pasta, "creagym.html")
     assert.ok(cg.includes("bf-letreiro") && cg.includes('id="black-friday"'), hoje)
@@ -55,12 +55,11 @@ test("no primeiro e no último dia a oferta aparece com os preços conferidos no
   }
 })
 
-test("o post da Black Friday avisa antes, mostra a oferta durante e diz que acabou depois", () => {
-  const antes = ler(gerarEm("2026-11-03"), "creatina-black-friday.html")
-  assert.match(antes, /aparecem nesta página/)
-  assert.ok(!antes.includes("e395fad4"))
-  const durante = ler(gerarEm("2026-11-25"), "creatina-black-friday.html")
-  assert.ok(durante.includes('id="black-friday"') && durante.includes("e395fad4"))
+test("o post da Black Friday entra no primeiro dia da oferta já com os preços e diz que acabou depois", () => {
+  assert.ok(!existsSync(join(gerarEm("2026-10-25"), "creatina-black-friday.html")), "não sai antes do dia")
+  const primeiro = ler(gerarEm("2026-10-26"), "creatina-black-friday.html")
+  assert.ok(primeiro.includes('id="black-friday"') && primeiro.includes("e395fad4"))
+  assert.match(primeiro, /de 26 de outubro a 30 de novembro/)
   const depois = ler(gerarEm("2026-12-02"), "creatina-black-friday.html")
   assert.match(depois, /terminou/)
   assert.ok(!depois.includes("e395fad4"))
@@ -82,7 +81,7 @@ test("CreaGym e Creatina Gummy mostram os kits em cards, com a foto dos potes ju
 })
 
 test("durante a oferta a vitrine mostra de/por com 30% OFF e o letreiro fica no topo", () => {
-  const cg = ler(gerarEm("2026-11-20"), "creagym.html")
+  const cg = ler(gerarEm("2026-10-26"), "creagym.html")
   assert.ok(cg.indexOf("bf-letreiro") < cg.indexOf('class="hero-badge"'), "letreiro antes do selo do topo")
   assert.match(cg, /<s>R\$ 529,00<\/s>/)
   assert.match(cg, /30% OFF/)
@@ -91,7 +90,7 @@ test("durante a oferta a vitrine mostra de/por com 30% OFF e o letreiro fica no 
   assert.equal(cg.split("pay.hest.com.br/f3bb752f").length - 1, 1, "Clarize com 30% numa seção só, abaixo dos cards")
   assert.match(cg, /Preço normal: <s>R\$ 209,00<\/s> <span class="kit-off">30% OFF/)
   assert.ok(!cg.includes("pay.hest.com.br/8a088d7a"), "na oferta, o Clarize aparece só com desconto")
-  for (const doc of [cg, ler(gerarEm("2026-11-20"), "creatina-gummy.html")]) {
+  for (const doc of [cg, ler(gerarEm("2026-10-26"), "creatina-gummy.html")]) {
     assert.ok(!doc.includes('id="precos"'), "na oferta, sem a seção de preços normais repetida")
     assert.ok(!doc.includes("bb220038") && !doc.includes("a427da49"), "nenhum link de preço cheio da creatina")
     assert.ok(doc.includes('href="#black-friday">Ver ofertas da Black Friday'), "botão do topo leva à oferta")

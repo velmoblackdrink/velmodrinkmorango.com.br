@@ -13,10 +13,10 @@ import html
 
 import vitrine as V
 
-INICIO = "2026-11-20"
+INICIO = "2026-10-26"  # antecipada a pedido em 25/10/2026 (era 20/11)
 FIM = "2026-11-30"
 ANO = "2026"
-PERIODO = "de 20 a 30 de novembro"
+PERIODO = "de 26 de outubro a 30 de novembro"
 FIM_TEXTO = "30/11 às 23h59"
 DESCONTO = 0.30
 FRETE = 29.90
