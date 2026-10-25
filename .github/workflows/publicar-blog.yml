@@ -1,5 +1,6 @@
-# Publica os posts da fila do blog (fonte/gerar_blog.py) quando chega a data de cada um.
-# Roda todo dia às 07:00 de Brasília; só faz commit se houver post novo. O push no main faz a Vercel publicar.
+# Publica os posts da fila do blog (fonte/gerar_blog.py) quando chega a data de cada um, e liga ou desliga
+# as ofertas com data (fonte/black_friday.py) nas páginas da loja (fonte/gerar_loja.py).
+# Roda todo dia às 07:00 de Brasília; só faz commit se algo mudou. O push no main faz a Vercel publicar.
 name: Publicar blog
 
 on:
@@ -18,16 +19,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Gerar blog com a data de hoje
-        run: python3 -I fonte/gerar_blog.py .
+      - name: Gerar loja e blog com a data de hoje
+        run: |
+          python3 -I fonte/gerar_loja.py .
+          python3 -I fonte/gerar_blog.py .
       - name: Commit e push se houver post novo
         run: |
           if git diff --quiet; then
-            echo "Nenhum post novo hoje."
+            echo "Nada novo hoje."
             exit 0
           fi
           git config user.name velmoblackdrink
           git config user.email rosivelmoblack@gmail.com
           git add -A -- '*.html' sitemap.xml
-          git commit -m "Blog: publica post agendado de $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+          git commit -m "Publicação agendada de $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
           git push

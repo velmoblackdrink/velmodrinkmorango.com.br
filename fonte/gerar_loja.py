@@ -1,7 +1,13 @@
-import json, sys, os, html, subprocess
+import json, sys, os, html, subprocess, datetime, zoneinfo
+
+sys.dont_write_bytecode = True  # sem __pycache__ dentro do repo
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import black_friday as BF
 
 SITE = "https://velmodrinkmorango.com.br"
 OUT = sys.argv[1]
+# Data de hoje em Brasília (ou HOJE=AAAA-MM-DD para simular): liga e desliga a Black Friday.
+HOJE = os.environ.get("HOJE") or datetime.datetime.now(zoneinfo.ZoneInfo("America/Sao_Paulo")).date().isoformat()
 H = "https://pay.hest.com.br/"
 
 def brl(v):
@@ -256,7 +262,7 @@ def pagina_produto(slug, p):
   <section class="hero loja-hero">
     <div class="container{' loja-hero-grid' if im else ''}">
       <div class="hero-content">
-        <div class="hero-badge">{p['badge']}</div>
+        {BF.faixa(HOJE) if slug in BF.OFERTAS else ""}<div class="hero-badge">{p['badge']}</div>
         <h1>{p['h1']}</h1>
         <p class="hero-desc">{p['lead']}</p>
         <div class="hero-actions">
@@ -268,6 +274,7 @@ def pagina_produto(slug, p):
     </div>
   </section>
 
+  {BF.bloco_produto(slug, HOJE)}
   <section class="section section-alt" id="precos">
     <div class="container">
       <span class="section-subtitle">Preços</span>
@@ -358,7 +365,7 @@ def pagina_loja():
   <section class="hero loja-hero">
     <div class="container loja-hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">Loja</div>
+        {BF.faixa(HOJE, "creatina.html#black-friday")}<div class="hero-badge">Loja</div>
         <h1>Produtos da Velmora</h1>
         <p class="hero-desc">O Velmo Black Drink e os outros produtos da Velmora: suplementos para quem treina e cosmético. Todos têm garantia de 30 dias e pagamento no cartão em até 12x, Pix ou boleto.</p>
         <p class="loja-atalhos">{nav}</p>
@@ -427,7 +434,7 @@ def pagina_creatina():
   <section class="hero loja-hero">
     <div class="container loja-hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">Creatina</div>
+        {BF.faixa(HOJE)}<div class="hero-badge">Creatina</div>
         <h1>Creatina em pó ou em goma: qual escolher</h1>
         <p class="hero-desc">A Velmora vende creatina monohidratada em dois formatos: o CreaGym, em pó, e a Creatina Gummy, em gomas. Veja a diferença entre os dois e o preço por mês de cada kit.</p>
         <div class="hero-actions">
@@ -439,6 +446,7 @@ def pagina_creatina():
     </div>
   </section>
 
+  {BF.bloco_comparacao(HOJE)}
   <section class="section section-alt" id="comparacao">
     <div class="container">
       <span class="section-subtitle">Comparação</span>

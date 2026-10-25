@@ -3,6 +3,10 @@
 # Uso, da raiz do repo: python3 -I fonte/gerar_blog.py .   (HOJE=AAAA-MM-DD força a data, para testar)
 import datetime, html, json, os, subprocess, sys, zoneinfo
 
+sys.dont_write_bytecode = True  # sem __pycache__ dentro do repo
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import black_friday as BF
+
 SITE = "https://velmodrinkmorango.com.br"
 OUT = sys.argv[1]
 AUTOR = "Equipe Velmo Drink"
@@ -487,7 +491,7 @@ POSTS.append(dict(
     h1="Quem não pode tomar creatina? Rins, efeitos colaterais e cuidados",
     desc="Creatina faz mal para os rins? Dá câncer? Faz cair cabelo? Veja quem não deve tomar creatina, os efeitos colaterais mais comuns e quando falar com um médico.",
     categoria="Creatina",
-    data="2026-11-03",
+    data="2026-11-06",
     resumo="Rins, câncer, queda de cabelo e efeitos colaterais: o que os estudos dizem e quem deve evitar.",
     corpo="""
 <p>A creatina é considerada segura para adultos saudáveis na porção indicada no rótulo. Mas isso não quer dizer que ela sirva para todo mundo. Veja quem não deve tomar, quem precisa de orientação antes e o que é verdade sobre os efeitos colaterais mais falados.</p>
@@ -554,7 +558,7 @@ POSTS.append(dict(
     h1="Como escolher uma creatina boa: o que olhar no rótulo",
     desc="Qual a melhor creatina? Em vez de ranking de marcas, veja o que conferir no rótulo: tipo de creatina, porção, ingredientes, preço por dose e sinais de alerta.",
     categoria="Creatina",
-    data="2026-11-06",
+    data="2026-11-10",
     resumo="Tipo de creatina, porção, ingredientes, preço por dose e sinais de alerta no rótulo.",
     corpo="""
 <p>"Qual a melhor marca de creatina?" é uma das buscas mais comuns sobre o assunto. Aqui não vamos fazer ranking de marcas: preço e lote mudam o tempo todo, e o que vale para um pote pode não valer para o próximo. Em vez disso, mostramos <strong>o que olhar no rótulo</strong> para escolher qualquer creatina com segurança.</p>
@@ -610,7 +614,7 @@ POSTS.append(dict(
     h1="Creatina para mulher: funciona, engorda ou incha?",
     desc="Mulher pode tomar creatina? Engorda, incha ou deixa o corpo masculino? Veja o que os estudos dizem, a dose e quem deve evitar.",
     categoria="Creatina",
-    data="2026-11-10",
+    data="2026-11-13",
     resumo="Funciona do mesmo jeito? Engorda, incha ou deixa o corpo masculino? O que os estudos dizem.",
     corpo="""
 <p>Muitas mulheres evitam a creatina com medo de inchar, engordar ou "ficar com corpo masculino". Esses medos fazem sentido para quem nunca ouviu uma explicação clara. Veja o que os estudos mostram.</p>
@@ -669,7 +673,7 @@ POSTS.append(dict(
     h1="Virilha escura: o que causa e como clarear com segurança",
     desc="Por que a virilha escurece, o que ajuda a clarear, quanto tempo leva, o que evitar (limão, bicarbonato) e quando a mancha precisa de médico.",
     categoria="Cuidados com a pele",
-    data="2026-11-13",
+    data="2026-11-17",
     resumo="Atrito, depilação, hormônios: por que a virilha escurece, o que ajuda a clarear e quando procurar um médico.",
     corpo="""
 <p>A virilha escura é uma das queixas de pele mais comuns, em mulheres e em homens. Na maioria das vezes, não é sujeira nem falta de cuidado: é a pele reagindo a atrito e irritação. Entender a causa é o primeiro passo para clarear e, principalmente, para a mancha não voltar.</p>
@@ -737,7 +741,7 @@ POSTS.append(dict(
     h1="Axilas escuras: o que pode ser e como clarear",
     desc="Axilas escuras, o que pode ser: lâmina, desodorante, atrito ou acantose. Veja como clarear com segurança, quanto tempo leva e quando procurar médico.",
     categoria="Cuidados com a pele",
-    data="2026-11-17",
+    data="2026-11-20",
     resumo="Depilação, desodorante e atrito: o que escurece as axilas e o que ajuda a clarear.",
     corpo="""
 <p>A axila escura incomoda muita gente na hora de usar regata ou biquíni. A boa notícia é que, na maioria dos casos, a causa é a irritação do dia a dia, e dá para melhorar com mudanças simples e paciência.</p>
@@ -794,7 +798,7 @@ POSTS.append(dict(
     h1="Niacinamida clareia a pele? O que dizem os estudos",
     desc="O que é niacinamida, como ela age nas manchas, o estudo com niacinamida 4% nas axilas, em quanto tempo funciona e como usar na virilha e nas axilas.",
     categoria="Cuidados com a pele",
-    data="2026-11-20",
+    data="2026-11-24",
     resumo="Como a vitamina B3 age nas manchas, o que o estudo com axilas mostrou e quanto tempo leva.",
     corpo="""
 <p>A niacinamida aparece em séruns de rosto, cremes para manchas e clareadores de virilha e axila. Mas ela clareia mesmo? A resposta curta: ajuda a uniformizar o tom da pele, com efeito gradual, e tem estudos em pessoas.</p>
@@ -846,7 +850,7 @@ POSTS.append(dict(
     h1="Clareamento de axilas caseiro: o que funciona e o que é mito",
     desc="Leite de magnésia, bicarbonato, limão, açúcar, água oxigenada: veja quais receitas caseiras para clarear axilas e virilha são mito, quais irritam e o que funciona de verdade.",
     categoria="Cuidados com a pele",
-    data="2026-11-24",
+    data="2026-11-27",
     resumo="Leite de magnésia, bicarbonato, limão: o que a receita caseira faz com a pele e o que funciona de verdade.",
     corpo="""
 <p>Antes de comprar qualquer produto, muita gente procura uma receita caseira para clarear as axilas ou a virilha. Faz sentido: é barato e está na cozinha. O problema é que a maioria dessas receitas irrita a pele, e <strong>irritação é justamente o que escurece</strong> essas áreas. Veja receita por receita.</p>
@@ -897,7 +901,7 @@ POSTS.append(dict(
     h1="Clareamento de axilas e virilha: laser, peeling ou creme?",
     desc="Compare laser, peeling e creme clareador para axilas e virilha: como funciona cada um, tempo, cuidados na pele negra e quando procurar um dermatologista.",
     categoria="Cuidados com a pele",
-    data="2026-11-27",
+    data="2026-12-01",
     resumo="Como funciona cada opção, quanto tempo leva, cuidados na pele negra e por onde começar.",
     corpo="""
 <p>Quem pesquisa clareamento de axilas e virilha encontra três caminhos: laser, peeling e creme. Eles não competem entre si: atendem situações diferentes. Veja como cada um funciona.</p>
@@ -959,7 +963,7 @@ POSTS.append(dict(
     h1="Creme clareador para axilas e virilha: como escolher",
     desc="Como escolher um creme ou produto para clareamento de axilas e virilha: ativos, o que conferir no rótulo, sinais de alerta, como usar e quanto tempo esperar.",
     categoria="Cuidados com a pele",
-    data="2026-12-01",
+    data="2026-12-04",
     resumo="Ativos, rótulo, sinais de alerta e como usar para ver resultado.",
     corpo="""
 <p>Há dezenas de cremes, séruns e "pomadas" para clarear axilas e virilha, de farmácia e de internet. Este guia mostra o que conferir antes de comprar, para escolher com segurança, seja qual for a marca.</p>
@@ -1032,7 +1036,7 @@ POSTS.append(dict(
     h1="Suplemento para emagrecer funciona? Quantos quilos dá para perder",
     desc="Suplemento para emagrecer funciona mesmo? Veja o que dizem os estudos, quantos quilos dá para perder com segurança, em quanto tempo e por que desconfiar de promessas.",
     categoria="Emagrecimento",
-    data="2026-12-04",
+    data="2026-12-08",
     resumo="O que os estudos mostram, o ritmo seguro de perda de peso e as promessas que são sinal de alerta.",
     corpo="""
 <p>"Emagrece mesmo?" e "quantos quilos dá para perder?" estão entre as perguntas mais buscadas sobre qualquer suplemento para emagrecer. A resposta honesta é menos empolgante do que os anúncios, mas ajuda você a gastar melhor o seu dinheiro.</p>
@@ -1085,7 +1089,7 @@ POSTS.append(dict(
     h1="Efeitos colaterais de suplementos para emagrecer: o que observar",
     desc="Efeitos colaterais de suplementos para emagrecer: cafeína e termogênicos, fibras, chás laxantes e produtos adulterados. Quem deve evitar e quando procurar um médico.",
     categoria="Emagrecimento",
-    data="2026-12-08",
+    data="2026-12-11",
     resumo="Termogênicos, fibras, chás laxantes e produtos adulterados: os efeitos mais comuns, quem deve evitar e os sinais para parar.",
     corpo="""
 <p>"Tem efeito colateral?" é uma das primeiras perguntas de quem pensa em comprar um produto para emagrecer, e a pergunta certa a fazer. Nenhum produto é "seguro para todo mundo": o risco depende dos ingredientes, da dose e de quem está tomando.</p>
@@ -1149,7 +1153,7 @@ POSTS.append(dict(
     h1="Como saber se um suplemento é confiável",
     desc="Como saber se um suplemento para emagrecer é confiável e original: o que conferir na Anvisa, no rótulo, no Reclame Aqui e no site de compra antes de pagar.",
     categoria="Emagrecimento",
-    data="2026-12-11",
+    data="2026-12-15",
     resumo="Um checklist de 6 passos: empresa, Anvisa, rótulo, Reclame Aqui, site de compra e promessas.",
     corpo="""
 <p>"É confiável?", "é original?", "tem no Reclame Aqui?". Antes de comprar qualquer suplemento, principalmente os vendidos pela internet, vale gastar dez minutos com este checklist. Ele serve para qualquer marca, inclusive a que vendemos aqui.</p>
@@ -1211,7 +1215,7 @@ POSTS.append(dict(
     h1="Chá, cápsula ou pó para emagrecer: qual escolher e o que olhar no rótulo",
     desc="Chá, cápsula ou pó para emagrecer: diferenças entre os formatos, o que conferir na composição e no rótulo, como tomar e os cuidados com chás laxantes.",
     categoria="Emagrecimento",
-    data="2026-12-15",
+    data="2026-12-18",
     resumo="Diferenças entre os formatos, como ler a composição e como tomar sem errar.",
     corpo="""
 <p>Os produtos para emagrecer aparecem em três formatos principais: chá, cápsula (ou comprimido) e pó para preparar bebida. Muita gente escolhe pelo formato, mas o que importa de verdade é o que está dentro, e se você consegue usar todos os dias.</p>
@@ -1513,6 +1517,71 @@ POSTS.append(dict(
 ))
 
 
+POSTS.append(dict(
+    slug="creatina-black-friday",
+    curto="Creatina na Black Friday",
+    title="Creatina na Black Friday: como achar desconto de verdade",
+    h1="Creatina na Black Friday: como achar desconto de verdade e não cair em golpe",
+    desc="Creatina na Black Friday: como saber se o desconto é real, a conta do preço por mês, o que olhar no rótulo, sites falsos e quando vale levar o kit maior.",
+    categoria="Creatina",
+    data="2026-11-03",
+    resumo="Como saber se o desconto é real, a conta que importa e os golpes mais comuns de novembro.",
+    corpo="""
+<p>Novembro chega e a creatina aparece em todo canto com "até 70% OFF", contador regressivo e "últimas unidades". Para quem já usa ou quer começar, é mesmo uma boa hora para comprar, porque a creatina é de uso diário e um kit maior com desconto faz diferença no bolso. Mas é também o mês em que mais aparece desconto de mentira e site falso.</p>
+<p>Este guia mostra como separar uma coisa da outra em poucos minutos.</p>
+
+<h2>Resposta curta</h2>
+<p>Desconto bom é aquele que baixa o <strong>preço por mês</strong> em relação ao que a loja cobrava antes, não o que tem a maior porcentagem escrita. Confira o preço com antecedência, faça a conta por dose ou por mês, leia o rótulo (creatina monohidratada, quantidade por porção, empresa identificada) e compre só em site que você consegue verificar.</p>
+""" + BF.aviso_post(HOJE) + BF.bloco_comparacao(HOJE) + """
+<h2>O truque do preço inflado</h2>
+<p>O golpe mais comum da Black Friday nem é ilegal de cara: a loja aumenta o preço em outubro para "dar" 50% em novembro. No fim, você paga o mesmo de sempre, ou mais.</p>
+<p>Como se proteger:</p>
+<ul>
+  <li>Anote hoje o preço dos produtos que você está de olho, ou tire um print.</li>
+  <li>Compare o preço "de" da oferta com o que a loja cobrava semanas antes. Pela lei, o preço anterior anunciado precisa ser real.</li>
+  <li>Use sites que mostram o histórico de preço quando a compra for em grandes lojas.</li>
+</ul>
+
+<h2>Faça a conta do preço por mês</h2>
+<p>Porcentagem engana; preço por mês não. Divida o valor do kit pelo número de meses de uso (ou pelo número de doses). Um exemplo com números redondos: um kit de 5 potes por R$ 400 dá R$ 80 por mês, enquanto um pote avulso "com 40% OFF" por R$ 120 dá R$ 120 por mês. O segundo parece uma oferta maior, mas o primeiro sai bem mais barato.</p>
+<p>Lembre também do frete: em alguns lugares ele vem à parte e muda a conta, principalmente no kit pequeno.</p>
+
+<h2>O que olhar no rótulo antes de comprar</h2>
+<ul>
+  <li><strong>Tipo de creatina:</strong> a monohidratada é a mais estudada. Creapure é uma marca de creatina monohidratada, não outro tipo. Veja a diferença em <a href="creatina-monohidratada-ou-creapure.html">creatina monohidratada ou Creapure</a>.</li>
+  <li><strong>Quantidade por porção:</strong> o que funciona nos estudos é pelo menos 3 g de creatina por dia, junto com treino. Desconfie de "blend" sem números.</li>
+  <li><strong>Empresa, CNPJ, lote e validade:</strong> sem isso, não compre, por mais barato que esteja.</li>
+  <li><strong>Formato:</strong> pó sai mais barato por dose; goma é mais prática para quem não quer misturar. As duas funcionam se a porção tiver creatina suficiente.</li>
+</ul>
+
+<h2>Golpes comuns na Black Friday</h2>
+<ul>
+  <li><strong>Site clonado:</strong> parece a loja oficial, mas o endereço tem uma letra a mais ou termina diferente. Digite o endereço em vez de clicar em anúncio.</li>
+  <li><strong>Pix para pessoa física:</strong> loja de verdade recebe em nome da empresa.</li>
+  <li><strong>Perfil falso no Instagram</strong> com preço muito abaixo de todo mundo e pagamento só por Pix.</li>
+  <li><strong>Pressa artificial:</strong> contador que reinicia quando você atualiza a página e estoque "acabando" o tempo todo.</li>
+</ul>
+<p>Antes de pagar, procure a loja no Reclame Aqui e confira se o checkout mostra o nome da empresa vendedora.</p>
+
+<h2>Vale a pena levar o kit maior?</h2>
+<p>Se você já usa creatina e sabe que vai continuar, sim: ela é de uso diário e contínuo, e o kit de vários meses quase sempre tem o menor preço por mês. Confira só a validade, que costuma ser longa.</p>
+<p>Se você nunca tomou, também dá para começar pelo kit maior, mas pense antes no formato que você vai conseguir manter todo dia, pó ou goma. Ficou em dúvida se creatina é para você? Leia <a href="para-que-serve-a-creatina.html">para que serve a creatina</a> e <a href="como-tomar-creatina.html">como tomar creatina</a>.</p>
+""" + CTA_CREATINA + AVISO_CREATINA,
+    faq=[
+        ("Vale a pena comprar creatina na Black Friday?",
+         "Vale, se o desconto for real. Como a creatina é de uso diário, um kit de vários meses com desconto costuma ter o menor preço por mês do ano. Compare com o preço cobrado antes de novembro."),
+        ("Como saber se o desconto da Black Friday é real?",
+         "Anote o preço antes de novembro e compare com o preço 'de' da oferta. Faça também a conta do preço por mês ou por dose: ela mostra se a oferta é boa de verdade."),
+        ("Qual creatina comprar na Black Friday?",
+         "Uma creatina monohidratada com quantidade por porção clara no rótulo, de pelo menos 3 g por dia, de empresa identificada com CNPJ, lote e validade. O formato, pó ou goma, é questão de preferência."),
+        ("Creatina em pó ou em goma: qual compensa mais?",
+         "O pó costuma sair mais barato por dose. A goma é mais prática, porque não precisa de água nem de coqueteleira. As duas funcionam se tiverem creatina suficiente por porção."),
+        ("Como evitar golpe na Black Friday?",
+         "Digite o endereço da loja em vez de clicar em anúncios, desconfie de Pix para pessoa física e de preço muito abaixo do mercado, e confira a loja no Reclame Aqui antes de pagar."),
+    ],
+))
+
+
 # CTA leve no meio da leitura: caixa de uma linha antes da seção indicada (o CTA grande continua no fim).
 # slug: (h2 antes do qual entra, texto, link, texto do link)
 CTA_MEIO = {
@@ -1556,6 +1625,8 @@ CTA_MEIO = {
         "Um exemplo de drink em pó: o Velmo Drink, sabores morango e tangerina, 30 porções por pote.", "index.html", "Conheça o Velmo Drink"),
     "nao-sei-qual-suplemento-tomar": ("Um de cada vez",
         "Já sabe qual é o seu objetivo?", "loja.html", "Veja os produtos da Velmora separados por uso na Loja"),
+    "creatina-black-friday": ("Golpes comuns na Black Friday",
+        "Quer fazer a conta com produtos reais?", "creatina.html", "Veja o preço por mês do CreaGym e da Creatina Gummy"),
     "bicarbonato-como-suplemento": ("Bicarbonato melhora o treino?",
         "Procura clarear virilha e axilas sem receita caseira?", "clarize.html", "Conheça o Clarize, clareador com niacinamida para essas regiões"),
     "durmo-mal-e-vivo-ansiosa": ("E os chás e suplementos?",
