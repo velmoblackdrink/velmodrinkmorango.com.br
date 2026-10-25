@@ -35,7 +35,7 @@ test("no dia marcado o post entra no site, no sitemap, no mapa e na lista de gui
 })
 
 test("nenhum post publicado aponta para um post que ainda está na fila", () => {
-  for (const hoje of ["2026-10-20", "2026-10-23", "2026-10-25", "2026-10-27", "2026-10-30", "2026-11-03", "2026-11-06", "2026-11-10", "2026-11-13", "2026-11-17", "2026-11-20", "2026-11-24", "2026-11-27", "2026-12-01", "2026-12-04", "2026-12-08", "2026-12-11"]) {
+  for (const hoje of ["2026-10-20", "2026-10-23", "2026-10-25", "2026-10-27", "2026-10-30", "2026-11-03", "2026-11-06", "2026-11-10", "2026-11-13", "2026-11-17", "2026-11-20", "2026-11-24", "2026-11-27", "2026-12-01", "2026-12-04", "2026-12-08", "2026-12-11", "2026-12-15"]) {
     const pasta = gerarEm(hoje)
     for (const arq of readdirSync(pasta).filter((n) => n.endsWith(".html"))) {
       for (const [, alvo] of ler(pasta, arq).matchAll(/href="([a-z0-9-]+\.html)"/g)) {
@@ -53,7 +53,7 @@ test("rodar duas vezes no mesmo dia não muda nada (o robô só faz commit quand
 })
 
 test("posts de emagrecimento: título curto, descrição, FAQ e sem promessa de resultado", () => {
-  const pasta = gerarEm("2026-12-11")
+  const pasta = gerarEm("2026-12-15")
   for (const slug of ["suplemento-para-emagrecer-funciona", "efeitos-colaterais-de-suplemento-para-emagrecer", "como-saber-se-suplemento-e-confiavel", "cha-ou-capsula-para-emagrecer"]) {
     const doc = ler(pasta, slug + ".html")
     const titulo = doc.match(/<title>([^<]+)<\/title>/)[1]
@@ -70,7 +70,7 @@ test("posts de emagrecimento: título curto, descrição, FAQ e sem promessa de 
 test("todo post tem um CTA no meio da leitura, para uma página de produto que existe, além do CTA final", () => {
   const pasta = gerarEm("2027-12-31")
   const posts = readdirSync(pasta).filter((n) => n.endsWith(".html") && ler(pasta, n).includes('"@type": "BlogPosting"') && n !== "blog.html")
-  assert.ok(posts.length >= 21, `só ${posts.length} posts`)
+  assert.ok(posts.length >= 22, `só ${posts.length} posts`)
   for (const nome of posts) {
     const doc = ler(pasta, nome)
     const partes = doc.split('class="blog-cta-meio"')
