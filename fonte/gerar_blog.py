@@ -1282,12 +1282,13 @@ POSTS.append(dict(
     curto="Não sei qual suplemento tomar",
     title="Não sei qual suplemento tomar: como escolher pelo objetivo",
     h1="Não sei qual suplemento tomar: como escolher pelo seu objetivo",
-    desc="Não sabe qual suplemento tomar? Veja como escolher pelo objetivo (treino, emagrecimento, proteína, vitaminas), o que olhar no rótulo e quando falar com um profissional.",
+    desc="Não sabe qual suplemento tomar? Guia para mulheres de 30 a 50 anos: como escolher pelo objetivo, o que olhar no rótulo e quando falar com um profissional.",
     categoria="Suplementos",
     data="2026-10-25",
-    resumo="Comece pelo objetivo, não pela prateleira: um guia para escolher sem gastar à toa.",
+    resumo="Para mulheres de 30 a 50 anos: comece pelo objetivo, não pela prateleira, e escolha sem gastar à toa.",
     corpo="""
-<p>Você entra numa loja (ou abre o Instagram) e aparecem creatina, whey, colágeno, termogênico, multivitamínico, ômega 3. Cada um com alguém jurando que mudou a vida. Dá vontade de levar tudo, e é exatamente aí que muita gente gasta dinheiro à toa.</p>
+<p>Você entra na farmácia (ou abre o Instagram) e aparecem colágeno, creatina, whey, termogênico, multivitamínico, ômega 3, "fórmula para mulheres 40+". Cada um com alguém jurando que mudou a vida. Dá vontade de levar tudo, e é exatamente aí que muita mulher gasta dinheiro à toa.</p>
+<p>Entre os 30 e os 50 anos, o corpo muda de verdade: a massa muscular começa a cair devagar, a menstruação pode pesar no ferro, e lá pelos 40 a perimenopausa mexe com sono, humor e peso. Isso não quer dizer que você precisa de uma sacola de potes. Quer dizer que vale escolher com mais critério.</p>
 <p>A escolha fica bem mais simples quando você inverte a pergunta. Em vez de "qual suplemento tomar?", pergunte "o que eu quero melhorar, e a comida já não resolve isso?".</p>
 
 <h2>Resposta curta</h2>
@@ -1304,20 +1305,20 @@ POSTS.append(dict(
 
 <h2>Escolha pelo objetivo</h2>
 <h3>Treino, força e desempenho</h3>
-<p>Aqui a creatina é a primeira da fila. É um dos suplementos mais estudados do mundo: com pelo menos 3 g por dia, junto com treino, ela ajuda no desempenho em exercícios repetidos de curta duração e alta intensidade, como musculação e tiros de corrida. Não é estimulante e não precisa de "ciclo". Para entender melhor, leia <a href="para-que-serve-a-creatina.html">para que serve a creatina</a> e <a href="como-tomar-creatina.html">como tomar creatina</a>.</p>
+<p>Aqui a creatina é a primeira da fila. É um dos suplementos mais estudados do mundo: com pelo menos 3 g por dia, junto com treino, ela ajuda no desempenho em exercícios repetidos de curta duração e alta intensidade, como musculação e tiros de corrida. Não é estimulante, não precisa de "ciclo" e funciona do mesmo jeito em mulheres. E o treino de força fica cada vez mais importante depois dos 30, justamente porque o músculo começa a diminuir se não for usado. Para entender melhor, leia <a href="para-que-serve-a-creatina.html">para que serve a creatina</a> e <a href="como-tomar-creatina.html">como tomar creatina</a>.</p>
 
 <h3>Comer mais proteína</h3>
-<p>Adultos precisam, em média, de 0,8 g de proteína por quilo de peso por dia. Quem treina força costuma precisar de mais, algo entre 1,2 e 2 g por quilo. Se você não chega lá com carne, ovo, frango, peixe, feijão e laticínios, um pó de proteína (whey ou vegetal) resolve de forma prática. Se chega, não precisa.</p>
+<p>Adultos precisam, em média, de 0,8 g de proteína por quilo de peso por dia. Quem treina força costuma precisar de mais, algo entre 1,2 e 2 g por quilo, e depois dos 40 a proteína ajuda a preservar o músculo. Na correria, é comum o café da manhã ser só café e o almoço ser "qualquer coisa". Se você não chega lá com carne, ovo, frango, peixe, feijão e laticínios, um pó de proteína (whey ou vegetal) resolve de forma prática. Se chega, não precisa.</p>
 
 <h3>Emagrecer</h3>
-<p>Vou ser direto: nenhum suplemento emagrece sozinho. O que emagrece é comer um pouco menos do que você gasta, por semanas e meses. Um produto pode ajudar a manter a rotina, por exemplo como um lanche prático no lugar do refrigerante ou do biscoito. Fuja de qualquer coisa que prometa "X quilos em Y dias" ou que tenha muita cafeína misturada com outros estimulantes (o limite costuma ser 400 mg de cafeína por dia para adultos saudáveis, somando café e tudo mais).</p>
+<p>Sem rodeios: nenhum suplemento emagrece sozinho. Se o peso começou a mudar perto dos 40 mesmo sem você mudar nada, a perimenopausa pode ter parte nisso, e vale conversar com a ginecologista. O que emagrece é comer um pouco menos do que você gasta, por semanas e meses. Um produto pode ajudar a manter a rotina, por exemplo como um lanche prático no lugar do refrigerante ou do biscoito. Fuja de qualquer coisa que prometa "X quilos em Y dias" ou que tenha muita cafeína misturada com outros estimulantes (o limite costuma ser 400 mg de cafeína por dia para adultos saudáveis, somando café e tudo mais).</p>
 <p>Se esse é o seu caso, vale ler o guia sobre <a href="qual-melhor-suplemento-para-emagrecer-sao-paulo-sp.html">como escolher um suplemento para emagrecer</a>.</p>
 
 <h3>Cansaço e "falta de energia"</h3>
-<p>Esse é o objetivo em que mais gente erra. Cansaço tem muitas causas: sono ruim, estresse, anemia, tireoide, alimentação bagunçada. Tomar um "energético" ou um multivitamínico por conta própria pode esconder o problema em vez de resolver. Aqui o primeiro passo é conversar com um médico e, se for o caso, fazer exames.</p>
+<p>Esse é o objetivo em que mais gente erra. Cansaço tem muitas causas: sono ruim, estresse, anemia (muito comum em quem tem menstruação intensa), tireoide, perimenopausa, alimentação bagunçada. Tomar um "energético" ou um multivitamínico por conta própria pode esconder o problema em vez de resolver. Aqui o primeiro passo é conversar com um médico e, se for o caso, fazer exames.</p>
 
 <h3>Vitaminas e minerais</h3>
-<p>Vitamina D, ferro e B12 estão entre as faltas mais comuns, e são justamente as que não convém tomar no escuro. Ferro em excesso, por exemplo, faz mal. Quem é vegano ou vegetariano costuma precisar de B12, mas a dose certa vem de um exame e de um profissional, não da prateleira.</p>
+<p>Vitamina D, ferro e B12 estão entre as faltas mais comuns, e são justamente as que não convém tomar no escuro. Menstruação intensa é uma das causas mais frequentes de falta de ferro em mulheres, mas ferro em excesso também faz mal. Perto da menopausa, vitamina D e cálcio ganham atenção por causa dos ossos. Quem é vegana ou vegetariana costuma precisar de B12. Em todos os casos, a dose certa vem de um exame e de um profissional, não da prateleira.</p>
 
 <h2>Um de cada vez</h2>
 <p>Começar três suplementos na mesma semana é o jeito mais rápido de não saber o que funcionou (e o que deu dor de estômago). Escolha um, use do jeito que o rótulo indica por algumas semanas e observe. Só depois pense no próximo, se ainda fizer sentido.</p>
@@ -1345,6 +1346,99 @@ POSTS.append(dict(
          "Não é o ideal começar vários juntos, porque você não sabe qual funcionou nem qual causou algum incômodo, e estimulantes se somam. Comece por um e acrescente outros com calma, de preferência com orientação."),
         ("Suplemento para emagrecer funciona?",
          "Nenhum suplemento emagrece sozinho. O que faz diferença é a alimentação e a rotina. Um produto pode ajudar a manter o hábito, mas desconfie de promessas de quilos em poucos dias."),
+        ("Mulher de 40 anos precisa tomar suplemento?",
+         "Não automaticamente. Com a idade, vale olhar com mais atenção para proteína, treino de força, ferro e vitamina D. Mas o que tomar, e se precisa, depende da alimentação e dos exames de cada uma."),
+    ],
+))
+
+
+CTA_ROTINA = """
+<div class="blog-cta">
+  <p class="blog-cta-titulo">Uma rotina que cuida de você</p>
+  <p>Comer melhor e se mexer mais ajudam o sono a longo prazo. Na Loja da Velmora estão o Velmo Drink, para quem está organizando a alimentação, e o CreaGym e a Creatina Gummy, para quem treina. Nenhum deles é para dormir ou para ansiedade: são apoio para a rotina.</p>
+  <a class="btn btn-primary" href="loja.html">Ver a Loja</a>
+</div>
+"""
+
+AVISO_SONO = """<div class="loja-aviso"><strong>Importante:</strong> Este texto é informativo e não substitui consulta com médico, ginecologista, psicólogo ou psiquiatra. Insônia e ansiedade são condições de saúde e têm tratamento. Não misture chás, suplementos ou remédios para dormir sem orientação. Se você está pensando em se machucar, ligue 188 (CVV, gratuito, 24 horas) ou procure uma UPA ou o SAMU (192).</div>"""
+
+POSTS.append(dict(
+    slug="durmo-mal-e-vivo-ansiosa",
+    curto="Durmo mal e vivo ansiosa",
+    title="Durmo mal e vivo ansiosa: o que pode ser e o que ajuda",
+    h1="Durmo mal e vivo ansiosa: o que pode estar por trás e o que ajuda",
+    desc="Dorme mal e vive ansiosa? Para mulheres de 30 a 50 anos: por que sono e ansiedade se alimentam, o papel da perimenopausa, o que ajuda e quando procurar ajuda.",
+    categoria="Bem-estar",
+    data="2026-12-11",
+    resumo="Para mulheres de 30 a 50 anos: por que um puxa o outro, o que pesa nessa fase e o que dá para fazer hoje.",
+    corpo="""
+<p>São três da manhã e a cabeça liga sozinha: a reunião de amanhã, a conta que vence, o filho, a mãe, aquela mensagem que você não respondeu. Você vira para o lado, olha o celular, faz a conta de quantas horas ainda dá para dormir. E no dia seguinte, cansada, tudo parece mais pesado e a ansiedade vem mais fácil.</p>
+<p>Se isso descreve a sua semana, saiba que é muito comum. Entre os 30 e os 50 anos, sono ruim e ansiedade estão entre as queixas mais comuns das mulheres, e as duas coisas costumam andar juntas.</p>
+
+<h2>Resposta curta</h2>
+<p>Ansiedade atrapalha o sono, e sono ruim deixa você mais ansiosa no dia seguinte. Para sair desse ciclo, ajudam horário fixo para acordar, menos cafeína à tarde, um tempo para desacelerar antes de deitar e atividade física. Nessa fase da vida, a perimenopausa também pode estar por trás. Se o problema dura semanas e atrapalha a sua vida, procure ajuda: tem tratamento, e funciona.</p>
+
+<h2>Por que um puxa o outro</h2>
+<p>Quando você está ansiosa, o corpo fica em modo de alerta: coração mais rápido, músculos tensos, pensamento acelerado. É o contrário do que ele precisa para dormir. E depois de uma noite ruim, a parte do cérebro que segura as emoções trabalha pior, então o estresse do dia pesa mais. Uma noite mal dormida já basta para você acordar com menos paciência. Várias seguidas viram um ciclo.</p>
+
+<h2>O que costuma pesar entre os 30 e os 50</h2>
+<h3>Carga mental</h3>
+<p>Trabalho, casa, filhos, pais envelhecendo, a agenda de todo mundo na sua cabeça. Muita mulher só tem silêncio na hora de deitar, e é aí que os pensamentos aparecem todos de uma vez.</p>
+
+<h3>Perimenopausa</h3>
+<p>É a fase de transição antes da menopausa, que costuma começar por volta dos 40 (às vezes antes) e pode durar alguns anos. Os hormônios oscilam, e isso pode trazer calor e suor à noite, despertares de madrugada, irritabilidade, ansiedade e ciclos menstruais irregulares. Muita mulher passa anos achando que "é só estresse" sem saber que existe tratamento. Se você se reconheceu aqui, vale falar com a ginecologista.</p>
+
+<h3>Ciclo menstrual</h3>
+<p>Nos dias antes da menstruação, muitas mulheres dormem pior e ficam mais ansiosas. Anotar no calendário ajuda a ver se o seu padrão é esse.</p>
+
+<h3>Cafeína, álcool e tela</h3>
+<p>A cafeína fica horas no corpo: o café das quatro da tarde ainda está agindo às dez da noite. O vinho pode dar sono no começo, mas deixa o sono mais leve e picado na segunda metade da noite. E o celular na cama mantém a cabeça ligada, seja pela luz, seja pelo conteúdo.</p>
+
+<h3>Saúde</h3>
+<p>Tireoide, anemia, apneia do sono (aquele ronco com pausas) e alguns remédios também atrapalham o sono e podem dar sensação de ansiedade. Por isso o exame de rotina importa.</p>
+
+<h2>O que ajuda a partir de hoje</h2>
+<ul>
+  <li><strong>Acorde no mesmo horário todo dia</strong>, inclusive no fim de semana. Isso ajusta o relógio do corpo mais do que o horário de deitar.</li>
+  <li><strong>Pegue luz de manhã</strong>, nem que sejam dez minutos na janela ou na rua.</li>
+  <li><strong>Café só até o início da tarde.</strong> Lembre que chá preto, chá mate, refrigerante de cola e alguns pré-treinos também têm cafeína.</li>
+  <li><strong>Tire meia hora para desacelerar</strong> antes de deitar: luz mais baixa, banho morno, leitura em papel, sem notícia e sem trabalho.</li>
+  <li><strong>Escreva as preocupações</strong> num papel antes de dormir, com o próximo passo de cada uma. Tirar da cabeça e pôr no papel acalma mais do que parece.</li>
+  <li><strong>Não brigue com a cama.</strong> Se passou uns 20 minutos e o sono não veio, levante, faça algo calmo com pouca luz e volte quando bater o sono.</li>
+  <li><strong>Mexa o corpo</strong> na maior parte dos dias. Caminhada já conta. Treino intenso, de preferência longe da hora de dormir.</li>
+  <li><strong>Quarto fresco e escuro</strong>, o que ajuda bastante quem sente calor à noite.</li>
+  <li><strong>Respire devagar</strong> quando a ansiedade apertar: solte o ar mais devagar do que puxa, por alguns minutos.</li>
+</ul>
+<p>Nada disso resolve em uma noite. Costuma levar algumas semanas, fazendo todo dia do mesmo jeito, para o sono começar a mudar.</p>
+
+<h2>E os chás e suplementos?</h2>
+<p>Camomila, melissa e maracujá aparecem em muitas receitas para dormir. Os estudos são pequenos e o efeito, quando existe, é leve. Como ritual de desacelerar, podem ajudar. Se você usa remédios, converse com o médico antes, porque algumas plantas interagem com eles.</p>
+<p>A melatonina é permitida no Brasil como suplemento, para maiores de 19 anos, com no máximo 0,21 mg por dia. Ela não é calmante e não trata ansiedade, e não é indicada para gestantes e lactantes. O magnésio é muito divulgado para sono, mas a evidência é fraca para quem não tem falta dele.</p>
+<p>Desconfie de "calmante natural" que promete acabar com a ansiedade ou fazer dormir a noite toda. E nunca misture suplemento para dormir com remédio para dormir ou para ansiedade sem orientação.</p>
+
+<h2>Quando procurar ajuda</h2>
+<p>Procure um profissional se:</p>
+<ul>
+  <li>você dorme mal três ou mais noites por semana há mais de um mês;</li>
+  <li>a ansiedade atrapalha o trabalho, as relações ou as tarefas do dia;</li>
+  <li>tem crises com coração disparado, falta de ar ou medo intenso;</li>
+  <li>a tristeza ou a falta de vontade não passam;</li>
+  <li>tem calor à noite, ciclos irregulares ou outros sinais de perimenopausa.</li>
+</ul>
+<p>Pode começar pela clínica geral, pela ginecologista ou pela Unidade Básica de Saúde, que encaminha se precisar. Para a insônia, a terapia cognitivo-comportamental é o tratamento de primeira escolha e funciona para muita gente sem remédio. Para a ansiedade, psicoterapia e, em alguns casos, medicação ajudam bastante. Quanto antes você pede ajuda, mais rápido sai do ciclo.</p>
+<p>Se em algum momento você pensar em se machucar, ligue 188. O CVV atende de graça, 24 horas por dia.</p>
+""" + CTA_ROTINA + AVISO_SONO,
+    faq=[
+        ("Por que eu durmo mal quando estou ansiosa?",
+         "Porque a ansiedade deixa o corpo em alerta, com coração acelerado, músculos tensos e pensamento rápido, o contrário do que ele precisa para dormir. E dormir mal deixa a ansiedade mais forte no dia seguinte."),
+        ("Perimenopausa causa insônia e ansiedade?",
+         "Pode causar. Na perimenopausa, que costuma começar por volta dos 40, a oscilação dos hormônios pode trazer calor à noite, despertares, irritabilidade e ansiedade. A ginecologista consegue avaliar e indicar tratamento."),
+        ("Chá de camomila ajuda a dormir?",
+         "Pode ajudar como parte de um ritual para desacelerar, mas os estudos mostram efeito leve. Se você usa remédios, confirme com o médico, porque algumas plantas interagem com eles."),
+        ("Melatonina ajuda na ansiedade?",
+         "Não. A melatonina ajuda a regular o relógio do sono e não é calmante. No Brasil, como suplemento, é permitida para maiores de 19 anos com no máximo 0,21 mg por dia."),
+        ("Quando devo procurar um médico por causa do sono?",
+         "Se você dorme mal três ou mais noites por semana há mais de um mês, ou se o cansaço e a ansiedade atrapalham o trabalho e as relações. Insônia e ansiedade têm tratamento."),
     ],
 ))
 
@@ -1392,6 +1486,8 @@ CTA_MEIO = {
         "Um exemplo de drink em pó: o Velmo Drink, sabores morango e tangerina, 30 porções por pote.", "index.html", "Conheça o Velmo Drink"),
     "nao-sei-qual-suplemento-tomar": ("Um de cada vez",
         "Já sabe qual é o seu objetivo?", "loja.html", "Veja os produtos da Velmora separados por uso na Loja"),
+    "durmo-mal-e-vivo-ansiosa": ("E os chás e suplementos?",
+        "Mexer o corpo ajuda muito o sono. Está montando uma rotina de treino ou de alimentação?", "loja.html", "Veja os produtos da Velmora na Loja"),
 }
 
 for _p in POSTS:
