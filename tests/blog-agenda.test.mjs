@@ -53,7 +53,7 @@ test("rodar duas vezes no mesmo dia não muda nada (o robô só faz commit quand
 })
 
 test("posts de emagrecimento: título curto, descrição, FAQ e sem promessa de resultado", () => {
-  const pasta = gerarEm("2026-12-08")
+  const pasta = gerarEm("2026-12-11")
   for (const slug of ["suplemento-para-emagrecer-funciona", "efeitos-colaterais-de-suplemento-para-emagrecer", "como-saber-se-suplemento-e-confiavel", "cha-ou-capsula-para-emagrecer"]) {
     const doc = ler(pasta, slug + ".html")
     const titulo = doc.match(/<title>([^<]+)<\/title>/)[1]

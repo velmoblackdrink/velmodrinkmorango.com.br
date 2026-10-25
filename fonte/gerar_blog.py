@@ -487,7 +487,7 @@ POSTS.append(dict(
     h1="Quem não pode tomar creatina? Rins, efeitos colaterais e cuidados",
     desc="Creatina faz mal para os rins? Dá câncer? Faz cair cabelo? Veja quem não deve tomar creatina, os efeitos colaterais mais comuns e quando falar com um médico.",
     categoria="Creatina",
-    data="2026-10-27",
+    data="2026-10-30",
     resumo="Rins, câncer, queda de cabelo e efeitos colaterais: o que os estudos dizem e quem deve evitar.",
     corpo="""
 <p>A creatina é considerada segura para adultos saudáveis na porção indicada no rótulo. Mas isso não quer dizer que ela sirva para todo mundo. Veja quem não deve tomar, quem precisa de orientação antes e o que é verdade sobre os efeitos colaterais mais falados.</p>
@@ -554,7 +554,7 @@ POSTS.append(dict(
     h1="Como escolher uma creatina boa: o que olhar no rótulo",
     desc="Qual a melhor creatina? Em vez de ranking de marcas, veja o que conferir no rótulo: tipo de creatina, porção, ingredientes, preço por dose e sinais de alerta.",
     categoria="Creatina",
-    data="2026-10-30",
+    data="2026-11-03",
     resumo="Tipo de creatina, porção, ingredientes, preço por dose e sinais de alerta no rótulo.",
     corpo="""
 <p>"Qual a melhor marca de creatina?" é uma das buscas mais comuns sobre o assunto. Aqui não vamos fazer ranking de marcas: preço e lote mudam o tempo todo, e o que vale para um pote pode não valer para o próximo. Em vez disso, mostramos <strong>o que olhar no rótulo</strong> para escolher qualquer creatina com segurança.</p>
@@ -610,7 +610,7 @@ POSTS.append(dict(
     h1="Creatina para mulher: funciona, engorda ou incha?",
     desc="Mulher pode tomar creatina? Engorda, incha ou deixa o corpo masculino? Veja o que os estudos dizem, a dose e quem deve evitar.",
     categoria="Creatina",
-    data="2026-11-03",
+    data="2026-11-06",
     resumo="Funciona do mesmo jeito? Engorda, incha ou deixa o corpo masculino? O que os estudos dizem.",
     corpo="""
 <p>Muitas mulheres evitam a creatina com medo de inchar, engordar ou "ficar com corpo masculino". Esses medos fazem sentido para quem nunca ouviu uma explicação clara. Veja o que os estudos mostram.</p>
@@ -669,7 +669,7 @@ POSTS.append(dict(
     h1="Virilha escura: o que causa e como clarear com segurança",
     desc="Por que a virilha escurece, o que ajuda a clarear, quanto tempo leva, o que evitar (limão, bicarbonato) e quando a mancha precisa de médico.",
     categoria="Cuidados com a pele",
-    data="2026-11-06",
+    data="2026-11-10",
     resumo="Atrito, depilação, hormônios: por que a virilha escurece, o que ajuda a clarear e quando procurar um médico.",
     corpo="""
 <p>A virilha escura é uma das queixas de pele mais comuns, em mulheres e em homens. Na maioria das vezes, não é sujeira nem falta de cuidado: é a pele reagindo a atrito e irritação. Entender a causa é o primeiro passo para clarear e, principalmente, para a mancha não voltar.</p>
@@ -737,7 +737,7 @@ POSTS.append(dict(
     h1="Axilas escuras: o que pode ser e como clarear",
     desc="Axilas escuras, o que pode ser: lâmina, desodorante, atrito ou acantose. Veja como clarear com segurança, quanto tempo leva e quando procurar médico.",
     categoria="Cuidados com a pele",
-    data="2026-11-10",
+    data="2026-11-13",
     resumo="Depilação, desodorante e atrito: o que escurece as axilas e o que ajuda a clarear.",
     corpo="""
 <p>A axila escura incomoda muita gente na hora de usar regata ou biquíni. A boa notícia é que, na maioria dos casos, a causa é a irritação do dia a dia, e dá para melhorar com mudanças simples e paciência.</p>
@@ -794,7 +794,7 @@ POSTS.append(dict(
     h1="Niacinamida clareia a pele? O que dizem os estudos",
     desc="O que é niacinamida, como ela age nas manchas, o estudo com niacinamida 4% nas axilas, em quanto tempo funciona e como usar na virilha e nas axilas.",
     categoria="Cuidados com a pele",
-    data="2026-11-13",
+    data="2026-11-17",
     resumo="Como a vitamina B3 age nas manchas, o que o estudo com axilas mostrou e quanto tempo leva.",
     corpo="""
 <p>A niacinamida aparece em séruns de rosto, cremes para manchas e clareadores de virilha e axila. Mas ela clareia mesmo? A resposta curta: ajuda a uniformizar o tom da pele, com efeito gradual, e tem estudos em pessoas.</p>
@@ -846,7 +846,7 @@ POSTS.append(dict(
     h1="Clareamento de axilas caseiro: o que funciona e o que é mito",
     desc="Leite de magnésia, bicarbonato, limão, açúcar, água oxigenada: veja quais receitas caseiras para clarear axilas e virilha são mito, quais irritam e o que funciona de verdade.",
     categoria="Cuidados com a pele",
-    data="2026-11-17",
+    data="2026-11-20",
     resumo="Leite de magnésia, bicarbonato, limão: o que a receita caseira faz com a pele e o que funciona de verdade.",
     corpo="""
 <p>Antes de comprar qualquer produto, muita gente procura uma receita caseira para clarear as axilas ou a virilha. Faz sentido: é barato e está na cozinha. O problema é que a maioria dessas receitas irrita a pele, e <strong>irritação é justamente o que escurece</strong> essas áreas. Veja receita por receita.</p>
@@ -897,7 +897,7 @@ POSTS.append(dict(
     h1="Clareamento de axilas e virilha: laser, peeling ou creme?",
     desc="Compare laser, peeling e creme clareador para axilas e virilha: como funciona cada um, tempo, cuidados na pele negra e quando procurar um dermatologista.",
     categoria="Cuidados com a pele",
-    data="2026-11-20",
+    data="2026-11-24",
     resumo="Como funciona cada opção, quanto tempo leva, cuidados na pele negra e por onde começar.",
     corpo="""
 <p>Quem pesquisa clareamento de axilas e virilha encontra três caminhos: laser, peeling e creme. Eles não competem entre si: atendem situações diferentes. Veja como cada um funciona.</p>
@@ -959,7 +959,7 @@ POSTS.append(dict(
     h1="Creme clareador para axilas e virilha: como escolher",
     desc="Como escolher um creme ou produto para clareamento de axilas e virilha: ativos, o que conferir no rótulo, sinais de alerta, como usar e quanto tempo esperar.",
     categoria="Cuidados com a pele",
-    data="2026-11-24",
+    data="2026-11-27",
     resumo="Ativos, rótulo, sinais de alerta e como usar para ver resultado.",
     corpo="""
 <p>Há dezenas de cremes, séruns e "pomadas" para clarear axilas e virilha, de farmácia e de internet. Este guia mostra o que conferir antes de comprar, para escolher com segurança, seja qual for a marca.</p>
@@ -1032,7 +1032,7 @@ POSTS.append(dict(
     h1="Suplemento para emagrecer funciona? Quantos quilos dá para perder",
     desc="Suplemento para emagrecer funciona mesmo? Veja o que dizem os estudos, quantos quilos dá para perder com segurança, em quanto tempo e por que desconfiar de promessas.",
     categoria="Emagrecimento",
-    data="2026-11-27",
+    data="2026-12-01",
     resumo="O que os estudos mostram, o ritmo seguro de perda de peso e as promessas que são sinal de alerta.",
     corpo="""
 <p>"Emagrece mesmo?" e "quantos quilos dá para perder?" estão entre as perguntas mais buscadas sobre qualquer suplemento para emagrecer. A resposta honesta é menos empolgante do que os anúncios, mas ajuda você a gastar melhor o seu dinheiro.</p>
@@ -1085,7 +1085,7 @@ POSTS.append(dict(
     h1="Efeitos colaterais de suplementos para emagrecer: o que observar",
     desc="Efeitos colaterais de suplementos para emagrecer: cafeína e termogênicos, fibras, chás laxantes e produtos adulterados. Quem deve evitar e quando procurar um médico.",
     categoria="Emagrecimento",
-    data="2026-12-01",
+    data="2026-12-04",
     resumo="Termogênicos, fibras, chás laxantes e produtos adulterados: os efeitos mais comuns, quem deve evitar e os sinais para parar.",
     corpo="""
 <p>"Tem efeito colateral?" é uma das primeiras perguntas de quem pensa em comprar um produto para emagrecer, e a pergunta certa a fazer. Nenhum produto é "seguro para todo mundo": o risco depende dos ingredientes, da dose e de quem está tomando.</p>
@@ -1149,7 +1149,7 @@ POSTS.append(dict(
     h1="Como saber se um suplemento é confiável",
     desc="Como saber se um suplemento para emagrecer é confiável e original: o que conferir na Anvisa, no rótulo, no Reclame Aqui e no site de compra antes de pagar.",
     categoria="Emagrecimento",
-    data="2026-12-04",
+    data="2026-12-08",
     resumo="Um checklist de 6 passos: empresa, Anvisa, rótulo, Reclame Aqui, site de compra e promessas.",
     corpo="""
 <p>"É confiável?", "é original?", "tem no Reclame Aqui?". Antes de comprar qualquer suplemento, principalmente os vendidos pela internet, vale gastar dez minutos com este checklist. Ele serve para qualquer marca, inclusive a que vendemos aqui.</p>
@@ -1211,7 +1211,7 @@ POSTS.append(dict(
     h1="Chá, cápsula ou pó para emagrecer: qual escolher e o que olhar no rótulo",
     desc="Chá, cápsula ou pó para emagrecer: diferenças entre os formatos, o que conferir na composição e no rótulo, como tomar e os cuidados com chás laxantes.",
     categoria="Emagrecimento",
-    data="2026-12-08",
+    data="2026-12-11",
     resumo="Diferenças entre os formatos, como ler a composição e como tomar sem errar.",
     corpo="""
 <p>Os produtos para emagrecer aparecem em três formatos principais: chá, cápsula (ou comprimido) e pó para preparar bebida. Muita gente escolhe pelo formato, mas o que importa de verdade é o que está dentro, e se você consegue usar todos os dias.</p>
@@ -1369,7 +1369,7 @@ POSTS.append(dict(
     h1="Durmo mal e vivo ansiosa: o que pode estar por trás e o que ajuda",
     desc="Dorme mal e vive ansiosa? Para mulheres de 30 a 50 anos: por que sono e ansiedade se alimentam, o papel da perimenopausa, o que ajuda e quando procurar ajuda.",
     categoria="Bem-estar",
-    data="2026-12-11",
+    data="2026-10-27",
     resumo="Para mulheres de 30 a 50 anos: por que um puxa o outro, o que pesa nessa fase e o que dá para fazer hoje.",
     corpo="""
 <p>São três da manhã e a cabeça liga sozinha: a reunião de amanhã, a conta que vence, o filho, a mãe, aquela mensagem que você não respondeu. Você vira para o lado, olha o celular, faz a conta de quantas horas ainda dá para dormir. E no dia seguinte, cansada, tudo parece mais pesado e a ansiedade vem mais fácil.</p>
