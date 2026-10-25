@@ -3,6 +3,7 @@ import json, sys, os, html, subprocess, datetime, zoneinfo
 sys.dont_write_bytecode = True  # sem __pycache__ dentro do repo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import black_friday as BF
+import vitrine as V
 
 SITE = "https://velmodrinkmorango.com.br"
 OUT = sys.argv[1]
@@ -235,6 +236,17 @@ def pagina_produto(slug, p):
     else:
         cab = "<tr><th>Kit</th><th>Preço</th><th></th></tr>"
         corpo = "\n".join(f"<tr><td>{k}</td><td class=\"preco\">{brl(v)}</td><td>{link(u)}</td></tr>" for k, v, u in p["linhas"])
+    vitrine = ""
+    if slug in V.FOTOS:
+        menor = min(p["linhas"], key=lambda l: l[1] / int(l[0].split()[0]))
+        cards = []
+        for l in p["linhas"]:
+            links = ([("Morango", l[2])] + ([("Tangerina", l[3])] if l[3] else [])) if p.get("colunas") else [("Comprar", l[2])]
+            cards.append(V.card(slug, p["nome"], l[0], l[1], links, destaque=l is menor))
+        vitrine = V.grade(cards)
+    else:
+        vitrine = (f'      <div class="precos-wrap">\n        <table class="precos">\n          <thead>{cab}</thead>\n'
+                   f'          <tbody>\n{corpo}\n          </tbody>\n        </table>\n      </div>')
     nota = "Frete de R$ 29,90, calculado no checkout junto com o prazo de entrega. Pagamento no cartão em até 12x, Pix ou boleto."
     if p.get("nota_extra"):
         nota = p["nota_extra"] + " " + nota
@@ -252,7 +264,7 @@ def pagina_produto(slug, p):
     comparar = ('        <p><a href="creatina.html">Creatina em pó ou em goma? Compare o CreaGym com a Creatina Gummy</a>.</p>\n'
                 if slug in ("creagym", "creatina-gummy") else "")
     kits = ""
-    if p.get("kits"):
+    if p.get("kits") and not vitrine:
         figs = "\n".join(
             f'        <figure><img src="{k[0]}" width="{k[1]}" height="{k[2]}" alt="{k[3]}" loading="lazy"><figcaption>{k[4]}</figcaption></figure>'
             for k in p["kits"])
@@ -260,9 +272,10 @@ def pagina_produto(slug, p):
     foto = (f'<div class="loja-hero-foto"><img src="{im[0]}" width="{im[1]}" height="{im[2]}" alt="{im[3]}" fetchpriority="high"></div>' if im else "")
     return head(p["title"], p["desc"], canon, ld) + f"""
   <section class="hero loja-hero">
+    {BF.faixa(HOJE) if slug in BF.OFERTAS else ""}
     <div class="container{' loja-hero-grid' if im else ''}">
       <div class="hero-content">
-        {BF.faixa(HOJE) if slug in BF.OFERTAS else ""}<div class="hero-badge">{p['badge']}</div>
+        <div class="hero-badge">{p['badge']}</div>
         <h1>{p['h1']}</h1>
         <p class="hero-desc">{p['lead']}</p>
         <div class="hero-actions">
@@ -279,14 +292,7 @@ def pagina_produto(slug, p):
     <div class="container">
       <span class="section-subtitle">Preços</span>
       <h2 class="section-title">Kits do {p['nome']}</h2>
-      <div class="precos-wrap">
-        <table class="precos">
-          <thead>{cab}</thead>
-          <tbody>
-{corpo}
-          </tbody>
-        </table>
-      </div>
+{vitrine}
       <p class="loja-nota">{nota}</p>
 {kits}      <p class="loja-nota">{AFILIADO}</p>
       <!-- compartilhar -->
@@ -363,9 +369,10 @@ def pagina_loja():
                 "Produtos da Velmora: Velmo Black Drink e cápsulas, creatina CreaGym e Creatina Gummy, e Clarize. Preços, garantia de 30 dias e pagamento em até 12x.",
                 canon, ld) + f"""
   <section class="hero loja-hero">
+    {BF.faixa(HOJE, "creatina.html#black-friday")}
     <div class="container loja-hero-grid">
       <div class="hero-content">
-        {BF.faixa(HOJE, "creatina.html#black-friday")}<div class="hero-badge">Loja</div>
+        <div class="hero-badge">Loja</div>
         <h1>Produtos da Velmora</h1>
         <p class="hero-desc">O Velmo Black Drink e os outros produtos da Velmora: suplementos para quem treina e cosmético. Todos têm garantia de 30 dias e pagamento no cartão em até 12x, Pix ou boleto.</p>
         <p class="loja-atalhos">{nav}</p>
@@ -432,9 +439,10 @@ def pagina_creatina():
                 "Compare a creatina em pó CreaGym com a Creatina Gummy, em goma: formato, ingredientes, sabores e preço por mês de cada kit. Garantia de 30 dias.",
                 canon, ld) + f"""
   <section class="hero loja-hero">
+    {BF.faixa(HOJE)}
     <div class="container loja-hero-grid">
       <div class="hero-content">
-        {BF.faixa(HOJE)}<div class="hero-badge">Creatina</div>
+        <div class="hero-badge">Creatina</div>
         <h1>Creatina em pó ou em goma: qual escolher</h1>
         <p class="hero-desc">A Velmora vende creatina monohidratada em dois formatos: o CreaGym, em pó, e a Creatina Gummy, em gomas. Veja a diferença entre os dois e o preço por mês de cada kit.</p>
         <div class="hero-actions">

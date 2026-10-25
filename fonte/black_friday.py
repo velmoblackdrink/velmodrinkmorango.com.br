@@ -11,6 +11,8 @@ Para a Black Friday do ano que vem: troque INICIO, FIM, ANO e confira os links e
 """
 import html
 
+import vitrine as V
+
 INICIO = "2026-11-20"
 FIM = "2026-11-30"
 ANO = "2026"
@@ -58,32 +60,25 @@ def botao(uuid, texto):
 
 
 def faixa(hoje, alvo="#black-friday"):
-    """Chamada no topo da página (acima do selo do hero), só durante a oferta."""
+    """Letreiro que passa na largura toda do topo da página (formato slide), só durante a oferta.
+    O texto aparece duas vezes seguidas para o movimento não ter emenda; quem pede menos movimento
+    no aparelho vê o letreiro parado (css/loja.css)."""
     if not ativa(hoje):
         return ""
-    return (f'<a class="bf-faixa" href="{alvo}"><strong>BLACK FRIDAY VELMORA</strong> · '
-            f'30% OFF nos kits de creatina até {FIM_TEXTO} · Ver ofertas &rarr;</a>\n        ')
+    frase = (f'<span><strong>BLACK FRIDAY VELMORA</strong> · 30% OFF nos kits de creatina até {FIM_TEXTO} · '
+             f'Ver ofertas &rarr;</span>')
+    return (f'<a class="bf-letreiro" href="{alvo}" aria-label="Black Friday Velmora: 30% OFF nos kits de creatina até '
+            f'{FIM_TEXTO}. Ver ofertas"><div class="bf-trilho" aria-hidden="true">{frase * 4}{frase * 4}</div></a>\n    ')
 
 
-def _linhas(slug):
+def _cards(slug):
     nome, kits = OFERTAS[slug]
     menor = min(kits, key=lambda k: por(k[1]) / meses(k[0]))
     out = []
     for kit, cheio, uuid, tang in kits:
-        n = meses(kit)
-        preco = por(cheio)
-        destaque = ' class="bf-destaque"' if kit == menor[0] else ""
-        selo = ' <span class="bf-tag">menor preço por mês</span>' if destaque else ""
-        dia = f"<br><small>{brl(preco / (30 * n))} por dia</small>" if destaque else ""
-        if tang:
-            compra = f"{botao(uuid, 'Morango')} {botao(tang, 'Tangerina')}"
-        else:
-            compra = botao(uuid, "Comprar com 30%")
-        out.append(
-            f"<tr{destaque}><td>{kit}{selo}</td><td class=\"bf-de\"><s>{brl(cheio)}</s></td>"
-            f"<td class=\"preco\">{brl(preco)}{f'<br><small>{brl(preco / n)} por mês</small>' if n > 1 else ''}{dia}</td>"
-            f"<td class=\"bf-comprar\">{compra}</td></tr>")
-    return "\n".join(out)
+        links = [("Morango", uuid), ("Tangerina", tang)] if tang else [("Comprar com 30%", uuid)]
+        out.append(V.card(slug, nome, kit, por(cheio), links, cheio=cheio, destaque=kit == menor[0]))
+    return V.grade(out)
 
 
 def leve_junto():
@@ -111,14 +106,7 @@ def bloco_produto(slug, hoje):
       <p class="bf-selo">Black Friday Velmora · até {FIM_TEXTO}</p>
       <h2>30% OFF nos kits do {nome}</h2>
       <p class="bf-sub">O desconto já vem no link: é só escolher o kit e pagar no checkout da Hest.</p>
-      <div class="precos-wrap">
-        <table class="precos bf-tabela">
-          <thead><tr><th>Kit</th><th>De</th><th>Por (30% OFF)</th><th></th></tr></thead>
-          <tbody>
-{_linhas(slug)}
-          </tbody>
-        </table>
-      </div>
+{_cards(slug)}
       {leve_junto()}
       {regras()}
     </div>
@@ -135,14 +123,7 @@ def bloco_comparacao(hoje):
     for slug in OFERTAS:
         nome = OFERTAS[slug][0]
         partes.append(f"""      <h3 class="bf-produto">{nome} <a href="{slug}.html">ver detalhes</a></h3>
-      <div class="precos-wrap">
-        <table class="precos bf-tabela">
-          <thead><tr><th>Kit</th><th>De</th><th>Por (30% OFF)</th><th></th></tr></thead>
-          <tbody>
-{_linhas(slug)}
-          </tbody>
-        </table>
-      </div>""")
+{_cards(slug)}""")
     return f"""<!-- black-friday:inicio -->
   <section class="bf" id="black-friday">
     <div class="container">

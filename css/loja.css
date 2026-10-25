@@ -117,9 +117,16 @@
 .blog-cta-meio a { font-weight: 600; color: #2e7d6b; white-space: normal; }
 
 /* Black Friday (fonte/black_friday.py): só aparece entre INICIO e FIM */
-.bf-faixa { display: inline-block; margin: 0 0 16px; padding: 10px 16px; border-radius: 10px; background: #111; color: #fff !important; font-size: .9rem; line-height: 1.4; letter-spacing: .02em; }
-.bf-faixa strong { color: #D4AF37; }
-.bf-faixa:hover { background: #000; }
+.bf-letreiro { display: block; overflow: hidden; margin: 0 0 40px; background: #111; color: #fff !important; text-decoration: none; }
+.bf-trilho { display: flex; width: max-content; animation: bf-rolar 40s linear infinite; }
+.bf-trilho span { padding: 12px 28px; white-space: nowrap; font-size: .95rem; letter-spacing: .03em; }
+.bf-trilho strong { color: #D4AF37; }
+.bf-letreiro:hover .bf-trilho { animation-play-state: paused; }
+@keyframes bf-rolar { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .bf-trilho { animation: none; } }
+/* com o letreiro, o topo encosta no cabeçalho fixo (68px) e o espaço vem depois do letreiro */
+.loja-hero:has(> .bf-letreiro) { padding-top: 68px; flex-wrap: wrap; align-content: flex-start; }
+.loja-hero > .bf-letreiro { flex: 0 0 100%; width: 100%; position: relative; z-index: 1; }
 .bf { background: #111; color: #eee; padding: 56px 0; }
 .bf h2 { color: #fff; font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 8px; }
 .bf-selo { display: inline-block; margin: 0 0 14px; padding: 6px 14px; border-radius: 999px; background: #D4AF37; color: #111; font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
@@ -131,12 +138,49 @@
 .bf .precos td, .bf .precos td:first-child { border-color: #333; color: #eee; }
 .bf .precos .preco { color: #fff; font-weight: 700; font-size: 1.1rem; }
 .bf .precos small { color: #bbb; font-weight: 400; font-size: .8rem; }
-.bf-de s { color: #999; white-space: nowrap; }
-.bf-destaque td { background: rgba(212, 175, 55, .12); }
-.bf-tag { display: inline-block; margin-top: 4px; padding: 2px 8px; border-radius: 999px; background: #D4AF37; color: #111; font-size: .7rem; font-weight: 700; }
-.bf-comprar .btn { margin: 3px 2px; padding: 9px 16px; font-size: .85rem; }
 .bf-junto { margin: 24px 0 0; padding: 18px; border: 1px dashed #D4AF37; border-radius: 12px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
 .bf-junto p { margin: 0; flex: 1 1 320px; color: #eee; }
 .bf-junto a:not(.btn) { color: #D4AF37; }
 .bf-regras { margin: 18px 0 0; color: #999; font-size: .8rem; }
 .bf-aviso { margin: 24px 0; padding: 16px 18px; border-left: 4px solid #D4AF37; background: #faf6e8; border-radius: 8px; }
+
+/* Cards de kit no formato de loja (fonte/vitrine.py): foto dos potes junto com o preço */
+.kit-grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px; }
+.kit-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.06); transition: box-shadow .2s; }
+.kit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.kit-destaque { border: 2px solid #D4AF37; }
+.kit-foto { display: flex; align-items: center; justify-content: center; height: 220px; padding: 16px; background: #fff; border-bottom: 1px solid #f0f0f0; }
+.kit-foto > img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.kit-pilha { display: flex; align-items: flex-end; justify-content: center; max-width: 100%; overflow: hidden; }
+.kit-pilha img { flex-shrink: 0; width: auto; height: 180px; object-fit: contain; }
+.kit-pilha-3 img { height: 170px; }
+.kit-pilha-3 img + img { margin-left: -30px; }
+.kit-pilha-5 img { height: 150px; }
+.kit-pilha-5 img + img { margin-left: -40px; }
+.kit-info { display: flex; flex-direction: column; gap: 4px; padding: 16px; flex: 1; color: #333; }
+.kit-info p { margin: 0; }
+.kit-tag { align-self: flex-start; margin-bottom: 4px; padding: 3px 8px; border-radius: 4px; background: #D4AF37; color: #111; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.kit-nome { font-size: .95rem; color: #333; line-height: 1.35; }
+.kit-de { color: #999; font-size: .85rem; }
+.kit-preco { font-size: 2rem; line-height: 1.1; color: #222; font-weight: 400; }
+.kit-preco .kit-rs { font-size: 1.1rem; }
+.kit-preco sup { font-size: .9rem; top: -.8em; margin-left: 1px; }
+.kit-off { margin-left: 6px; color: #00a650; font-size: 1rem; font-weight: 600; vertical-align: middle; }
+.kit-parcela { color: #00a650; font-size: .9rem; }
+.kit-mes { color: #555; font-size: .85rem; }
+.kit-frete { color: #555; font-size: .85rem; }
+.kit-botoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 12px; }
+.kit-botoes .btn { flex: 1 1 auto; justify-content: center; text-align: center; padding: 11px 14px; font-size: .9rem; }
+.bf .kit-grade { margin-top: 20px; }
+@media (max-width: 600px) {
+  /* no celular, como nas listas de loja: foto à esquerda, preço à direita */
+  .kit-card { flex-direction: row; }
+  .kit-foto { width: 38%; height: auto; min-height: 170px; border-bottom: 0; border-right: 1px solid #f0f0f0; padding: 10px; }
+  .kit-pilha img { height: 120px; }
+  .kit-pilha-3 img { height: 105px; }
+  .kit-pilha-3 img + img { margin-left: -24px; }
+  .kit-pilha-5 img { height: 90px; }
+  .kit-pilha-5 img + img { margin-left: -30px; }
+  .kit-preco { font-size: 1.6rem; }
+  .kit-botoes .btn { padding: 9px 10px; font-size: .85rem; }
+}

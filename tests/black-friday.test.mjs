@@ -26,7 +26,7 @@ test("fora do período nenhuma página mostra Black Friday nem link de desconto"
     const pasta = gerarEm(hoje)
     for (const nome of PAGINAS) {
       const doc = ler(pasta, nome)
-      assert.ok(!doc.includes("bf-faixa") && !doc.includes('id="black-friday"'), `${hoje} ${nome}`)
+      assert.ok(!doc.includes("bf-letreiro") && !doc.includes('id="black-friday"'), `${hoje} ${nome}`)
       for (const uuid of ["e395fad4", "14f32758", "f3bb752f"]) assert.ok(!doc.includes(uuid), `${hoje} ${nome}: ${uuid}`)
     }
   }
@@ -36,7 +36,7 @@ test("no primeiro e no último dia a oferta aparece com os preços conferidos no
   for (const hoje of ["2026-11-20", "2026-11-30"]) {
     const pasta = gerarEm(hoje)
     const cg = ler(pasta, "creagym.html")
-    assert.ok(cg.includes("bf-faixa") && cg.includes('id="black-friday"'), hoje)
+    assert.ok(cg.includes("bf-letreiro") && cg.includes('id="black-friday"'), hoje)
     for (const [preco, uuid] of [["R$ 137,90", "c6dc3e80"], ["R$ 291,90", "1094666f"], ["R$ 370,30", "e395fad4"], ["R$ 370,30", "95fc0bba"]]) {
       assert.ok(cg.includes(preco), `${hoje} CreaGym ${preco}`)
       assert.ok(cg.includes(`pay.hest.com.br/${uuid}`), `${hoje} CreaGym ${uuid}`)
@@ -51,7 +51,7 @@ test("no primeiro e no último dia a oferta aparece com os preços conferidos no
       assert.ok(!/frete (grátis|incluso)/i.test(doc))
     }
     assert.ok(ler(pasta, "loja.html").includes('href="creatina.html#black-friday"'))
-    assert.ok(!ler(pasta, "clarize.html").includes("bf-faixa"), "página do Clarize fica com o preço normal")
+    assert.ok(!ler(pasta, "clarize.html").includes("bf-letreiro"), "página do Clarize fica com o preço normal")
   }
 })
 
@@ -64,4 +64,27 @@ test("o post da Black Friday avisa antes, mostra a oferta durante e diz que acab
   const depois = ler(gerarEm("2026-12-02"), "creatina-black-friday.html")
   assert.match(depois, /terminou/)
   assert.ok(!depois.includes("e395fad4"))
+})
+
+test("CreaGym e Creatina Gummy mostram os kits em cards, com a foto dos potes junto do preço", () => {
+  const pasta = gerarEm("2026-10-24")
+  const cg = ler(pasta, "creagym.html")
+  assert.equal(cg.split('class="kit-card').length - 1, 3, "3 kits do CreaGym")
+  for (const img of ["creagym-creatina-morango-300g", "creagym-kit-3-potes", "creagym-kit-5-potes"]) assert.ok(cg.includes(img), img)
+  assert.ok(!cg.includes('class="loja-kits"'), "sem a fileira de fotos separada")
+  assert.ok(!cg.includes('<table class="precos">'), "sem a tabela antiga")
+  assert.equal(cg.split('class="kit-tag"').length - 1, 1, "um selo de menor preço por mês")
+  const gm = ler(pasta, "creatina-gummy.html")
+  assert.equal(gm.split('class="kit-card').length - 1, 3, "3 kits da Gummy")
+  assert.ok(gm.includes("kit-pilha-3") && gm.includes("kit-pilha-5"), "frascos empilhados nos kits")
+  assert.ok(ler(pasta, "clarize.html").includes('<table class="precos">'), "Clarize continua com a tabela")
+  for (const doc of [cg, gm]) assert.ok(!doc.includes("OFF"), "sem desconto fora da Black Friday")
+})
+
+test("durante a oferta a vitrine mostra de/por com 30% OFF e o letreiro fica no topo", () => {
+  const cg = ler(gerarEm("2026-11-20"), "creagym.html")
+  assert.ok(cg.indexOf("bf-letreiro") < cg.indexOf('class="hero-badge"'), "letreiro antes do selo do topo")
+  assert.match(cg, /<s>R\$ 529,00<\/s>/)
+  assert.match(cg, /30% OFF/)
+  assert.match(cg, /ou 12x de R\$ 37,96 no cartão/)
 })
