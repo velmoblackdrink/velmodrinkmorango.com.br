@@ -161,7 +161,9 @@
     }
 
     if (/^https:\/\/pay\.hest\.com\.br\//.test(href)) {
-      el.setAttribute('href', decorarCheckout(href, origem, pagina));
+      // DESLIGADO em 25/10/2026: com as UTMs no link, o checkout da Hest abriu vazio ("Vendedor:" em branco, R$ 0,00).
+      // O link vai como está no HTML. Para religar, confirmar antes com a Hest que o checkout aceita UTMs.
+      // el.setAttribute('href', decorarCheckout(href, origem, pagina));
       enviar('clique_comprar', {
         produto: texto(document.querySelector('h1')), item: itemDe(el), texto_botao: texto(el),
         checkout: href.split('?')[0].split('/').pop(), origem: origem.utm_source, midia: origem.utm_medium
