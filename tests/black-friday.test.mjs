@@ -91,6 +91,12 @@ test("durante a oferta a vitrine mostra de/por com 30% OFF e o letreiro fica no 
   assert.equal(cg.split("pay.hest.com.br/f3bb752f").length - 1, 1, "Clarize com 30% numa seção só, abaixo dos cards")
   assert.match(cg, /Preço normal: <s>R\$ 209,00<\/s> <span class="kit-off">30% OFF/)
   assert.ok(!cg.includes("pay.hest.com.br/8a088d7a"), "na oferta, o Clarize aparece só com desconto")
+  for (const doc of [cg, ler(gerarEm("2026-11-20"), "creatina-gummy.html")]) {
+    assert.ok(!doc.includes('id="precos"'), "na oferta, sem a seção de preços normais repetida")
+    assert.ok(!doc.includes("bb220038") && !doc.includes("a427da49"), "nenhum link de preço cheio da creatina")
+    assert.ok(doc.includes('href="#black-friday">Ver ofertas da Black Friday'), "botão do topo leva à oferta")
+    assert.match(doc, /Este site é de um afiliado/)
+  }
 })
 
 test("o pó e a goma sugerem o Clarize abaixo dos cards, com foto e preço normal fora da oferta", () => {

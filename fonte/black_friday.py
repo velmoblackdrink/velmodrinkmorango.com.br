@@ -84,7 +84,8 @@ def _cards(slug):
 def regras():
     return (f'<p class="bf-regras">Oferta válida {PERIODO} de {ANO}, até {FIM_TEXTO}, ou enquanto a Velmora mantiver os preços '
             f'no checkout da Hest. 30% de desconto sobre o preço do produto; frete de {brl(FRETE)} à parte. '
-            f'Pagamento no cartão em até 12x, Pix ou boleto. Garantia de 30 dias da Velmora.</p>')
+            f'Pagamento no cartão em até 12x, Pix ou boleto. Este site é de um afiliado: a compra, a entrega e a garantia '
+            f'de 30 dias são da Velmora, pela Hest.</p>')
 
 
 def bloco_produto(slug, hoje):

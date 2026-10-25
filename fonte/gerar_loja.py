@@ -271,6 +271,29 @@ def pagina_produto(slug, p):
             f'        <figure><img src="{k[0]}" width="{k[1]}" height="{k[2]}" alt="{k[3]}" loading="lazy"><figcaption>{k[4]}</figcaption></figure>'
             for k in p["kits"])
         kits = f'      <div class="loja-kits">\n{figs}\n      </div>\n      <p class="loja-nota">{p["kits_nota"]}</p>\n'
+    # Na Black Friday a oferta substitui a seção de preços normais (não repete os kits com preço cheio)
+    # e os botões do topo e do fim levam para a oferta.
+    em_oferta = BF.ativa(HOJE) and slug in BF.OFERTAS
+    if em_oferta:
+        secao_precos = ""
+        botao_topo = '<a class="btn btn-primary" href="#black-friday">Ver ofertas da Black Friday</a>'
+        cta_final = (f'      <p class="section-desc">Black Friday: 30% OFF nos kits até {BF.FIM_TEXTO}, com garantia de 30 dias.</p>\n'
+                     '      <a class="btn btn-primary" href="#black-friday">Ver as ofertas</a>')
+    else:
+        secao_precos = f"""  <section class="section section-alt" id="precos">
+    <div class="container">
+      <span class="section-subtitle">Preços</span>
+      <h2 class="section-title">Kits do {p['nome']}</h2>
+{vitrine}
+      <p class="loja-nota">{nota}</p>
+{kits}      <p class="loja-nota">{AFILIADO}</p>
+      <!-- compartilhar -->
+    </div>
+  </section>
+"""
+        botao_topo = '<a class="btn btn-primary" href="#precos">Ver preços</a>'
+        cta_final = (f"      <p class=\"section-desc\">Kit de 1 mês por {brl(p['linhas'][0][1])}, com garantia de 30 dias.</p>\n"
+                     f"      {link(principal, 'Comprar o kit de 1 mês')}")
     foto = (f'<div class="loja-hero-foto"><img src="{im[0]}" width="{im[1]}" height="{im[2]}" alt="{im[3]}" fetchpriority="high"></div>' if im else "")
     return head(p["title"], p["desc"], canon, ld) + f"""
   <section class="hero loja-hero">
@@ -281,7 +304,7 @@ def pagina_produto(slug, p):
         <h1>{p['h1']}</h1>
         <p class="hero-desc">{p['lead']}</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#precos">Ver preços</a>
+          {botao_topo}
           <a class="btn btn-outline" href="loja.html">Voltar para a Loja</a>
         </div>
       </div>
@@ -290,17 +313,7 @@ def pagina_produto(slug, p):
   </section>
 
   {BF.bloco_produto(slug, HOJE)}
-  <section class="section section-alt" id="precos">
-    <div class="container">
-      <span class="section-subtitle">Preços</span>
-      <h2 class="section-title">Kits do {p['nome']}</h2>
-{vitrine}
-      <p class="loja-nota">{nota}</p>
-{kits}      <p class="loja-nota">{AFILIADO}</p>
-      <!-- compartilhar -->
-    </div>
-  </section>
-
+{secao_precos}
   <section class="seo-section">
     <div class="seo-inner">
       <h2>O que é o {p['nome']}</h2>
@@ -324,8 +337,7 @@ def pagina_produto(slug, p):
   <div class="cta-section">
     <div class="container">
       <h2 class="section-title">Comprar o {p['nome']}</h2>
-      <p class="section-desc">Kit de 1 mês por {brl(p['linhas'][0][1])}, com garantia de 30 dias.</p>
-      {link(principal, 'Comprar o kit de 1 mês')}
+{cta_final}
     </div>
   </div>
 """ + FOOT
