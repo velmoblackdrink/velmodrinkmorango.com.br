@@ -1267,6 +1267,88 @@ POSTS.append(dict(
 ))
 
 
+CTA_LOJA = """
+<div class="blog-cta">
+  <p class="blog-cta-titulo">Já sabe o seu objetivo?</p>
+  <p>Na Loja estão os produtos da Velmora separados por uso: o Velmo Drink para quem organiza a alimentação, o CreaGym e a Creatina Gummy para quem treina. Cada página mostra a composição, o modo de uso e os cuidados.</p>
+  <a class="btn btn-primary" href="loja.html">Ver a Loja</a>
+</div>
+"""
+
+AVISO_SUPLEMENTOS = """<div class="loja-aviso"><strong>Importante:</strong> Este texto é informativo e não substitui a orientação de médico ou nutricionista. Suplemento não é remédio e não trata doença. Gestantes, lactantes, menores de 18 anos, pessoas com doença crônica e quem usa remédios todos os dias devem falar com um profissional de saúde antes de começar qualquer suplemento. Siga sempre a porção indicada no rótulo.</div>"""
+
+POSTS.append(dict(
+    slug="nao-sei-qual-suplemento-tomar",
+    curto="Não sei qual suplemento tomar",
+    title="Não sei qual suplemento tomar: como escolher pelo objetivo",
+    h1="Não sei qual suplemento tomar: como escolher pelo seu objetivo",
+    desc="Não sabe qual suplemento tomar? Veja como escolher pelo objetivo (treino, emagrecimento, proteína, vitaminas), o que olhar no rótulo e quando falar com um profissional.",
+    categoria="Suplementos",
+    data="2026-10-25",
+    resumo="Comece pelo objetivo, não pela prateleira: um guia para escolher sem gastar à toa.",
+    corpo="""
+<p>Você entra numa loja (ou abre o Instagram) e aparecem creatina, whey, colágeno, termogênico, multivitamínico, ômega 3. Cada um com alguém jurando que mudou a vida. Dá vontade de levar tudo, e é exatamente aí que muita gente gasta dinheiro à toa.</p>
+<p>A escolha fica bem mais simples quando você inverte a pergunta. Em vez de "qual suplemento tomar?", pergunte "o que eu quero melhorar, e a comida já não resolve isso?".</p>
+
+<h2>Resposta curta</h2>
+<p>Escolha pelo objetivo, um suplemento de cada vez. Para quem treina com intensidade, a creatina é o que tem mais estudo. Para quem não come proteína suficiente, um pó de proteína ajuda. Para emagrecer, nenhum produto faz o trabalho sozinho. E vitaminas e minerais, só com exame ou orientação, porque excesso também faz mal.</p>
+
+<h2>Antes de tudo: talvez você nem precise</h2>
+<p>Suplemento serve para <strong>completar</strong> a alimentação, não para substituir. Se você come comida de verdade na maior parte das refeições, dorme razoavelmente e se movimenta, muitas vezes não falta nada. Nesse caso, o suplemento vira gasto extra sem retorno.</p>
+<p>Três sinais de que vale a pena considerar um:</p>
+<ul>
+  <li>você tem um objetivo claro (ganhar força, comer mais proteína, ter um lanche prático);</li>
+  <li>já tentou resolver pela alimentação e não conseguiu manter;</li>
+  <li>um exame ou um profissional apontou uma falta específica.</li>
+</ul>
+
+<h2>Escolha pelo objetivo</h2>
+<h3>Treino, força e desempenho</h3>
+<p>Aqui a creatina é a primeira da fila. É um dos suplementos mais estudados do mundo: com pelo menos 3 g por dia, junto com treino, ela ajuda no desempenho em exercícios repetidos de curta duração e alta intensidade, como musculação e tiros de corrida. Não é estimulante e não precisa de "ciclo". Para entender melhor, leia <a href="para-que-serve-a-creatina.html">para que serve a creatina</a> e <a href="como-tomar-creatina.html">como tomar creatina</a>.</p>
+
+<h3>Comer mais proteína</h3>
+<p>Adultos precisam, em média, de 0,8 g de proteína por quilo de peso por dia. Quem treina força costuma precisar de mais, algo entre 1,2 e 2 g por quilo. Se você não chega lá com carne, ovo, frango, peixe, feijão e laticínios, um pó de proteína (whey ou vegetal) resolve de forma prática. Se chega, não precisa.</p>
+
+<h3>Emagrecer</h3>
+<p>Vou ser direto: nenhum suplemento emagrece sozinho. O que emagrece é comer um pouco menos do que você gasta, por semanas e meses. Um produto pode ajudar a manter a rotina, por exemplo como um lanche prático no lugar do refrigerante ou do biscoito. Fuja de qualquer coisa que prometa "X quilos em Y dias" ou que tenha muita cafeína misturada com outros estimulantes (o limite costuma ser 400 mg de cafeína por dia para adultos saudáveis, somando café e tudo mais).</p>
+<p>Se esse é o seu caso, vale ler o guia sobre <a href="qual-melhor-suplemento-para-emagrecer-sao-paulo-sp.html">como escolher um suplemento para emagrecer</a>.</p>
+
+<h3>Cansaço e "falta de energia"</h3>
+<p>Esse é o objetivo em que mais gente erra. Cansaço tem muitas causas: sono ruim, estresse, anemia, tireoide, alimentação bagunçada. Tomar um "energético" ou um multivitamínico por conta própria pode esconder o problema em vez de resolver. Aqui o primeiro passo é conversar com um médico e, se for o caso, fazer exames.</p>
+
+<h3>Vitaminas e minerais</h3>
+<p>Vitamina D, ferro e B12 estão entre as faltas mais comuns, e são justamente as que não convém tomar no escuro. Ferro em excesso, por exemplo, faz mal. Quem é vegano ou vegetariano costuma precisar de B12, mas a dose certa vem de um exame e de um profissional, não da prateleira.</p>
+
+<h2>Um de cada vez</h2>
+<p>Começar três suplementos na mesma semana é o jeito mais rápido de não saber o que funcionou (e o que deu dor de estômago). Escolha um, use do jeito que o rótulo indica por algumas semanas e observe. Só depois pense no próximo, se ainda fizer sentido.</p>
+
+<h2>O que conferir no rótulo</h2>
+<ul>
+  <li><strong>Quantidade de cada ingrediente por porção.</strong> Desconfie de "blend exclusivo" sem números.</li>
+  <li><strong>Porção diária e quantas porções vêm na embalagem.</strong> É isso que mostra o preço real por mês.</li>
+  <li><strong>Advertências.</strong> Todo suplemento sério informa para quem não é indicado.</li>
+  <li><strong>Empresa responsável, CNPJ, lote e validade.</strong> Sem isso, não compre.</li>
+  <li><strong>Promessas.</strong> Suplemento não pode dizer que trata, cura ou previne doença.</li>
+</ul>
+
+<h2>Quando falar com um profissional antes</h2>
+<p>Procure um médico ou nutricionista antes de começar se você está grávida ou amamentando, tem menos de 18 anos, tem doença nos rins, no fígado ou no coração, pressão alta, diabetes, ou usa algum remédio todos os dias. Nesses casos, até um suplemento comum pode não ser indicado ou pode interferir no tratamento.</p>
+""" + CTA_LOJA + AVISO_SUPLEMENTOS,
+    faq=[
+        ("Não sei qual suplemento tomar. Por onde começo?",
+         "Comece pelo objetivo: força e treino, mais proteína, praticidade na alimentação. Depois veja se a comida já não resolve. Se não resolver, escolha um suplemento só e use por algumas semanas antes de pensar em outro."),
+        ("Qual o suplemento mais seguro para começar?",
+         "Para quem treina, a creatina é um dos suplementos mais estudados e com bom perfil de segurança em adultos saudáveis, na porção de 3 a 5 g por dia. Pessoas com doença nos rins devem consultar um médico antes."),
+        ("Preciso tomar suplemento para ter saúde?",
+         "Não necessariamente. Com alimentação variada, sono e atividade física, muitas pessoas não precisam de nenhum suplemento. Ele serve para completar o que falta, não para substituir a comida."),
+        ("Posso tomar vários suplementos ao mesmo tempo?",
+         "Não é o ideal começar vários juntos, porque você não sabe qual funcionou nem qual causou algum incômodo, e estimulantes se somam. Comece por um e acrescente outros com calma, de preferência com orientação."),
+        ("Suplemento para emagrecer funciona?",
+         "Nenhum suplemento emagrece sozinho. O que faz diferença é a alimentação e a rotina. Um produto pode ajudar a manter o hábito, mas desconfie de promessas de quilos em poucos dias."),
+    ],
+))
+
+
 # CTA leve no meio da leitura: caixa de uma linha antes da seção indicada (o CTA grande continua no fim).
 # slug: (h2 antes do qual entra, texto, link, texto do link)
 CTA_MEIO = {
@@ -1308,6 +1390,8 @@ CTA_MEIO = {
         "Quer praticar com um produto real?", "index.html", "Confira o rótulo e o modo de uso do Velmo Drink"),
     "cha-ou-capsula-para-emagrecer": ("O que olhar na composição, em qualquer formato",
         "Um exemplo de drink em pó: o Velmo Drink, sabores morango e tangerina, 30 porções por pote.", "index.html", "Conheça o Velmo Drink"),
+    "nao-sei-qual-suplemento-tomar": ("Um de cada vez",
+        "Já sabe qual é o seu objetivo?", "loja.html", "Veja os produtos da Velmora separados por uso na Loja"),
 }
 
 for _p in POSTS:
