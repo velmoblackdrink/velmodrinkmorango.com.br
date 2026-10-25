@@ -162,10 +162,21 @@
 .kit-tag { align-self: flex-start; margin-bottom: 4px; padding: 3px 8px; border-radius: 4px; background: #D4AF37; color: #111; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
 .kit-nome { font-size: .95rem; color: #333; line-height: 1.35; }
 .kit-de { color: #999; font-size: .85rem; }
-.kit-preco { font-size: 2rem; line-height: 1.1; color: #222; font-weight: 400; }
+.kit-preco { font-size: 2rem; line-height: 1.1; color: #222; font-weight: 400; white-space: nowrap; }
+.kit-avista { color: #00a650; font-size: .9rem; }
 .kit-preco .kit-rs { font-size: 1.1rem; }
 .kit-preco sup { font-size: .9rem; top: -.8em; margin-left: 1px; }
-.kit-off { margin-left: 6px; color: #00a650; font-size: 1rem; font-weight: 600; vertical-align: middle; }
+.kit-off { margin-left: 6px; color: #00a650; font-size: .9rem; font-weight: 600; }
+.kit-bump { display: flex; gap: 10px; align-items: flex-start; margin-top: 10px; padding: 10px 12px; border: 1.5px dashed #D4AF37; border-radius: 8px; background: #fffbea; color: #333; font-size: .85rem; line-height: 1.4; cursor: pointer; }
+.kit-bump input { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: #2e7d6b; cursor: pointer; }
+.kit-bump s { color: #999; }
+.kit-bump small { color: #777; }
+.kit-bump:has(input:checked) { border-style: solid; background: #fff4c2; }
+.kit-bump-passo { margin-top: 10px; padding: 12px; border-radius: 8px; background: #e9f6ef; color: #1f5c4e; font-size: .85rem; }
+.kit-bump-passo p { margin: 0 0 8px; }
+.kit-bump-passo .btn { width: 100%; justify-content: center; text-align: center; animation: kit-pulsar 1.2s ease-in-out 3; }
+@keyframes kit-pulsar { 50% { transform: scale(1.03); } }
+@media (prefers-reduced-motion: reduce) { .kit-bump-passo .btn { animation: none; } }
 .kit-parcela { color: #00a650; font-size: .9rem; }
 .kit-mes { color: #555; font-size: .85rem; }
 .kit-frete { color: #555; font-size: .85rem; }

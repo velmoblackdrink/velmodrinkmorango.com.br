@@ -77,8 +77,14 @@ def _cards(slug):
     out = []
     for kit, cheio, uuid, tang in kits:
         links = [("Morango", uuid), ("Tangerina", tang)] if tang else [("Comprar com 30%", uuid)]
-        out.append(V.card(slug, nome, kit, por(cheio), links, cheio=cheio, destaque=kit == menor[0]))
+        out.append(V.card(slug, nome, kit, por(cheio), links, cheio=cheio, destaque=kit == menor[0], extra=clarize_30()))
     return V.grade(out)
+
+
+def clarize_30():
+    """Clarize 1 mês com 30%, para marcar junto em cada card durante a oferta."""
+    nome, cheio, uuid = CLARIZE
+    return ("Clarize 1 mês", por(cheio), uuid, cheio)
 
 
 def leve_junto():
@@ -107,7 +113,6 @@ def bloco_produto(slug, hoje):
       <h2>30% OFF nos kits do {nome}</h2>
       <p class="bf-sub">O desconto já vem no link: é só escolher o kit e pagar no checkout da Hest.</p>
 {_cards(slug)}
-      {leve_junto()}
       {regras()}
     </div>
   </section>
@@ -131,7 +136,6 @@ def bloco_comparacao(hoje):
       <h2>30% OFF na creatina: em pó ou em goma</h2>
       <p class="bf-sub">O desconto já vem no link: é só escolher o kit e pagar no checkout da Hest.</p>
 {chr(10).join(partes)}
-      {leve_junto()}
       {regras()}
     </div>
   </section>

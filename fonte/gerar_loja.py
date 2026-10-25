@@ -117,11 +117,11 @@ PRODUTOS = {
   "creatina-gummy": {
     "img": ("img/creatina-gummy-tutti-frutti-60-gomas.webp", 331, 600, "Frasco de Creatina Gummy sabor tutti-frutti da Velmora, 60 gomas"),
     "nome": "Creatina Gummy",
-    "badge": "Creatina em gomas",
-    "title": "Creatina Gummy: gomas de creatina, preços e onde comprar | Velmo Drink",
-    "desc": "Creatina Gummy: gomas com 3 g de creatina por porção, sabor tutti-frutti, sem açúcar e sem glúten. Preços de 1, 3 e 5 meses, garantia de 30 dias.",
+    "badge": "Creatina em goma",
+    "title": "Creatina Gummy: creatina em goma, preços e onde comprar | Velmo Drink",
+    "desc": "Creatina Gummy, a creatina em goma da Velmora: 3 g de creatina por porção, sabor tutti-frutti, sem açúcar e sem glúten. Preços de 1, 3 e 5 meses.",
     "h1": "Creatina Gummy",
-    "lead": "Gomas com 3 g de creatina por porção, sabor tutti-frutti, sem açúcar e sem glúten. Veja os preços de 1, 3 e 5 meses e compre com garantia de 30 dias.",
+    "lead": "Creatina em goma: 3 g de creatina por porção de 2 gomas, sabor tutti-frutti, sem açúcar e sem glúten. Veja os preços de 1, 3 e 5 meses e compre com garantia de 30 dias.",
     "linhas": [("1 Mês", 197.00, "a427da49-539f-4bdc-81e1-bde5045d758a"),
                ("3 Meses", 459.00, "cdb8df1b-cf09-43eb-8743-be11c242a59e"),
                ("5 Meses", 630.00, "7e862ab8-9af8-4a1b-8831-d5ac8d6f71a5")],
@@ -137,6 +137,7 @@ PRODUTOS = {
     ],
     "aviso": "Este produto não é medicamento. Não deve ser consumido por gestantes, lactantes e crianças; é indicado para maiores de 19 anos. Pessoas com doença nos rins devem consultar um profissional de saúde antes de usar creatina. Não ultrapasse 2 gomas por dia e mantenha fora do alcance de crianças.",
     "faq": [
+      ("Creatina goma funciona?", "Funciona, desde que a porção diária tenha pelo menos 3 g de creatina, junto com treino. A creatina em goma entrega a mesma creatina do pó, só muda o formato: a Creatina Gummy tem 3 g em 2 gomas."),
       ("Quanto de creatina tem a Creatina Gummy?", "3 g (3.000 mg) de creatina por porção de 2 gomas, segundo o rótulo."),
       ("Quantas gomas por dia?", "2 gomas por dia. O frasco tem 60 gomas, ou 30 porções, para 1 mês de uso."),
       ("Tem açúcar ou glúten?", "Não tem açúcar: o rótulo informa 0 g de açúcares e adoçante eritritol. A descrição do produto informa que também não tem glúten."),

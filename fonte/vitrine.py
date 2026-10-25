@@ -21,9 +21,16 @@ FOTOS = {
 }
 UNIDADE = {"creagym": ("pote", "potes"), "creatina-gummy": ("frasco", "frascos")}
 
-# Parcela em 12x no cartão (só o produto, sem o frete), conferida no checkout da Hest em 24/10/2026.
-# Preço sem parcela conferida mostra só "em até 12x no cartão".
-PARCELA_12X = {137.90: 14.23, 291.90: 29.96, 370.30: 37.96, 321.30: 32.96, 441.00: 45.18, 146.30: 15.09}
+# Parcela em 12x no cartão (só o produto, sem o frete), como o checkout da Hest mostra.
+# CONFERIDAS no checkout em 24/10/2026: 137,90 / 146,30 / 209,00 / 291,90 / 321,30 / 370,30 / 441,00.
+# CALCULADAS pela mesma regra da Hest (parcela = 0,10211 x preço + 0,15, que bate com as 7 conferidas
+# com menos de meio centavo de diferença): 197,00 / 417,00 / 459,00 / 529,00 / 630,00. Confira no checkout.
+PARCELA_12X = {137.90: 14.23, 146.30: 15.09, 209.00: 21.49, 291.90: 29.96, 321.30: 32.96, 370.30: 37.96, 441.00: 45.18,
+               197.00: 20.27, 417.00: 42.73, 459.00: 47.02, 529.00: 54.17, 630.00: 64.48}
+
+# Clarize 1 mês, oferecido em cada card como item extra (order bump) que a pessoa marca.
+# O checkout da Hest é um link por produto: marcado o Clarize, o card mostra o "Passo 2" (js/rastreio.js).
+CLARIZE_NORMAL = ("Clarize 1 mês", 209.00, "8a088d7a-b2b5-46fa-a132-a818b7653a05", None)
 
 
 def brl(v):
@@ -51,21 +58,50 @@ def foto(slug, n):
     return f'<div class="kit-pilha kit-pilha-{n}" role="img" aria-label="{html.escape(rotulo)}">{imgs}</div>'
 
 
-def preco_grande(v):
+def valor_grande(v):
     reais, cent = f"{v:,.2f}".replace(",", ".").rsplit(".", 1)
     return f'<span class="kit-rs">R$</span> {reais}<sup>{cent}</sup>'
 
 
-def card(slug, nome, kit, preco, links, cheio=None, destaque=False):
-    """links: [(texto do botão, uuid)]. cheio: preço "de" (só na oferta)."""
+def parcela(preco):
+    return PARCELA_12X.get(round(preco, 2))
+
+
+def bump(extra):
+    """Caixa para marcar o Clarize junto. extra: (nome, preço, uuid, preço cheio ou None)."""
+    if not extra:
+        return ""
+    nome, preco, uuid, cheio = extra
+    p12 = parcela(preco)
+    de = f" <s>{brl(cheio)}</s>" if cheio else ""
+    prazo = f" ou 12x de {brl(p12)}" if p12 else ""
+    return f"""            <label class="kit-bump">
+              <input type="checkbox" class="kit-bump-check">
+              <span><strong>Adicionar {html.escape(nome)}</strong>, clareador para virilha e axilas:
+              <b>+ {brl(preco)}</b>{de}{prazo}. <small>Compra separada, com frete próprio.</small></span>
+            </label>
+            <div class="kit-bump-passo" hidden>
+              <p><strong>Passo 2:</strong> o checkout da creatina abriu em outra aba. Agora finalize o {html.escape(nome)}:</p>
+              <a class="btn btn-primary kit-bump-btn" href="{H}{uuid}" target="_blank" rel="sponsored noopener">Finalizar o {html.escape(nome)} por {brl(preco)}</a>
+            </div>"""
+
+
+def card(slug, nome, kit, preco, links, cheio=None, destaque=False, extra=CLARIZE_NORMAL):
+    """links: [(texto do botão, uuid)]. cheio: preço "de" (só na oferta). extra: Clarize para marcar junto."""
     n = meses(kit)
     um, varios = UNIDADE[slug]
     qtd = f"{n} {um if n == 1 else varios}"
+    pct = round((1 - preco / cheio) * 100) if cheio else 0
     tag = '<span class="kit-tag">Menor preço por mês</span>' if destaque else ""
-    de = f'<p class="kit-de"><s>{brl(cheio)}</s></p>' if cheio else ""
-    off = f' <span class="kit-off">{round((1 - preco / cheio) * 100)}% OFF</span>' if cheio else ""
-    parcela = (f"ou 12x de {brl(PARCELA_12X[round(preco, 2)])} no cartão" if round(preco, 2) in PARCELA_12X
-               else "em até 12x no cartão, Pix ou boleto")
+    de = f'<p class="kit-de"><s>{brl(cheio)}</s> <span class="kit-off">{pct}% OFF</span></p>' if cheio else ""
+    p12 = parcela(preco)
+    if p12:
+        grande = f'<p class="kit-preco" aria-label="12x de {brl(p12)} no cartão">12x {valor_grande(p12)}</p>'
+        avista = (f'<p class="kit-avista">ou {brl(preco)} à vista no Pix ou boleto'
+                  f' · total no cartão {brl(p12 * 12)}</p>')
+    else:
+        grande = f'<p class="kit-preco" aria-label="{brl(preco)}">{valor_grande(preco)}</p>'
+        avista = '<p class="kit-avista">em até 12x no cartão, Pix ou boleto</p>'
     por_mes = f'<p class="kit-mes">{brl(preco / n)} por mês{f" · {brl(preco / (30 * n))} por dia" if destaque else ""}</p>' if n > 1 else ""
     botoes = " ".join(botao(u, t) for t, u in links)
     return f"""        <div class="kit-card{' kit-destaque' if destaque else ''}">
@@ -74,10 +110,11 @@ def card(slug, nome, kit, preco, links, cheio=None, destaque=False):
             {tag}
             <p class="kit-nome">{html.escape(nome)} · Kit {kit.lower()} ({qtd})</p>
             {de}
-            <p class="kit-preco" aria-label="{brl(preco)}{f" com {round((1 - preco / cheio) * 100)}% de desconto" if cheio else ""}">{preco_grande(preco)}{off}</p>
-            <p class="kit-parcela">{parcela}</p>
+            {grande}
+            {avista}
             {por_mes}
             <p class="kit-frete">Frete {brl(FRETE)} · garantia de 30 dias</p>
+{bump(extra)}
             <div class="kit-botoes">{botoes}</div>
           </div>
         </div>"""
