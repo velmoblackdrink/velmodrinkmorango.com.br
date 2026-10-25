@@ -499,7 +499,7 @@ img { max-width: 100%; height: auto; display: block; }
 .newsletter-success { display: none; color: var(--green-save); font-size: 13px; margin-top: 8px; padding: 8px 12px; background: rgba(76, 175, 80, 0.1); border-radius: 8px; }
 .footer-col-title { color: var(--white-pure); font-size: 14px; font-weight: 700; margin: 0 0 16px 0; letter-spacing: 1px; text-transform: uppercase; }
 .footer-links { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: 10px; }
+.footer-links li { margin-bottom: 10px; color: #888; font-size: 13px; line-height: 1.5; }
 .footer-links a { color: #888; text-decoration: none; font-size: 14px; transition: var(--transition-smooth); position: relative; }
 .footer-links a::before { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--cyan-neon); transition: width 0.3s ease; }
 .footer-links a:hover { color: var(--cyan-neon); }
