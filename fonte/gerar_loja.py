@@ -277,8 +277,8 @@ def pagina_produto(slug, p):
     em_oferta = BF.ativa(HOJE) and slug in BF.OFERTAS
     if em_oferta:
         secao_precos = ""
-        botao_topo = '<a class="btn btn-primary" href="#black-friday">Ver ofertas da Black Friday</a>'
-        cta_final = (f'      <p class="section-desc">Black Friday: 30% OFF nos kits até {BF.FIM_TEXTO}, com garantia de 30 dias.</p>\n'
+        botao_topo = '<a class="btn btn-primary" href="#black-friday">Ver ofertas com 30% OFF</a>'
+        cta_final = (f'      <p class="section-desc">{BF.nome_campanha(HOJE)}: 30% OFF nos kits até {BF.FIM_TEXTO}, com garantia de 30 dias.</p>\n'
                      '      <a class="btn btn-primary" href="#black-friday">Ver as ofertas</a>')
     else:
         secao_precos = f"""  <section class="section section-alt" id="precos">

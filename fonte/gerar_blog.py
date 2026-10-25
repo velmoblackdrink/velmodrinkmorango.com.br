@@ -1661,8 +1661,11 @@ def pagina_post(p):
     if outros:
         leia = "<h2 style=\"margin-top:48px;\">Leia também</h2>\n<ul>\n" + "\n".join(
             f'  <li><a href="{o["slug"]}.html">{html.escape(o["h1"])}</a></li>' for o in outros) + "\n</ul>"
+    # Durante a oferta, posts de creatina e de suplementos levam o letreiro para a oferta (creatina.html#black-friday).
+    letreiro = BF.faixa(HOJE, "creatina.html#black-friday") if p["categoria"] in ("Creatina", "Suplementos") else ""
     return head(p["title"], p["desc"], url, ld, "article") + f"""
   <section class="hero loja-hero blog-hero">
+    {letreiro}
     <div class="container">
       <div class="hero-content">
         <p class="blog-trilha"><a href="index.html">Início</a> / <a href="blog.html">Blog</a> / {html.escape(p['categoria'])}</p>

@@ -93,7 +93,7 @@ test("durante a oferta a vitrine mostra de/por com 30% OFF e o letreiro fica no 
   for (const doc of [cg, ler(gerarEm("2026-10-26"), "creatina-gummy.html")]) {
     assert.ok(!doc.includes('id="precos"'), "na oferta, sem a seção de preços normais repetida")
     assert.ok(!doc.includes("bb220038") && !doc.includes("a427da49"), "nenhum link de preço cheio da creatina")
-    assert.ok(doc.includes('href="#black-friday">Ver ofertas da Black Friday'), "botão do topo leva à oferta")
+    assert.ok(doc.includes('href="#black-friday">Ver ofertas com 30% OFF'), "botão do topo leva à oferta")
     assert.match(doc, /Este site é de um afiliado/)
   }
 })
@@ -113,4 +113,22 @@ test("o pó e a goma sugerem o Clarize abaixo dos cards, com foto e preço norma
   const gm = ler(pasta, "creatina-gummy.html")
   assert.match(gm, /<title>Creatina Gummy: creatina em goma, preços e onde comprar/)
   assert.ok(gm.includes("Creatina goma funciona?"))
+})
+
+test("até 19/11 é Esquenta Black Friday, de 20 a 30/11 é Black Friday", () => {
+  const esquenta = ler(gerarEm("2026-10-26"), "creagym.html")
+  assert.match(esquenta, /ESQUENTA BLACK FRIDAY VELMORA/)
+  assert.match(esquenta, /Esquenta Black Friday Velmora · até 30\/11/)
+  const black = ler(gerarEm("2026-11-20"), "creagym.html")
+  assert.ok(!black.includes("ESQUENTA") && !black.includes("Esquenta"))
+  assert.match(black, /<strong>BLACK FRIDAY VELMORA<\/strong>/)
+})
+
+test("na oferta, posts de creatina e de suplementos levam o letreiro para a oferta; os outros não", () => {
+  const pasta = gerarEm("2026-10-30")
+  for (const nome of ["como-tomar-creatina.html", "creatina-black-friday.html", "nao-sei-qual-suplemento-tomar.html", "bicarbonato-como-suplemento.html"])
+    assert.ok(ler(pasta, nome).includes('class="bf-letreiro" href="creatina.html#black-friday"'), nome)
+  for (const nome of ["durmo-mal-e-vivo-ansiosa.html", "calistenia-para-iniciantes.html"])
+    assert.ok(!ler(pasta, nome).includes("bf-letreiro"), nome)
+  assert.ok(!ler(gerarEm("2026-12-01"), "como-tomar-creatina.html").includes("bf-letreiro"), "sai depois da oferta")
 })

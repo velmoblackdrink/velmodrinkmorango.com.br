@@ -15,6 +15,8 @@ import vitrine as V
 
 INICIO = "2026-10-26"  # antecipada a pedido em 25/10/2026 (era 20/11)
 FIM = "2026-11-30"
+# De INICIO até a véspera de DIA_BLACK a oferta se chama "Esquenta Black Friday"; de DIA_BLACK a FIM, "Black Friday".
+DIA_BLACK = "2026-11-20"
 ANO = "2026"
 PERIODO = "de 26 de outubro a 30 de novembro"
 FIM_TEXTO = "30/11 às 23h59"
@@ -42,6 +44,11 @@ def ativa(hoje):
     return INICIO <= hoje <= FIM
 
 
+def nome_campanha(hoje):
+    """Nome da campanha no dia: 'Esquenta Black Friday Velmora' antes de DIA_BLACK, depois 'Black Friday Velmora'."""
+    return "Esquenta Black Friday Velmora" if hoje < DIA_BLACK else "Black Friday Velmora"
+
+
 def brl(v):
     s = f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
     return "R$ " + s
@@ -65,9 +72,9 @@ def faixa(hoje, alvo="#black-friday"):
     no aparelho vê o letreiro parado (css/loja.css)."""
     if not ativa(hoje):
         return ""
-    frase = (f'<span><strong>BLACK FRIDAY VELMORA</strong> · 30% OFF nos kits de creatina até {FIM_TEXTO} · '
+    frase = (f'<span><strong>{nome_campanha(hoje).upper()}</strong> · 30% OFF nos kits de creatina até {FIM_TEXTO} · '
              f'Ver ofertas &rarr;</span>')
-    return (f'<a class="bf-letreiro" href="{alvo}" aria-label="Black Friday Velmora: 30% OFF nos kits de creatina até '
+    return (f'<a class="bf-letreiro" href="{alvo}" aria-label="{nome_campanha(hoje)}: 30% OFF nos kits de creatina até '
             f'{FIM_TEXTO}. Ver ofertas"><div class="bf-trilho" aria-hidden="true">{frase * 4}{frase * 4}</div></a>\n    ')
 
 
@@ -96,7 +103,7 @@ def bloco_produto(slug, hoje):
     return f"""<!-- black-friday:inicio -->
   <section class="bf" id="black-friday">
     <div class="container">
-      <p class="bf-selo">Black Friday Velmora · até {FIM_TEXTO}</p>
+      <p class="bf-selo">{nome_campanha(hoje)} · até {FIM_TEXTO}</p>
       <h2>30% OFF nos kits do {nome}</h2>
       <p class="bf-sub">O desconto já vem no link: é só escolher o kit e pagar no checkout da Hest.</p>
 {_cards(slug)}
@@ -120,7 +127,7 @@ def bloco_comparacao(hoje):
     return f"""<!-- black-friday:inicio -->
   <section class="bf" id="black-friday">
     <div class="container">
-      <p class="bf-selo">Black Friday Velmora · até {FIM_TEXTO}</p>
+      <p class="bf-selo">{nome_campanha(hoje)} · até {FIM_TEXTO}</p>
       <h2>30% OFF na creatina: em pó ou em goma</h2>
       <p class="bf-sub">O desconto já vem no link: é só escolher o kit e pagar no checkout da Hest.</p>
 {chr(10).join(partes)}
