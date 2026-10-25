@@ -76,7 +76,7 @@ def _cards(slug):
     menor = min(kits, key=lambda k: por(k[1]) / meses(k[0]))
     out = []
     for kit, cheio, uuid, tang in kits:
-        links = [("Morango", uuid), ("Tangerina", tang)] if tang else [("Comprar com 30%", uuid)]
+        links = [("Quero Morango", uuid), ("Quero Tangerina", tang)] if tang else [("Quero agora com 30%", uuid)]
         out.append(V.card(slug, nome, kit, por(cheio), links, cheio=cheio, destaque=kit == menor[0]))
     return V.grade(out)
 

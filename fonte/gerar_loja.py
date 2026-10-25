@@ -15,7 +15,7 @@ def brl(v):
     s = f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
     return "R$ " + s
 
-def link(uuid, texto="Comprar"):
+def link(uuid, texto="Quero este kit"):
     return f'<a class="btn btn-primary" href="{H}{uuid}" target="_blank" rel="sponsored noopener">{texto}</a>'
 
 AFILIADO = ("Este site é de um afiliado. A compra, a entrega e a garantia de 30 dias são da Velmora, pela Hest. "
@@ -117,6 +117,7 @@ PRODUTOS = {
   "creatina-gummy": {
     "img": ("img/creatina-gummy-tutti-frutti-60-gomas.webp", 331, 600, "Frasco de Creatina Gummy sabor tutti-frutti da Velmora, 60 gomas"),
     "nome": "Creatina Gummy",
+    "chamada": "Quero a minha Creatina Gummy",
     "badge": "Creatina em goma",
     "title": "Creatina Gummy: creatina em goma, preços e onde comprar | Velmo Drink",
     "desc": "Creatina Gummy, a creatina em goma da Velmora: 3 g de creatina por porção, sabor tutti-frutti, sem açúcar e sem glúten. Preços de 1, 3 e 5 meses.",
@@ -161,7 +162,7 @@ SECOES = [
     ("index.html", "Velmo Black Drink Morango", "Pó para preparo de bebida, sabor morango. Pote de 150 g com 30 porções.", 209.90, None, DRINK_MOR, "", "Ver detalhes e kits"),
     ("index.html", "Velmo Black Drink Tangerina", "Pó para preparo de bebida, sabor tangerina. Pote de 150 g com 30 porções.", 209.90, None, DRINK_TAN, "", "Ver detalhes e kits"),
     (None, "Velmo Black (cápsulas)", "A linha Velmo Black em cápsulas. Pote com 60 cápsulas; composição e modo de uso no rótulo.", 197.90, "d749bf05-25b1-4646-8139-35423bb2fb05",
-     ("img/velmo-black-capsulas-1-pote.webp", 400, 810, "Pote de Velmo Black cápsulas, da Velmora, com 60 cápsulas"), "", "Comprar"),
+     ("img/velmo-black-capsulas-1-pote.webp", 400, 810, "Pote de Velmo Black cápsulas, da Velmora, com 60 cápsulas"), "", "Quero o meu"),
   ]),
   ("creatina", "Creatina", "Creatina monohidratada em dois formatos: pó para misturar na água ou goma para mastigar.",
    ("creatina.html", "Creatina em pó ou em goma? Veja a comparação"), [
@@ -230,7 +231,7 @@ def pagina_produto(slug, p):
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in p["faq"]]},
     ]}
     if p.get("colunas"):
-        cab = "<tr><th>Kit</th><th>Preço</th><th>Comprar</th><th></th></tr>"
+        cab = "<tr><th>Kit</th><th>Preço</th><th>Sabor</th><th></th></tr>"
         corpo = "\n".join(
             f"<tr><td>{k}</td><td class=\"preco\">{brl(v)}</td><td>{link(m, 'Morango')}</td>"
             f"<td>{link(t, 'Tangerina') if t else '—'}</td></tr>" for k, v, m, t in p["linhas"])
@@ -242,7 +243,7 @@ def pagina_produto(slug, p):
         menor = min(p["linhas"], key=lambda l: l[1] / int(l[0].split()[0]))
         cards = []
         for l in p["linhas"]:
-            links = ([("Morango", l[2])] + ([("Tangerina", l[3])] if l[3] else [])) if p.get("colunas") else [("Comprar", l[2])]
+            links = ([("Quero Morango", l[2])] + ([("Quero Tangerina", l[3])] if l[3] else [])) if p.get("colunas") else [("Quero este kit", l[2])]
             cards.append(V.card(slug, p["nome"], l[0], l[1], links, destaque=l is menor))
         # Clarize sugerido abaixo dos cards; durante a Black Friday ele já aparece com desconto na seção da oferta.
         vitrine = V.grade(cards) + ("" if BF.ativa(HOJE) else "\n" + V.sugestao_clarize())
@@ -293,7 +294,7 @@ def pagina_produto(slug, p):
 """
         botao_topo = '<a class="btn btn-primary" href="#precos">Ver preços</a>'
         cta_final = (f"      <p class=\"section-desc\">Kit de 1 mês por {brl(p['linhas'][0][1])}, com garantia de 30 dias.</p>\n"
-                     f"      {link(principal, 'Comprar o kit de 1 mês')}")
+                     f"      {link(principal, 'Quero o kit de 1 mês')}")
     foto = (f'<div class="loja-hero-foto"><img src="{im[0]}" width="{im[1]}" height="{im[2]}" alt="{im[3]}" fetchpriority="high"></div>' if im else "")
     return head(p["title"], p["desc"], canon, ld) + f"""
   <section class="hero loja-hero">
@@ -336,7 +337,7 @@ def pagina_produto(slug, p):
 
   <div class="cta-section">
     <div class="container">
-      <h2 class="section-title">Comprar o {p['nome']}</h2>
+      <h2 class="section-title">{p.get('chamada', 'Quero o meu ' + p['nome'])}</h2>
 {cta_final}
     </div>
   </div>

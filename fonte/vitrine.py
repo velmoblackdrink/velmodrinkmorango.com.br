@@ -113,11 +113,11 @@ def sugestao_clarize(preco=None, uuid=None, cheio=None):
         precos = (f'<p class="kit-de">Preço normal: <s>{brl(cheio)}</s> <span class="kit-off">{pct}% OFF</span></p>'
                   f'<p class="kit-preco" aria-label="12x de {brl(p12)} no cartão">12x {valor_grande(p12)}</p>'
                   f'<p class="kit-avista">ou {brl(preco)} à vista no Pix ou boleto · total no cartão {brl(p12 * 12)}</p>')
-        botao_txt = f"Comprar o Clarize com {pct}% OFF"
+        botao_txt = f"Quero o Clarize com {pct}%"
     else:
         precos = (f'<p class="kit-preco" aria-label="12x de {brl(p12)} no cartão">12x {valor_grande(p12)}</p>'
                   f'<p class="kit-avista">ou {brl(preco)} à vista no Pix ou boleto · total no cartão {brl(p12 * 12)}</p>')
-        botao_txt = "Comprar o Clarize"
+        botao_txt = "Quero o meu Clarize"
     return f"""      <div class="sugestao">
         <div class="sugestao-foto"><img src="{a}" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="lazy"></div>
         <div class="sugestao-info">
