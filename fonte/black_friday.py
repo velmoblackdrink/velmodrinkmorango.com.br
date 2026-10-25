@@ -1,5 +1,5 @@
 """Black Friday da Velmora: 30% OFF nos kits do CreaGym e da Creatina Gummy, com o Clarize de 1 mês
-com 30% como "leve junto".
+com 30% sugerido abaixo dos cards (compra separada).
 
 A oferta entra e sai sozinha pela data (INICIO a FIM, horário de Brasília): gerar_loja.py e gerar_blog.py
 chamam este módulo, e a ação diária (.github/workflows/publicar-blog.yml) regera o site às 07:00.
@@ -77,22 +77,8 @@ def _cards(slug):
     out = []
     for kit, cheio, uuid, tang in kits:
         links = [("Morango", uuid), ("Tangerina", tang)] if tang else [("Comprar com 30%", uuid)]
-        out.append(V.card(slug, nome, kit, por(cheio), links, cheio=cheio, destaque=kit == menor[0], extra=clarize_30()))
+        out.append(V.card(slug, nome, kit, por(cheio), links, cheio=cheio, destaque=kit == menor[0]))
     return V.grade(out)
-
-
-def clarize_30():
-    """Clarize 1 mês com 30%, para marcar junto em cada card durante a oferta."""
-    nome, cheio, uuid = CLARIZE
-    return ("Clarize 1 mês", por(cheio), uuid, cheio)
-
-
-def leve_junto():
-    nome, cheio, uuid = CLARIZE
-    return (f'<div class="bf-junto"><p><strong>Leve junto:</strong> {nome} também com 30%: de <s>{brl(cheio)}</s> por '
-            f'<strong>{brl(por(cheio))}</strong>. Clareador com niacinamida para virilha e axilas. '
-            f'É uma compra separada, com frete próprio. <a href="clarize.html">Saiba mais</a></p>'
-            f'{botao(uuid, "Comprar o Clarize com 30%")}</div>')
 
 
 def regras():
@@ -113,6 +99,7 @@ def bloco_produto(slug, hoje):
       <h2>30% OFF nos kits do {nome}</h2>
       <p class="bf-sub">O desconto já vem no link: é só escolher o kit e pagar no checkout da Hest.</p>
 {_cards(slug)}
+{V.sugestao_clarize(por(CLARIZE[1]), CLARIZE[2], CLARIZE[1])}
       {regras()}
     </div>
   </section>
@@ -136,6 +123,7 @@ def bloco_comparacao(hoje):
       <h2>30% OFF na creatina: em pó ou em goma</h2>
       <p class="bf-sub">O desconto já vem no link: é só escolher o kit e pagar no checkout da Hest.</p>
 {chr(10).join(partes)}
+{V.sugestao_clarize(por(CLARIZE[1]), CLARIZE[2], CLARIZE[1])}
       {regras()}
     </div>
   </section>

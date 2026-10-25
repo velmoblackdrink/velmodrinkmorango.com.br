@@ -28,9 +28,10 @@ UNIDADE = {"creagym": ("pote", "potes"), "creatina-gummy": ("frasco", "frascos")
 PARCELA_12X = {137.90: 14.23, 146.30: 15.09, 209.00: 21.49, 291.90: 29.96, 321.30: 32.96, 370.30: 37.96, 441.00: 45.18,
                197.00: 20.27, 417.00: 42.73, 459.00: 47.02, 529.00: 54.17, 630.00: 64.48}
 
-# Clarize 1 mês, oferecido em cada card como item extra (order bump) que a pessoa marca.
-# O checkout da Hest é um link por produto: marcado o Clarize, o card mostra o "Passo 2" (js/rastreio.js).
-CLARIZE_NORMAL = ("Clarize 1 mês", 209.00, "8a088d7a-b2b5-46fa-a132-a818b7653a05", None)
+# Clarize 1 mês, sugerido numa seção própria abaixo dos cards (a Hest tem um checkout por produto,
+# então ele é uma compra separada). Preço com desconto só em campanha (black_friday.py).
+CLARIZE = ("Clarize 1 mês", 209.00, "8a088d7a-b2b5-46fa-a132-a818b7653a05")
+CLARIZE_FOTO = ("img/clarize-clareador-intimo-60ml.webp", 221, 600, "Frasco do Clarize, clareador íntimo da Velmora, 60 ml")
 
 
 def brl(v):
@@ -67,27 +68,8 @@ def parcela(preco):
     return PARCELA_12X.get(round(preco, 2))
 
 
-def bump(extra):
-    """Caixa para marcar o Clarize junto. extra: (nome, preço, uuid, preço cheio ou None)."""
-    if not extra:
-        return ""
-    nome, preco, uuid, cheio = extra
-    p12 = parcela(preco)
-    de = f" <s>{brl(cheio)}</s>" if cheio else ""
-    prazo = f" ou 12x de {brl(p12)}" if p12 else ""
-    return f"""            <label class="kit-bump">
-              <input type="checkbox" class="kit-bump-check">
-              <span><strong>Adicionar {html.escape(nome)}</strong>, clareador para virilha e axilas:
-              <b>+ {brl(preco)}</b>{de}{prazo}. <small>Compra separada, com frete próprio.</small></span>
-            </label>
-            <div class="kit-bump-passo" hidden>
-              <p><strong>Passo 2:</strong> o checkout da creatina abriu em outra aba. Agora finalize o {html.escape(nome)}:</p>
-              <a class="btn btn-primary kit-bump-btn" href="{H}{uuid}" target="_blank" rel="sponsored noopener">Finalizar o {html.escape(nome)} por {brl(preco)}</a>
-            </div>"""
-
-
-def card(slug, nome, kit, preco, links, cheio=None, destaque=False, extra=CLARIZE_NORMAL):
-    """links: [(texto do botão, uuid)]. cheio: preço "de" (só na oferta). extra: Clarize para marcar junto."""
+def card(slug, nome, kit, preco, links, cheio=None, destaque=False):
+    """links: [(texto do botão, uuid)]. cheio: preço "de" (só na oferta)."""
     n = meses(kit)
     um, varios = UNIDADE[slug]
     qtd = f"{n} {um if n == 1 else varios}"
@@ -114,10 +96,39 @@ def card(slug, nome, kit, preco, links, cheio=None, destaque=False, extra=CLARIZ
             {avista}
             {por_mes}
             <p class="kit-frete">Frete {brl(FRETE)} · garantia de 30 dias</p>
-{bump(extra)}
             <div class="kit-botoes">{botoes}</div>
           </div>
         </div>"""
+
+
+def sugestao_clarize(preco=None, uuid=None, cheio=None):
+    """Seção "leve também o Clarize" abaixo dos cards. Sem argumentos: preço normal.
+    Na campanha: preco com desconto, uuid do link de desconto e cheio = preço normal."""
+    nome, normal, link_normal = CLARIZE
+    preco, uuid = (preco or normal), (uuid or link_normal)
+    a, w, h, alt = CLARIZE_FOTO
+    p12 = parcela(preco)
+    if cheio:
+        pct = round((1 - preco / cheio) * 100)
+        precos = (f'<p class="kit-de">Preço normal: <s>{brl(cheio)}</s> <span class="kit-off">{pct}% OFF</span></p>'
+                  f'<p class="kit-preco" aria-label="12x de {brl(p12)} no cartão">12x {valor_grande(p12)}</p>'
+                  f'<p class="kit-avista">ou {brl(preco)} à vista no Pix ou boleto · total no cartão {brl(p12 * 12)}</p>')
+        botao_txt = f"Comprar o Clarize com {pct}% OFF"
+    else:
+        precos = (f'<p class="kit-preco" aria-label="12x de {brl(p12)} no cartão">12x {valor_grande(p12)}</p>'
+                  f'<p class="kit-avista">ou {brl(preco)} à vista no Pix ou boleto · total no cartão {brl(p12 * 12)}</p>')
+        botao_txt = "Comprar o Clarize"
+    return f"""      <div class="sugestao">
+        <div class="sugestao-foto"><img src="{a}" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="lazy"></div>
+        <div class="sugestao-info">
+          <span class="kit-tag">Sugestão para você</span>
+          <h3>Leve também o Clarize</h3>
+          <p class="sugestao-desc">Clareador íntimo com niacinamida para virilha, axilas e joelhos. Frasco de 60 ml, para 1 mês de uso.</p>
+          {precos}
+          <p class="kit-frete">É uma compra separada da creatina, com frete próprio de {brl(FRETE)} · garantia de 30 dias</p>
+          <div class="kit-botoes">{botao(uuid, botao_txt)} <a class="btn btn-outline" href="clarize.html">Saiba mais</a></div>
+        </div>
+      </div>"""
 
 
 def grade(cards):

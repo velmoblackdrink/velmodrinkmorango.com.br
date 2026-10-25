@@ -138,9 +138,6 @@
 .bf .precos td, .bf .precos td:first-child { border-color: #333; color: #eee; }
 .bf .precos .preco { color: #fff; font-weight: 700; font-size: 1.1rem; }
 .bf .precos small { color: #bbb; font-weight: 400; font-size: .8rem; }
-.bf-junto { margin: 24px 0 0; padding: 18px; border: 1px dashed #D4AF37; border-radius: 12px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
-.bf-junto p { margin: 0; flex: 1 1 320px; color: #eee; }
-.bf-junto a:not(.btn) { color: #D4AF37; }
 .bf-regras { margin: 18px 0 0; color: #999; font-size: .8rem; }
 .bf-aviso { margin: 24px 0; padding: 16px 18px; border-left: 4px solid #D4AF37; background: #faf6e8; border-radius: 8px; }
 
@@ -167,16 +164,6 @@
 .kit-preco .kit-rs { font-size: 1.1rem; }
 .kit-preco sup { font-size: .9rem; top: -.8em; margin-left: 1px; }
 .kit-off { margin-left: 6px; color: #00a650; font-size: .9rem; font-weight: 600; }
-.kit-bump { display: flex; gap: 10px; align-items: flex-start; margin-top: 10px; padding: 10px 12px; border: 1.5px dashed #D4AF37; border-radius: 8px; background: #fffbea; color: #333; font-size: .85rem; line-height: 1.4; cursor: pointer; }
-.kit-bump input { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: #2e7d6b; cursor: pointer; }
-.kit-bump s { color: #999; }
-.kit-bump small { color: #777; }
-.kit-bump:has(input:checked) { border-style: solid; background: #fff4c2; }
-.kit-bump-passo { margin-top: 10px; padding: 12px; border-radius: 8px; background: #e9f6ef; color: #1f5c4e; font-size: .85rem; }
-.kit-bump-passo p { margin: 0 0 8px; }
-.kit-bump-passo .btn { width: 100%; justify-content: center; text-align: center; animation: kit-pulsar 1.2s ease-in-out 3; }
-@keyframes kit-pulsar { 50% { transform: scale(1.03); } }
-@media (prefers-reduced-motion: reduce) { .kit-bump-passo .btn { animation: none; } }
 .kit-parcela { color: #00a650; font-size: .9rem; }
 .kit-mes { color: #555; font-size: .85rem; }
 .kit-frete { color: #555; font-size: .85rem; }
@@ -194,4 +181,18 @@
   .kit-pilha-5 img + img { margin-left: -30px; }
   .kit-preco { font-size: 1.6rem; }
   .kit-botoes .btn { padding: 9px 10px; font-size: .85rem; }
+}
+
+/* Seção "Leve também o Clarize" abaixo dos cards (fonte/vitrine.py) */
+.sugestao { display: flex; gap: 24px; align-items: center; margin-top: 24px; padding: 20px; background: #fff; border: 2px dashed #D4AF37; border-radius: 12px; color: #333; }
+.sugestao-foto { flex: 0 0 140px; display: flex; justify-content: center; }
+.sugestao-foto img { width: auto; height: 190px; object-fit: contain; }
+.sugestao-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.sugestao-info p { margin: 0; }
+.sugestao-info h3 { margin: 2px 0; font-size: 1.4rem; color: #222; }
+.sugestao-desc { color: #555; font-size: .92rem; }
+.sugestao .kit-botoes { max-width: 460px; }
+@media (max-width: 600px) {
+  .sugestao { flex-direction: column; text-align: left; align-items: stretch; }
+  .sugestao-foto img { height: 150px; }
 }

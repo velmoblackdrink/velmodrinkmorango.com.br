@@ -73,7 +73,7 @@ test("CreaGym e Creatina Gummy mostram os kits em cards, com a foto dos potes ju
   for (const img of ["creagym-creatina-morango-300g", "creagym-kit-3-potes", "creagym-kit-5-potes"]) assert.ok(cg.includes(img), img)
   assert.ok(!cg.includes('class="loja-kits"'), "sem a fileira de fotos separada")
   assert.ok(!cg.includes('<table class="precos">'), "sem a tabela antiga")
-  assert.equal(cg.split('class="kit-tag"').length - 1, 1, "um selo de menor preço por mês")
+  assert.equal(cg.split(">Menor preço por mês<").length - 1, 1, "um selo de menor preço por mês")
   const gm = ler(pasta, "creatina-gummy.html")
   assert.equal(gm.split('class="kit-card').length - 1, 3, "3 kits da Gummy")
   assert.ok(gm.includes("kit-pilha-3") && gm.includes("kit-pilha-5"), "frascos empilhados nos kits")
@@ -88,18 +88,21 @@ test("durante a oferta a vitrine mostra de/por com 30% OFF e o letreiro fica no 
   assert.match(cg, /30% OFF/)
   assert.match(cg, /aria-label="12x de R\$ 37,96 no cartão">12x /, "parcela em destaque")
   assert.match(cg, /ou R\$ 370,30 à vista no Pix ou boleto · total no cartão R\$ 455,52/, "à vista e total no cartão")
-  assert.equal(cg.split("pay.hest.com.br/f3bb752f").length - 1, 3, "Clarize com 30% para marcar em cada card")
-  assert.ok(!cg.includes('class="bf-junto"'), "sem a caixa separada de leve junto")
+  assert.equal(cg.split("pay.hest.com.br/f3bb752f").length - 1, 1, "Clarize com 30% numa seção só, abaixo dos cards")
+  assert.match(cg, /Preço normal: <s>R\$ 209,00<\/s> <span class="kit-off">30% OFF/)
+  assert.ok(!cg.includes("pay.hest.com.br/8a088d7a"), "na oferta, o Clarize aparece só com desconto")
 })
 
-test("todo card do pó e da goma tem o Clarize para marcar, com o passo 2 escondido", () => {
+test("o pó e a goma sugerem o Clarize abaixo dos cards, com foto e preço normal fora da oferta", () => {
   const pasta = gerarEm("2026-10-24")
   for (const nome of ["creagym.html", "creatina-gummy.html"]) {
     const doc = ler(pasta, nome)
-    assert.equal(doc.split('class="kit-bump-check"').length - 1, 3, `${nome}: caixa em cada card`)
-    assert.equal(doc.split('class="kit-bump-passo" hidden').length - 1, 3, `${nome}: passo 2 escondido`)
+    assert.equal(doc.split('class="sugestao"').length - 1, 1, `${nome}: uma seção do Clarize`)
+    assert.ok(doc.indexOf('class="sugestao"') > doc.lastIndexOf('class="kit-card'), `${nome}: abaixo dos cards`)
+    assert.ok(doc.includes("img/clarize-clareador-intimo-60ml.webp"), `${nome}: foto do Clarize`)
     assert.ok(doc.includes("pay.hest.com.br/8a088d7a"), `${nome}: Clarize a preço cheio fora da oferta`)
-    assert.ok(!doc.includes("f3bb752f"), `${nome}: sem Clarize com desconto fora da oferta`)
+    assert.match(doc, /aria-label="12x de R\$ 21,49 no cartão"/, `${nome}: parcela do Clarize`)
+    assert.ok(!doc.includes("f3bb752f") && !doc.includes("kit-bump"), `${nome}: sem desconto e sem caixa de marcar`)
     assert.match(doc, /aria-label="12x de R\$ 20,27 no cartão"/, `${nome}: parcela do kit de 1 mês`)
   }
   const gm = ler(pasta, "creatina-gummy.html")

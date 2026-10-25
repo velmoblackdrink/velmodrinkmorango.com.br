@@ -162,18 +162,6 @@
 
     if (/^https:\/\/pay\.hest\.com\.br\//.test(href)) {
       el.setAttribute('href', decorarCheckout(href, origem, pagina));
-      // Clarize marcado no card (fonte/vitrine.py): o checkout da creatina abre em outra aba e o card
-      // mostra o "Passo 2" com o link do Clarize (a Hest tem um checkout por produto).
-      var cardKit = el.closest('.kit-card');
-      var marcado = cardKit && cardKit.querySelector('.kit-bump-check:checked');
-      if (marcado && !el.classList.contains('kit-bump-btn')) {
-        var passo = cardKit.querySelector('.kit-bump-passo');
-        if (passo) {
-          passo.hidden = false;
-          setTimeout(function () { passo.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 400);
-        }
-        enviar('clique_bump', { item: itemDe(el), texto_botao: texto(el) });
-      }
       enviar('clique_comprar', {
         produto: texto(document.querySelector('h1')), item: itemDe(el), texto_botao: texto(el),
         checkout: href.split('?')[0].split('/').pop(), origem: origem.utm_source, midia: origem.utm_medium
@@ -191,11 +179,4 @@
     }
   }, true);
 
-  // Desmarcou o Clarize: some o "Passo 2".
-  document.addEventListener('change', function (e) {
-    var chk = e.target;
-    if (!chk.classList || !chk.classList.contains('kit-bump-check') || chk.checked) return;
-    var passo = chk.closest('.kit-card') && chk.closest('.kit-card').querySelector('.kit-bump-passo');
-    if (passo) passo.hidden = true;
-  });
 })();

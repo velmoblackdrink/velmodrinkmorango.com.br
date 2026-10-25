@@ -244,7 +244,8 @@ def pagina_produto(slug, p):
         for l in p["linhas"]:
             links = ([("Morango", l[2])] + ([("Tangerina", l[3])] if l[3] else [])) if p.get("colunas") else [("Comprar", l[2])]
             cards.append(V.card(slug, p["nome"], l[0], l[1], links, destaque=l is menor))
-        vitrine = V.grade(cards)
+        # Clarize sugerido abaixo dos cards; durante a Black Friday ele já aparece com desconto na seção da oferta.
+        vitrine = V.grade(cards) + ("" if BF.ativa(HOJE) else "\n" + V.sugestao_clarize())
     else:
         vitrine = (f'      <div class="precos-wrap">\n        <table class="precos">\n          <thead>{cab}</thead>\n'
                    f'          <tbody>\n{corpo}\n          </tbody>\n        </table>\n      </div>')
