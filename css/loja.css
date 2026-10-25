@@ -117,16 +117,17 @@
 .blog-cta-meio a { font-weight: 600; color: #2e7d6b; white-space: normal; }
 
 /* Black Friday (fonte/black_friday.py): só aparece entre INICIO e FIM */
-.bf-letreiro { display: block; overflow: hidden; margin: 0 0 40px; background: #111; color: #fff !important; text-decoration: none; }
+/* fixo logo abaixo do cabeçalho (68px), no celular e no computador; o menu aberto (z-index 1000) fica por cima */
+.bf-letreiro { display: block; overflow: hidden; position: fixed; top: 68px; left: 0; right: 0; z-index: 999; height: 44px; margin: 0; background: #111; color: #fff !important; text-decoration: none; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
 .bf-trilho { display: flex; width: max-content; animation: bf-rolar 40s linear infinite; }
-.bf-trilho span { padding: 12px 28px; white-space: nowrap; font-size: .95rem; letter-spacing: .03em; }
+.bf-trilho span { padding: 0 28px; line-height: 44px; white-space: nowrap; font-size: .95rem; letter-spacing: .03em; }
 .bf-trilho strong { color: #D4AF37; }
 .bf-letreiro:hover .bf-trilho { animation-play-state: paused; }
 @keyframes bf-rolar { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .bf-trilho { animation: none; } }
-/* com o letreiro, o topo encosta no cabeçalho fixo (68px) e o espaço vem depois do letreiro */
-.loja-hero:has(> .bf-letreiro) { padding-top: 68px; flex-wrap: wrap; align-content: flex-start; }
-.loja-hero > .bf-letreiro { flex: 0 0 100%; width: 100%; position: relative; z-index: 1; }
+/* com o letreiro fixo, o topo da página desce a altura dele (68px do cabeçalho + 44px do letreiro + respiro) */
+.loja-hero:has(> .bf-letreiro) { padding-top: 152px; }
+html:has(.bf-letreiro) { scroll-padding-top: 124px; }
 .bf { background: #111; color: #eee; padding: 56px 0; }
 .bf h2 { color: #fff; font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 8px; }
 .bf-selo { display: inline-block; margin: 0 0 14px; padding: 6px 14px; border-radius: 999px; background: #D4AF37; color: #111; font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
