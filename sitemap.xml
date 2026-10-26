@@ -201,7 +201,7 @@
   <!-- blog:inicio -->
   <url>
     <loc>https://velmodrinkmorango.com.br/blog.html</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -244,6 +244,12 @@
   <url>
     <loc>https://velmodrinkmorango.com.br/nao-sei-qual-suplemento-tomar.html</loc>
     <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://velmodrinkmorango.com.br/creatina-black-friday.html</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
