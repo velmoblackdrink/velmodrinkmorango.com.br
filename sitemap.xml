@@ -201,7 +201,7 @@
   <!-- blog:inicio -->
   <url>
     <loc>https://velmodrinkmorango.com.br/blog.html</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -256,6 +256,12 @@
   <url>
     <loc>https://velmodrinkmorango.com.br/durmo-mal-e-vivo-ansiosa.html</loc>
     <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://velmodrinkmorango.com.br/bicarbonato-como-suplemento.html</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
