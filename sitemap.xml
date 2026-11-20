@@ -201,7 +201,7 @@
   <!-- blog:inicio -->
   <url>
     <loc>https://velmodrinkmorango.com.br/blog.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -292,6 +292,12 @@
   <url>
     <loc>https://velmodrinkmorango.com.br/axilas-escuras-o-que-pode-ser.html</loc>
     <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://velmodrinkmorango.com.br/niacinamida-clareia.html</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
